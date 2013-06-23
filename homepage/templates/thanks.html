@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contact-act%}class=active{%endblock%}
+
+{% block content %}
+
+<div class="container">
+
+<div class="hero-unit">
+    <h1>Thanks for contacting, {{ name }}!</h1>
+    <h2>I'll get back to you as soon as I can ...</h2>
+    <img src="{{STATIC_URL}}img/hackergotchi.png">
+</div>
+
+</div>
+{% endblock %}

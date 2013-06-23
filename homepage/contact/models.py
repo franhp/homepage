@@ -1,3 +1,7 @@
-from django.db import models
+from django import forms
 
-# Create your models here.
+
+class ContactForm(forms.Form):
+    email = forms.EmailField()
+    name = forms.CharField()
+    message = forms.CharField()
