@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <hr>
+    <div class="row">
+         <div class="span4 offset3 well">
+            <table>
+                <tr>
+                    <td style="width:35%"><h6>Name:</h6></td><td style=""><h1>Fran Hermoso</h1></td>
+                </tr>
+                <tr>
+                    <td><h6>Nickname:</h6></td><td><h1>franhp</h1></td>
+                </tr>
+                <tr>
+                    <td><h6>Location:</h6></td><td><h4>{{ location }}</h4></td>
+                </tr>
+            </table>
+         </div>
+          
+          <div class="span4">
+            <img src="{{STATIC_URL }}img/hackergotchi.png">
+          </div>
+    </div>
+    <hr>
+   <div class="row">
+     <div class="span4">
+       <h2>Codes at <a href="http://github.com/franhp">github</a></h2>
+        <p>
+        {% if github %}
+        <ul>
+            {% for project in github %}
+                <li><a href="{{ project.clone_url }}">{{ project.name }}({{project.language}})</a></li>
+                <p>{{ project.description }}</p>
+                <hr>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No projects are available.</p>
+        {% endif %}
+        </p>
+     </div>
+     <div class="span4">
+       <h2>Tweets at <a href="http://twitter.com/franhp">twitter</a></h2>
+        <p>
+        {% if twitter %}
+            <ul>
+            {% for tweet in twitter %}
+                <li>{{ tweet.text }} - <i>{{ tweet.date }}</i></li>
+                <hr>
+            {% endfor %}
+            </ul>
+            {% else %}
+                <p>No tweets are available.</p>
+        {% endif %}
+        </p>
+     </div>
+
+     <div class="span4">
+       <h2>Listens at <a href="http://www.last.fm/user/franhp">Last.fm</a></h2>
+       <p>
+       {% if lastfm %}
+            {% for song in lastfm %}
+                <div class="row">
+                    <div class="span1">
+                    <img src="{{ song.image }} ">
+                    </div>
+                    <div class="span3">
+                    {{ song.name }} - <b>{{ song.artist }}</b><br><small><i>{{ song.date }}</i></small>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No songs are available.</p>
+        {% endif %}
+ </p>
+  </div>
+</div>
+
+{% endblock %}

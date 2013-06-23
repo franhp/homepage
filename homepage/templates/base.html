@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load bootstrap_toolkit %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>franhp's homepage</title>
+    <meta name="author" content="Fran Hermoso">
+    {% bootstrap_stylesheet_tag %}
+    {% bootstrap_stylesheet_tag "responsive" %}
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    {% bootstrap_javascript_tag %}
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">franhp's homepage</a>
+            <ul class="nav">
+                 <li><a href="{% url 'home' %}">Home</a></li>
+                 <!-- <li {% ifequal section 'links' %}class="active"{% endifequal %}><a href="/links">Links</a></li>
+                 <li {% ifequal section 'about' %}class="active"{% endifequal %}><a href="/about">About</a></li>
+                 <li {% ifequal section 'tvseries' %}class="active"{% endifequal %}><a href="/tvseries">TVSeries</a></li>
+                 <li {% ifequal section 'myplaces' %}class="active"{% endifequal %}><a href="/myplaces">MyPlaces</a></li>
+                 <li {% ifequal section 'contact' %}class="active"{% endifequal %}><a href="/contact">Contact</a></li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+    {% bootstrap_messages %}
+
+    {% block content %}Empty page{% endblock %}
+
+
+    <div class="span12">
+        <p><hr></p>
+        <footer>
+        <p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/80x15.png" /></a><br><small>  Esta obra est&#225; bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">licencia de Creative Commons</a></small>.
+        </p>
+      </footer>
+    <div>
+
+
+</div> <!-- container -->
+
+{% block extra_javascript %}{% endblock %}
+
+</body>
+</html>
