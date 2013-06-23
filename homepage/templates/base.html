@@ -27,12 +27,12 @@
         <div class="container">
             <a class="brand" href="/">franhp's homepage</a>
             <ul class="nav">
-                 <li><a href="{% url 'home' %}">Home</a></li>
-                 <!-- <li {% ifequal section 'links' %}class="active"{% endifequal %}><a href="/links">Links</a></li>
-                 <li {% ifequal section 'about' %}class="active"{% endifequal %}><a href="/about">About</a></li>
-                 <li {% ifequal section 'tvseries' %}class="active"{% endifequal %}><a href="/tvseries">TVSeries</a></li>
-                 <li {% ifequal section 'myplaces' %}class="active"{% endifequal %}><a href="/myplaces">MyPlaces</a></li>
-                 <li {% ifequal section 'contact' %}class="active"{% endifequal %}><a href="/contact">Contact</a></li>-->
+                 <li {% block home-act %}{% endblock %}><a href="{% url 'home' %}">Home</a></li>
+                 <li {% block links-act %}{% endblock %}><a href="{% url 'links' %}">Links</a></li>
+                 <li {% block myplaces-act %}{% endblock %}><a href="{% url 'places' %}">MyPlaces</a></li>
+                 <li {% block tvseries-act %}{% endblock %}><a href="{% url 'tvseries' %}">TVSeries</a></li>
+                 <li {% block about-act %}{% endblock %}><a href="/about">About</a></li>
+                 <li {% block contact-act %}{% endblock %}><a href="/contact">Contact</a></li>
             </ul>
         </div>
     </div>

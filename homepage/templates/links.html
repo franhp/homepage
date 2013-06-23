@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block links-act%}class=active{%endblock%}
+
+{% block content %}
+<div class="container">
+
+   <div class="row">
+     <div class="span8">
+        {% if links %}
+        <table class="table">
+            {% for link in links %}
+                <tr>
+                    <td>
+                        <a href="{{ link.url }}">{{ link.name }}</a></td><td>{{ link.year }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No links are available.</p>
+        {% endif %}
+     </div>
+
+</div>
+{% endblock %}

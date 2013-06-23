@@ -18,9 +18,9 @@ urlpatterns = patterns('',
     # Website urls
     url(r'^$', 'home.views.index', name='home'),
     #url(r'^home/', 'web.home.views.index'),
-    #url(r'^tvseries/', 'web.tvseries.views.index'),
+    url(r'^tvseries/', 'tvseries.views.index', name='tvseries'),
     #url(r'^about/', 'web.about.views.index'),
     #url(r'^contact/', 'web.contact.views.index'),
-    #url(r'^links/', 'web.links.views.index'),
-    #url(r'^myplaces/', ' web.myplaces.views.index'),
+    url(r'^links/', 'links.views.index', name='links'),
+    url(r'^myplaces/', 'myplaces.views.index', name='places'),
 )
