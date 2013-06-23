@@ -31,8 +31,8 @@
                  <li {% block links-act %}{% endblock %}><a href="{% url 'links' %}">Links</a></li>
                  <li {% block myplaces-act %}{% endblock %}><a href="{% url 'places' %}">MyPlaces</a></li>
                  <li {% block tvseries-act %}{% endblock %}><a href="{% url 'tvseries' %}">TVSeries</a></li>
-                 <li {% block about-act %}{% endblock %}><a href="/about">About</a></li>
-                 <li {% block contact-act %}{% endblock %}><a href="/contact">Contact</a></li>
+                 <li {% block about-act %}{% endblock %}><a href="{% url 'about' %}">About</a></li>
+                 <li {% block contact-act %}{% endblock %}><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </div>
     </div>
