@@ -4,16 +4,12 @@
 
 {% block extra_head %}
 <style type="text/css">
-  #map_canvas{
-    width: 700px;
+  #map_canvas {
     height: 500px;
-  }
-  #map_canvas img {
-    max-width: none;
   }
 </style>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 var map;
 
@@ -24,7 +20,7 @@ var neighborhoods = [
                      {% endfor %}
                      ];
 
-function initialize() {
+$(document).ready(function initialize() {
     var myLatlng = new google.maps.LatLng(50.736455, 13.007813);
 
     var myOptions = {
@@ -38,7 +34,7 @@ function initialize() {
     for ( var i = 0; i < neighborhoods.length; i++){
         codeAddress(neighborhoods[i],false);
     }
- }
+ })
 
 function findCity(city,year,latlong){
   var a = new Array(city,year,latlong);
