@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
+from django.contrib.admin.views.decorators import staff_member_required
 from myplaces.models import Place
 
 
@@ -10,7 +11,9 @@ def index(request):
                                     'myplaces': places.getPlaces(),
                                     'dict': places.getCitiesArray()
                                 }))
-#@user_is_admin
+
+
+@staff_member_required
 def admin(request):
     result = ''
     if 'city' in request.GET:
