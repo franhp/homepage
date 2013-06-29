@@ -11,7 +11,8 @@ urlpatterns = patterns('',
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
+    url(r'^admin/myplaces/place/add/$', 'myplaces.views.admin', name='admin_myplaces'),
+    url(r'^admin/tvseries/tvseries/add/$', 'tvseries.views.admin', name='admin_tvseries'),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 

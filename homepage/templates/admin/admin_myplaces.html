@@ -1,0 +1,88 @@
+{% extends 'admin/base_site.html' %}
+
+{% load %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">Home</a> &rsaquo; <a href="/admin/myplaces">MyPlaces</a>
+</div>
+{% endblock %}
+
+{% block title %} Add place | Django site admin {% endblock %}
+
+{% block extrahead %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var map;
+var geocoder;
+
+$(document).ready(function initialize() {
+    var myLatlng = new google.maps.LatLng(50.736455, 13.007813);
+    geocoder = new google.maps.Geocoder();
+
+    var myOptions = {
+      zoom: 4,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    
+ })
+
+function findCity(){
+    geocoder.geocode( { 'address': $('#search-city').val()}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      try{
+        $('#country').val(results[0].address_components[results[0].address_components.length -1].long_name);
+        $('#latlong').val(results[0].geometry.location);
+        $('#city').val(results[0].address_components[0].long_name);
+        $('#date').val($('#search-year').val());
+        $('#result').html('');
+
+        var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+      } catch (err) {
+        var address;
+        for (var i = 0; i < results[0].address_components.length; i++) {
+          address = address + ', [' + i + '] ' + results[0].address_components[i].long_name;
+        }
+        alert('Address is incorrectly formatted: '+ address);
+      }
+      
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+</script>
+{% endblock %}
+
+{% block content %} 
+<div style="width:100%">
+  <div style="float:left;width:20%">
+    <h2>Search</h2>
+      City: <input type="text" id="search-city" name="city"><br>
+      Year: <input type="text" id="search-year" name="year"><br>
+  <button onclick="findCity()">Search Place</button>
+  </div>
+
+  <div style="float:right;width:80%;">
+    <h2>Going to write</h2>
+    <form method="get" action="{% url 'admin_myplaces'%}?">
+        <input type="text" id="city" name="city" value="{{ city }}" ><br>
+        <input type="text" id="country" name="country" value="{{ country }}" ><br>
+        <input type="text" id="latlong" name="latlong" value="{{ latlong }}" ><br>
+        <input type="text" id="date" name="date" value="{{ date }}"><br>
+        <input type="submit" value="Add"><br>
+    </form>
+    <div id="result">{{ result }}</div>
+  </div>
+</div>
+<hr><br>
+<div id="map_canvas" style="height: 400px;width: 400px;"></div>
+{% endblock %}

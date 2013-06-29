@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Max
 import time
+from datetime import datetime
 
 
 class TVSeries(models.Model):
@@ -35,3 +36,7 @@ class TVSeries(models.Model):
     def getLastUpdate(self):
         max = TVSeries.objects.all().aggregate(update=Max('last_update'))
         return max['update'].strftime('%d-%m-%y')
+
+    def saveTVSeries(self, name, year, episodes, season, minutes, url, watched):
+        t = TVSeries(name=name, year=year, episodes=episodes, current_season=season, minutes=minutes, url=url, watched_episodes=watched, last_update=datetime.now())
+        t.save()
