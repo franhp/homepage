@@ -2,16 +2,24 @@ from django.db import models
 
 
 class Flag(models.Model):
+    name = models.CharField(max_length=200)
     url = models.CharField(max_length=1000)
 
     def __unicode__(self):
-        return self.url
+        return self.name
+
+    def findFlag(self, country):
+        try:
+            return Flag.objects.filter(name=country)[0]
+        except IndexError:
+            raise Exception('Flag for [%s] not found, please add it' % country)
 
 
 class Place(models.Model):
     country = models.CharField(max_length=200)
     latlong = models.CharField(max_length=200)
     flag = models.ForeignKey(Flag)
+    flag_url = ''
     city = models.CharField(max_length=4000)
     date = models.IntegerField()
     cities = []
@@ -31,6 +39,7 @@ class Place(models.Model):
             p = Place()
             p.setPlace(place.country, place.latlong, place.date)
             p.flag = place.flag
+            p.flag_url = place.flag.url
             cities = Place.objects.filter(country=place.country)
             citiesArray = []
             years = []
@@ -52,6 +61,12 @@ class Place(models.Model):
         self.latlong = latlong
         self.date = date
         return self
+
+    def savePlace(self, country, city, latlong, date):
+        f = Flag()
+        flag = f.findFlag(country)
+        p = Place(country=country, latlong=latlong[1:-1], flag=flag, city=city, date=date)
+        p.save()
 
 
 class City():
