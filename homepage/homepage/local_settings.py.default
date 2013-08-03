@@ -1,6 +1,7 @@
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'xxxxxxxxxxxxxxxxxxxxxx'
 
+DEBUG = True
 
 # Twitter API
 TWITTER_KEY = 'xvz1evFS4wEEPTGEFPHBog'
