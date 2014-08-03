@@ -57,8 +57,7 @@ class Github():
             try:
                 r = requests.get('https://api.github.com/users/franhp/repos')
                 response = r.json()
-
-                for i in response:
+                for i in sorted(response, key=lambda x: x['updated_at']):
                     project = GithubProject()
                     project.clone_url = i['clone_url']
                     project.name = i['name']
