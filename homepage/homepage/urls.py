@@ -1,27 +1,20 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-admin.autodiscover()
+
+from home.views import ContactView, HomeView
+from links.views import LinksView
+from myplaces.views import MyPlacesView
+from tvseries.views import TVSeriesView
+
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'homepage.views.home', name='home'),
-    # url(r'^homepage/', include('homepage.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/myplaces/place/add/$', 'myplaces.views.admin', name='admin_myplaces'),
-    url(r'^admin/tvseries/tvseries/add/$', 'tvseries.views.admin', name='admin_tvseries'),
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-
-    # Website urls
-    url(r'^$', 'home.views.index', name='home'),
-    url(r'^home/', 'home.views.index'),
-    url(r'^tvseries/', 'tvseries.views.index', name='tvseries'),
-    url(r'^about/', 'about.views.index', name='about'),
-    url(r'^contact/', 'contact.views.index', name='contact'),
-    url(r'^links/', 'links.views.index', name='links'),
-    url(r'^myplaces/', 'myplaces.views.index', name='places'),
+           # Main sections
+           url(r'^$', HomeView.as_view(), name='home'),
+           url(r'^about/', ContactView.as_view(), name='about'),
+           url(r'^links/', LinksView.as_view(), name='links'),
+           url(r'^myplaces/', MyPlacesView.as_view(), name='myplaces'),
+           url(r'^tvseries/', TVSeriesView.as_view(), name='tvseries'),
+           # Administration
+           url(r'^admin/', include(admin.site.urls)),
+           url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )

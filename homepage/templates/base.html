@@ -1,63 +1,52 @@
-<!DOCTYPE html>
-{% load bootstrap_toolkit %}
+{% load staticfiles %}
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>franhp's homepage</title>
-    <meta name="author" content="Fran Hermoso">
-    {% bootstrap_stylesheet_tag %}
-    {% bootstrap_stylesheet_tag "responsive" %}
-    <style type="text/css">
-        body {
-            padding-top: 60px;
-        }
-    </style>
-    <!--[if lt IE 9]>
-        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    {% bootstrap_javascript_tag %}
-    {% block extra_head %}{% endblock %}
+	<title>franhp's homepage</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="{% static 'foundation/stylesheets/app.css' %}" />
+	<script src="{% static 'foundation/bower_components/modernizr/modernizr.js' %}"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="/">franhp's homepage</a>
-            <ul class="nav">
-                 <li {% block home-act %}{% endblock %}><a href="{% url 'home' %}">Home</a></li>
-                 <li {% block links-act %}{% endblock %}><a href="{% url 'links' %}">Links</a></li>
-                 <li {% block myplaces-act %}{% endblock %}><a href="{% url 'places' %}">MyPlaces</a></li>
-                 <li {% block tvseries-act %}{% endblock %}><a href="{% url 'tvseries' %}">TVSeries</a></li>
-                 <li {% block about-act %}{% endblock %}><a href="{% url 'about' %}">About</a></li>
-                 <li {% block contact-act %}{% endblock %}><a href="{% url 'contact' %}">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    
-    {% bootstrap_messages %}
-
-    {% block content %}Empty page{% endblock %}
-
-
-    <div class="span12">
-        <p><hr></p>
-        <footer>
-        <p>
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/80x15.png" /></a><br><small>  Esta obra est&#225; bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">licencia de Creative Commons</a></small>.
-        </p>
-      </footer>
-    <div>
-
-
-</div> <!-- container -->
-
-{% block extra_javascript %}{% endblock %}
-
+	<div class="row">
+		<div class="icon-bar five-up">
+			<a class="item {% block home-active %}{% endblock %}" href="{% url 'home' %}">
+				<img src="{% static 'img/hackergotchi-little.png'%}">
+				<label class="show-for-medium-up">Home</label>
+			</a>
+			<a class="item {% block about-active %}{% endblock %}" href="{% url 'about' %}">
+				<i class="fa fa-info"></i>
+				<label class="show-for-medium-up">About</label>
+			</a>
+			<a class="item {% block links-active %}{% endblock %}" href="{% url 'links' %}">
+				<i class="fa fa-bookmark"></i>
+				<label class="show-for-medium-up">Bookmarks</label>
+			</a>
+			<a class="item {% block myplaces-active %}{% endblock %}" href="{% url 'myplaces' %}">
+				<i class="fa fa-map-marker"></i>
+				<label class="show-for-medium-up">My Places</label>
+			</a>
+			<a class="item {% block tvseries-active %}{% endblock %}" href="{% url 'tvseries' %}">
+				<i class="fa fa-play"></i>
+				<label class="show-for-medium-up">TV Series</label>
+			</a>
+		</div>
+	</div>
+	{% block content %}{% endblock %}
+	<div class="row">
+		<footer>
+			<hr />
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">
+				<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/80x15.png" />
+			</a>
+		</footer>
+	</div>
+	
+	<script src="{% static 'foundation/bower_components/jquery/dist/jquery.min.js' %}"></script>
+	<script src="{% static 'foundation/bower_components/foundation/js/foundation.min.js' %}"></script>
+	<script src="{% static 'foundation/js/app.js' %}"></script>
+	
 </body>
 </html>

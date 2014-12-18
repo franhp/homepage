@@ -1,8 +1,13 @@
-from django.shortcuts import render_to_response
-from django.template.context import RequestContext
-from links.models import Link
+from django.shortcuts import render
+from django.views.generic.base import TemplateView
 
 
-def index(request):
-    links = Link()
-    return render_to_response('links.html', RequestContext(request, {'links': links.getLinksByDate()}))
+class LinksView(TemplateView):
+    '''
+    link
+    '''
+    
+    template_name = 'links.html'
+    
+    def get_context_data(self, **kwargs):
+        return TemplateView.get_context_data(self, **kwargs)
