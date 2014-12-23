@@ -14,6 +14,7 @@ from os.path import join, normpath, dirname
 
 from configurations import Configuration, values
 import debug_toolbar
+import dotenv
 
 
 class Common(Configuration):
@@ -37,6 +38,7 @@ class Common(Configuration):
         
         # Extra
         'django_extensions',
+        'rest_framework'
         # 'compressor'
     )
 
@@ -93,12 +95,17 @@ class Common(Configuration):
     )
     
     # Compressors
-    COMPRESS_PRECOMPILERS = (
-        ('text/scss', 'sass --scss --compass {infile} {outfile}'),
-    )
-
-
+    # COMPRESS_PRECOMPILERS = (
+    #    ('text/scss', 'sass --scss --compass {infile} {outfile}'),
+    # )
     
+    # API keys
+    dotenv.load_dotenv('.env')
+    LASTFM_KEY = os.environ.setdefault('LASTFM_KEY', None)
+    TWITTER_CLIENT_KEY = os.environ.setdefault('TWITTER_CLIENT_KEY', None)
+    TWITTER_CLIENT_SECRET = os.environ.setdefault('TWITTER_CLIENT_SECRET', None)
+
+
 class Development(Common):
     DEBUG = True
     TEMPLATE_DEBUG = True

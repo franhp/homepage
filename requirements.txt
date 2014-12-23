@@ -12,6 +12,7 @@ djangorestframework
 django-debug-toolbar
 markdown
 requests
+requests_oauthlib
 MySQL-python
 tvdb-api
 python-dateutil

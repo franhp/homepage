@@ -1,0 +1,82 @@
+hr {
+	border-color: $green;
+}
+.icon-bar {
+	a:hover {
+		border-radius: 30%;
+	}
+}
+
+
+.mast {
+	background-color: $orange;
+	border-radius: 5px;
+}
+
+.divider-right {
+	@media #{$medium-up} {
+		border-right: 1px $green solid;
+		padding-right: 15px;
+	}
+}
+
+.divider-left {
+	@media #{$medium-up} {
+		border-left: 1px $green solid;
+		padding-left: 15px;
+	}	
+}
+
+.lists {
+	h2 {
+		text-align: center;
+	}
+	
+	.tweet {
+		background-color: $water; 
+		font-size: small;
+		padding: 8px;
+		border-radius: 5px;
+		
+		a {
+			color: $yellow;
+		}
+		
+		.tweet_date {
+			font-style: italic;
+			font-size: xx-small;
+		}
+	}
+	
+	.song {
+		background-color: $water;
+		border-radius: 10px;
+		padding: 5px;
+		
+		.song_name {
+			font-weight: bold;
+		}
+		.song_artist {
+			font-style: italic;
+			font-size: small;
+		}
+		.song_date {
+			font-size: xx-small;
+		}
+		
+		.song_image {
+			padding-top: 5px;
+		}
+	}
+		
+	.github-project{
+		background-color: $water;
+		border-radius: 10px;
+		padding: 5px;
+		
+		a {
+			color: $yellow;
+		}
+	}
+	
+}
