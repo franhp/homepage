@@ -1,20 +1,18 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
-homepage/cache/*
-
-# virtualenv dir
-env/*
+cache/*
+db.sqlite3
 
 # Dotenv
 .env
 
-#Eclipse
-.project
-.pydevproject
-
+#Pycharm
+.idea
 
 # Foundation
-.sass-cache
-
+static/foundation/bower_components/*
+static/foundation/.sass-cache/*
+*.DS_Store
+static/foundation/stylesheets/*
+static/foundation/Gemfile.lock

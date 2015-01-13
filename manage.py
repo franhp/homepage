@@ -3,7 +3,7 @@ import os
 import sys
 import dotenv
 
-dotenv.load_dotenv('.env')
+dotenv.read_dotenv()
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "homepage.settings")

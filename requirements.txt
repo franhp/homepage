@@ -2,7 +2,6 @@ Django==1.7
 django-mathfilters
 django-filter
 django-dotenv
-python-dotenv
 django-configurations
 django-secure
 django-extensions

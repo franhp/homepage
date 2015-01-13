@@ -100,7 +100,7 @@ class Common(Configuration):
     # )
     
     # API keys
-    dotenv.load_dotenv('.env')
+    dotenv.read_dotenv()
     LASTFM_KEY = os.environ.setdefault('LASTFM_KEY', None)
     TWITTER_CLIENT_KEY = os.environ.setdefault('TWITTER_CLIENT_KEY', None)
     TWITTER_CLIENT_SECRET = os.environ.setdefault('TWITTER_CLIENT_SECRET', None)

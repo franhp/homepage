@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from rest_framework import status
 from rest_framework.response import Response
