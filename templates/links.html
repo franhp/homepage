@@ -5,9 +5,9 @@
 {% block content %}
 <div class="row">
   <div class="small-12">
-     {% if links %}
+      {% if link_list %}
      <table class="table">
-         {% for link in links %}
+         {% for link in link_list %}
              <tr>
                  <td>
                      <a href="{{ link.url }}">{{ link.name }}</a></td><td>{{ link.year }}

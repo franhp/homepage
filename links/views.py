@@ -1,8 +1,8 @@
-from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
+
+from links.models import Link
 
 
-class LinksView(TemplateView):
+class LinksView(ListView):
+    model = Link
     template_name = 'links.html'
-
-    def get_context_data(self, **kwargs):
-        return TemplateView.get_context_data(self, **kwargs)
