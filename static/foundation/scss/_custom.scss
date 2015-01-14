@@ -5,8 +5,8 @@ hr {
 	a:hover {
 		border-radius: 30%;
 	}
-	
-	active {
+
+  .active {
 		border-radius: 30%;
 	}
 }
@@ -49,6 +49,7 @@ hr {
 		.tweet_date {
 			font-style: italic;
 			font-size: xx-small;
+          color: lightgray;
 		}
 	}
 	
