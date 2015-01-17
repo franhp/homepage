@@ -11,7 +11,7 @@ urlpatterns = patterns('',
            # Main sections
            url(r'^$', HomeView.as_view(), name='home'),
            url(r'^about/', ContactView.as_view(), name='about'),
-           url(r'^links/', LinksView.as_view(), name='links'),
+           url(r'^bookmarks/', LinksView.as_view(), name='bookmarks'),
            url(r'^myplaces/', MyPlacesView.as_view(), name='myplaces'),
            url(r'^tvseries/', TVSeriesView.as_view(), name='tvseries'),
            
