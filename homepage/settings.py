@@ -38,10 +38,12 @@ class Common(Configuration):
 
         # Internal
         'links',
+        'myplaces',
         
         # Extra
         'django_extensions',
-        'rest_framework'
+        'rest_framework',
+        'geoposition',
         # 'compressor'
     )
 

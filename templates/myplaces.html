@@ -12,6 +12,9 @@
 
             var map = new google.maps.Map(document.getElementById('map_canvas'),
                     mapOptions);
+
+
+            map.data.loadGeoJson('{% url 'myplaces_api' %}')
         }
 
         function loadScript() {
@@ -27,28 +30,26 @@
 
 {% block content %}
     <div class="row">
-        <div class="small-12 medium-8">
+        <div class="small-12 medium-8 columns">
             <div id="map_canvas" class="map_canvas">Loading map...</div>
         </div>
-        <div class="small-12 medium-4">
-            <div class="mypaces_list">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Country</th>
-                        <th>Years</th>
-                        <th>Cities</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>lol</td>
-                        <td>lol1</td>
-                        <td>lol2</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="small-12 medium-4 columns myplaces_list">
+            <table>
+                <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Years</th>
+                    <th>Cities</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>lol</td>
+                    <td>lol1</td>
+                    <td>lol2</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}

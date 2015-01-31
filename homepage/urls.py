@@ -19,6 +19,7 @@ urlpatterns = patterns('',
            url(r'^api/github', GithubAPIView.as_view(), name='github'),
            url(r'^api/lastfm', LastfmAPIView.as_view(), name='lastfm'),
            url(r'^api/twitter', TwitterAPIView.as_view(), name='twitter'),
+           url(r'^api/myplaces', TwitterAPIView.as_view(), name='myplaces_api'),
            
            
            # Administration
