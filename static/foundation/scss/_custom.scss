@@ -1,38 +1,39 @@
+$head-space: 2%;
+
 hr {
-  border-color: $green;
+  border-color: $lighter-orange;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-  background-color: $water;
+  background-image: linear-gradient(white, lighten($greyer, 10%) 40%, $greyer 60%, darken($darker-grey, 5%));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  margin: 0;
 }
 
-.icon-bar {
-  a:hover {
-    border-radius: 30%;
-  }
-
-  .active {
-    border-radius: 30%;
-  }
-}
 
 // Home section
 .mast {
-  margin-top: 5%;
-  background-color: $orange;
+  margin-top: $head-space + 3%;
+  background-image: linear-gradient(to right, $softer-orange, $darker-orange);
   border-radius: 5px;
 }
 
 .divider-right {
   @media #{$medium-up} {
-    border-right: 1px $green solid;
+    border-right: 1px $lighter-orange solid;
     padding-right: 15px;
   }
 }
 
 .divider-left {
   @media #{$medium-up} {
-    border-left: 1px $green solid;
+    border-left: 1px $lighter-orange solid;
     padding-left: 15px;
   }
 }
@@ -40,16 +41,34 @@ body {
 .lists {
   h2 {
     text-align: center;
+    color: $darker-grey;
+
+    a {
+      color: $darker-grey;
+
+      i {
+        &:hover {
+          color: $lighter-orange;
+        }
+      }
+    }
+
+    i {
+      color: $darker-grey;
+    }
   }
 
   .tweet {
-    background-color: $water;
+    background-color: $softer-orange;
     font-size: small;
     padding: 8px;
     border-radius: 5px;
 
     a {
-      color: $yellow;
+      color: lighten($darker-grey, 10%);
+      &:hover {
+        color: $darker-grey;
+      }
     }
 
     .tweet_date {
@@ -60,7 +79,7 @@ body {
   }
 
   .song {
-    background-color: $water;
+    background-color: $softer-orange;
     border-radius: 10px;
     padding: 5px;
 
@@ -81,12 +100,15 @@ body {
   }
 
   .github-project {
-    background-color: $water;
+    background-color: $softer-orange;
     border-radius: 10px;
     padding: 5px;
 
     a {
-      color: $yellow;
+      color: lighten($darker-grey, 10%);
+      &:hover {
+        color: $darker-grey;
+      }
     }
   }
 }
@@ -94,7 +116,7 @@ body {
 // Bookmarks section
 
 .bookmarks {
-  margin-top: 2%;
+  margin-top: $head-space;
 
   table {
     margin: 15px auto;
@@ -109,11 +131,20 @@ body {
 // Myplaces
 
 .map_canvas {
-  margin-top: 2%;
-  height: 100%;
+  margin-top: $head-space;
+  height: 500px;
 }
 
 .myplaces_list {
+  margin-top: $head-space;
   height: 500px;
   overflow: scroll;
+
+  .hover {
+    background-color: #ffff00;
+  }
+
+  .highlighted {
+    background-color: #ffff00;
+  }
 }
