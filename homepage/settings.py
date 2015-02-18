@@ -39,11 +39,13 @@ class Common(Configuration):
         # Internal
         'links',
         'myplaces',
+        'tvseries',
         
         # Extra
         'django_extensions',
         'rest_framework',
         'geoposition',
+        'ajax_select'
         # 'compressor'
     )
 
@@ -92,6 +94,9 @@ class Common(Configuration):
                'django.contrib.staticfiles.finders.FileSystemFinder',
                'django.contrib.staticfiles.finders.AppDirectoriesFinder',
                'compressor.finders.CompressorFinder')
+
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = normpath(join(BASE_DIR, 'media'))
     
     # Templates
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
@@ -103,6 +108,11 @@ class Common(Configuration):
     # COMPRESS_PRECOMPILERS = (
     #    ('text/scss', 'sass --scss --compass {infile} {outfile}'),
     # )
+
+    # Ajax admin
+    AJAX_LOOKUP_CHANNELS = {
+        'tvserieschannel': ('tvseries.lookups', 'TVSeriesLookup')
+    }
     
     # API keys
     dotenv.read_dotenv()

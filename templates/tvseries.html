@@ -4,6 +4,13 @@
 
 {% block content %}
     <div class="row">
-        tvseries
+        <div class="small-12 columns">
+            {% for serie in tvseries_list %}
+                <a href="http://www.imdb.com/title/{{ serie.imdbid }}">
+                    <img src="{{ serie.poster }}" height="50" width="50">
+                    {{ serie.name }} ({{ serie.year|date:"Y" }})
+                </a>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

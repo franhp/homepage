@@ -10,6 +10,7 @@ django-bower
 django-geoposition
 djangorestframework
 django-debug-toolbar
+django-ajax-selects
 markdown
 requests
 requests_oauthlib

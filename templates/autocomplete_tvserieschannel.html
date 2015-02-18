@@ -1,0 +1,18 @@
+{% extends 'autocomplete.html' %}
+
+{% block extra_script %}
+
+
+    <script>
+        $('#id_search').change(function () {
+            var series = $(this).val().split('|');
+            if ($(this).val().indexOf('|') != -1) {
+                $('#id_name').val(series[0]);
+                $('#id_imdbid').val(series[1]);
+                $('#id_year').val(series[2]);
+                $('#id_poster').val(series[3]);
+            }
+        });
+    </script>
+
+{% endblock %}

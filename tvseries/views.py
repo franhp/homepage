@@ -1,5 +1,8 @@
-from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
+
+from tvseries.models import TVSeries
 
 
-class TVSeriesView(TemplateView):
+class TVSeriesView(ListView):
     template_name = 'tvseries.html'
+    model = TVSeries
