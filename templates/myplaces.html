@@ -1,30 +1,91 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block myplaces-active %}active{% endblock %}
 
+
 {% block extra_top %}
     <script>
-        function initialize() {
-            var mapOptions = {
-                zoom: 8,
-                center: new google.maps.LatLng(-34.397, 150.644)
-            };
+        var map;
 
-            var map = new google.maps.Map(document.getElementById('map_canvas'),
-                    mapOptions);
+        function setCenter(id, lat, lng) {
+            var latlng = new google.maps.LatLng(lat, lng);
+            map.setCenter(latlng);
+            map.setZoom(8);
 
-
-            map.data.loadGeoJson('{% url 'myplaces_api' %}')
+            $('#myplaces_list').children().children().children().removeClass('highlighted');
+            $('#country' + id).addClass('highlighted');
         }
 
-        function loadScript() {
+        function initialize() {
+            var mapOptions = {
+                zoom: 4,
+                center: new google.maps.LatLng(50.736455, 13.007813)
+            };
+
+            map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+            var infowindow = new google.maps.InfoWindow();
+
+            map.data.setStyle({
+                icon: '{% static 'img/hackergotchi-little.png' %}'
+            });
+
+            map.data.loadGeoJson('{% url 'myplaces_api' %}?format=json');
+
+            map.data.addListener('mouseover', function (event) {
+                var id = event.feature.getProperty('id');
+                $(id).addClass('hover');
+                $('#myplaces_list').scrollTo(id);
+            });
+
+            map.data.addListener('mouseout', function (event) {
+                $(event.feature.getProperty('id')).removeClass('hover');
+            });
+
+            map.data.addListener('click', function (event) {
+                var country = event.feature.getProperty('country');
+                var city = event.feature.getProperty('city');
+                var year = event.feature.getProperty('year');
+                var id = event.feature.getProperty('id');
+
+                // Create nice infowindow
+                var html = "<div style='width:150px; text-align: center;'>" + city + ", " + country + "<br>" + year + "</div>";
+                infowindow.setContent(html);
+                infowindow.setPosition(event.feature.getGeometry().get());
+                infowindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
+                infowindow.open(map);
+
+                // Center the face
+                map.setZoom(8);
+                map.setCenter(event.feature.getGeometry().get());
+
+                // Modify highlight in list
+                $('#myplaces_list').children().children().children().removeClass('highlighted');
+                $(id).addClass('highlighted');
+            });
+        }
+
+        function loadMap() {
             var script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize';
             document.body.appendChild(script);
         }
 
-        window.onload = loadScript;
+        window.onload = loadMap;
+    </script>
+{% endblock %}
+
+
+{% block extra_bottom %}
+    <script>
+        jQuery.fn.scrollTo = function (elem, speed) {
+            $(this).animate({
+                scrollTop: $(this).scrollTop() - $(this).offset().top + $(elem).offset().top
+            }, speed == undefined ? 1000 : speed);
+            return this;
+        };
     </script>
 {% endblock %}
 
@@ -33,21 +94,29 @@
         <div class="small-12 medium-8 columns">
             <div id="map_canvas" class="map_canvas">Loading map...</div>
         </div>
-        <div class="small-12 medium-4 columns myplaces_list">
+        <div id="myplaces_list" class="small-12 medium-4 columns myplaces_list">
             <table>
                 <thead>
                 <tr>
                     <th>Country</th>
-                    <th>Years</th>
                     <th>Cities</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>lol</td>
-                    <td>lol1</td>
-                    <td>lol2</td>
-                </tr>
+                {% for country in country_list %}
+                    <tr id="country{{ country.id }}">
+                        <td><img src="{% static  country.flag.url %}" width="30" height="20">
+                            {{ country.name }}
+                        </td>
+                        <td>
+                            {% for city in country.cities.all %}
+                                <a onclick="setCenter({{ country.id }}, {{ city.position.latitude }}, {{ city.position.longitude }})">
+                                    {{ city.name }}
+                                </a>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>

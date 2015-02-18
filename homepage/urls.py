@@ -1,7 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from ajax_select import urls as ajax_select_urls
 
 from home.views import LastfmAPIView, TwitterAPIView, ContactView, HomeView, GithubAPIView
+from myplaces.views import MyPlacesAPIView
 from links.views import LinksView
 from myplaces.views import MyPlacesView
 from tvseries.views import TVSeriesView
@@ -19,10 +23,12 @@ urlpatterns = patterns('',
            url(r'^api/github', GithubAPIView.as_view(), name='github'),
            url(r'^api/lastfm', LastfmAPIView.as_view(), name='lastfm'),
            url(r'^api/twitter', TwitterAPIView.as_view(), name='twitter'),
-           url(r'^api/myplaces', TwitterAPIView.as_view(), name='myplaces_api'),
+           url(r'^api/myplaces', MyPlacesAPIView.as_view(), name='myplaces_api'),
            
            
            # Administration
            url(r'^admin/', include(admin.site.urls)),
            url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-)
+           url(r'^admin/lookups/', include(ajax_select_urls)),
+
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

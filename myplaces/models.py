@@ -8,7 +8,7 @@ class City(models.Model):
     year = models.DateField()
 
     def __unicode__(self):
-        return '%s (%s)' % (self.name, self.year.strftime('%Y'))
+        return self.name
 
 
 class Country(models.Model):

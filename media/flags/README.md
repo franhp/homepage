@@ -1,0 +1,1 @@
+All the flags for the myplaces will be placed here
