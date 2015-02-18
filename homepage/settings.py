@@ -45,8 +45,8 @@ class Common(Configuration):
         'django_extensions',
         'rest_framework',
         'geoposition',
-        'ajax_select'
-        # 'compressor'
+        'ajax_select',
+        'compressor'
     )
 
     MIDDLEWARE_CLASSES = (
