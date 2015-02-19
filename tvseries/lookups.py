@@ -24,4 +24,4 @@ class TVSeriesLookup(LookupChannel):
                          res.data['poster'] or 'empty'])
 
     def format_match(self, obj):
-        return '%s (%s)' % (obj.name, obj.year[0:3])
+        return '%s (%s)' % (obj.name, obj.year[0:4])

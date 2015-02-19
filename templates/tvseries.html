@@ -3,14 +3,17 @@
 {% block tvseries-active %}active{% endblock %}
 
 {% block content %}
+
     <div class="row">
-        <div class="small-12 columns">
+        <h1>I've watched a total of <strong>{{ tvseries_list|length }}</strong> TV Series!</h1>
             {% for serie in tvseries_list %}
-                <a href="http://www.imdb.com/title/{{ serie.imdbid }}">
-                    <img src="{{ serie.poster }}" height="50" width="50">
-                    {{ serie.name }} ({{ serie.year|date:"Y" }})
-                </a>
+                <div class="poster small-6 medium-3 columns">
+                    <a href="http://www.imdb.com/title/{{ serie.imdbid }}">
+                        <img src="{{ serie.poster }}" height="150" width="150" onerror=""><br/>
+                        {{ serie.name }} ({{ serie.year|date:"Y" }})
+                    </a>
+                </div>
             {% endfor %}
         </div>
-    </div>
+
 {% endblock %}
