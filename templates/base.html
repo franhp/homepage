@@ -9,14 +9,14 @@
     {% compress css %}
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="{% static 'foundation/stylesheets/app.css' %}"/>
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     {% endcompress %}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     {% compress js %}
         <!-- JS -->
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-sanitize.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-resource.min.js"></script>
         <script src="{% static 'foundation/bower_components/modernizr/modernizr.js' %}"></script>
+        <script src="{% static 'js/angular.min.js' %}"></script>
+        <script src="{% static 'js/angular-sanitize.min.js' %}"></script>
+        <script src="{% static 'js/angular-resource.min.js' %}"></script>
         <script src="{% static 'js/controllers.js' %}"></script>
     {% endcompress %}
     {% block extra_top %}{% endblock %}
