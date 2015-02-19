@@ -2,6 +2,7 @@
 *.pot
 *.pyc
 cache/*
+static/CACHE/*
 db.sqlite3
 
 # Dotenv

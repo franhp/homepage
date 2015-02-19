@@ -14,6 +14,10 @@ def runserver():
     with shell_env(**COMMON_SETTINGS):
         local('python manage.py runserver 0.0.0.0:8000')
 
+@task
+def gunicorn():
+    with shell_env(**COMMON_SETTINGS):
+        local('gunicorn homepage.wsgi --log-file -')
 
 @task
 def watch():

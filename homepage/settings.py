@@ -13,7 +13,6 @@ import os
 from os.path import join, normpath, dirname
 
 from configurations import Configuration, values
-import debug_toolbar
 import dotenv
 
 
@@ -25,7 +24,7 @@ class Common(Configuration):
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = values.BooleanValue(False)
     TEMPLATE_DEBUG = values.BooleanValue(DEBUG)
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
     
     # Application definition
     INSTALLED_APPS = (
@@ -103,6 +102,26 @@ class Common(Configuration):
     TEMPLATE_DIRS = (
         normpath(join(BASE_DIR, 'templates')),
     )
+
+    # Logging configuration.
+    LOGGING = {
+        'version': 1,
+        # Don't throw away default loggers.
+        'disable_existing_loggers': False,
+        'handlers': {
+            # Redefine console logger to run in production.
+            'console': {
+                'level': 'INFO',
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'loggers': {
+            # Redefine django logger to use redefined console logging.
+            'django': {
+                'handlers': ['console'],
+            }
+        }
+    }
     
     # Compressors
     # COMPRESS_PRECOMPILERS = (
@@ -115,16 +134,16 @@ class Common(Configuration):
     }
     
     # API keys
-    dotenv.read_dotenv()
-    LASTFM_KEY = os.environ.setdefault('LASTFM_KEY', None)
-    TWITTER_CLIENT_KEY = os.environ.setdefault('TWITTER_CLIENT_KEY', None)
-    TWITTER_CLIENT_SECRET = os.environ.setdefault('TWITTER_CLIENT_SECRET', None)
+    LASTFM_KEY = os.environ.setdefault('LASTFM_KEY', '')
+    TWITTER_CLIENT_KEY = os.environ.setdefault('TWITTER_CLIENT_KEY', '')
+    TWITTER_CLIENT_SECRET = os.environ.setdefault('TWITTER_CLIENT_SECRET', '')
 
 
 class Development(Common):
     DEBUG = True
     TEMPLATE_DEBUG = True
-    ALLOWED_HOSTS = []
+
+    import debug_toolbar
     INSTALLED_APPS = Common.INSTALLED_APPS + ('debug_toolbar',)
     
     MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + (
@@ -141,3 +160,7 @@ class Development(Common):
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False,
     }
+
+
+class Production(Common):
+    DEBUG = False

@@ -19,3 +19,4 @@ tvdb-api
 python-dateutil
 Fabric
 pillow
+gunicorn

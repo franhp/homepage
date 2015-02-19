@@ -7,18 +7,8 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 
-import os
-
-from django.core.wsgi import get_wsgi_application
-
 import dotenv
+dotenv.read_dotenv()
 
-try:
-    dotenv.load_dotenv('.env')
-except:
-    pass
-
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "homepage.settings")
-os.environ.setdefault("DJANGO_CONFIGURATION", "Production")
+from configurations.wsgi import get_wsgi_application
 application = get_wsgi_application()
