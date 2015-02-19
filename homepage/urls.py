@@ -30,5 +30,7 @@ urlpatterns = patterns('',
            url(r'^admin/', include(admin.site.urls)),
            url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
            url(r'^admin/lookups/', include(ajax_select_urls)),
+           url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+           url(r'^media/(?P.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
