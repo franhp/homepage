@@ -102,7 +102,7 @@ class Common(Configuration):
                'compressor.finders.CompressorFinder')
 
     STATICFILES_DIRS = (
-        normpath(join(BASE_DIR, 'static'))
+        normpath(join(BASE_DIR, 'static')),
     )
 
     MEDIA_URL = '/media/'
