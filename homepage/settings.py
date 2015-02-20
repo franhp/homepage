@@ -13,6 +13,7 @@ import os
 from os.path import join, normpath, dirname
 
 from configurations import Configuration, values
+import dj_database_url
 import dotenv
 
 
@@ -168,3 +169,7 @@ class Development(Common):
 
 class Production(Common):
     DEBUG = False
+
+    DATABASES = {
+        'default': dj_database_url.config(default="postgresql://"),
+    }

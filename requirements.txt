@@ -8,6 +8,7 @@ django-extensions
 django-compressor
 django-bower
 django-geoposition
+dj-database-url
 djangorestframework
 django-debug-toolbar
 django-ajax-selects
