@@ -95,19 +95,19 @@ class Common(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/1.7/howto/static-files/
     STATIC_URL = '/static/'
-    STATIC_ROOT = normpath(join(BASE_DIR, 'static'))
+    STATIC_ROOT = 'staticfiles'
     STATICFILES_FINDERS = (
                'django.contrib.staticfiles.finders.FileSystemFinder',
                'django.contrib.staticfiles.finders.AppDirectoriesFinder',
                'compressor.finders.CompressorFinder')
 
+    STATICFILES_DIRS = (
+        normpath(join(BASE_DIR, 'static'))
+    )
+
     MEDIA_URL = '/media/'
     MEDIA_ROOT = normpath(join(BASE_DIR, 'media'))
 
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-    
     # Templates
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
     TEMPLATE_DIRS = (

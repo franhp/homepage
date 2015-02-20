@@ -9,6 +9,7 @@ django-compressor
 django-bower
 django-geoposition
 dj-database-url
+dj-static
 psycopg2
 djangorestframework
 django-debug-toolbar
@@ -22,4 +23,3 @@ python-dateutil
 Fabric
 pillow
 gunicorn
-whitenoise
