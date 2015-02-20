@@ -9,6 +9,7 @@ django-compressor
 django-bower
 django-geoposition
 dj-database-url
+psycopg2
 djangorestframework
 django-debug-toolbar
 django-ajax-selects
