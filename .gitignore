@@ -17,6 +17,3 @@ static/foundation/.sass-cache/*
 *.DS_Store
 static/foundation/stylesheets/*
 static/foundation/Gemfile.lock
-
-# Flags
-media/flags/*

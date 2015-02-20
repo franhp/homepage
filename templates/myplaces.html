@@ -106,7 +106,7 @@
                 <tbody>
                 {% for country in country_list %}
                     <tr id="country{{ country.id }}">
-                        <td><img src="{% static  country.flag.url %}" width="30" height="20">
+                        <td><img src="{{ country.flag }}" width="30" height="20">
                             {{ country.name }}
                         </td>
                         <td>

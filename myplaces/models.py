@@ -13,7 +13,7 @@ class City(models.Model):
 
 class Country(models.Model):
     name = models.CharField(max_length=100)
-    flag = models.ImageField(upload_to='flags')
+    flag = models.CharField(max_length=500)
     cities = models.ManyToManyField(City)
 
     def __unicode__(self):

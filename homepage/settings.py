@@ -105,9 +105,6 @@ class Common(Configuration):
         normpath(join(BASE_DIR, 'static')),
     )
 
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = normpath(join(BASE_DIR, 'media'))
-
     # Templates
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
     TEMPLATE_DIRS = (
