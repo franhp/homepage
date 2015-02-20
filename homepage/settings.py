@@ -96,6 +96,10 @@ class Common(Configuration):
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = normpath(join(BASE_DIR, 'media'))
+
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
     
     # Templates
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs

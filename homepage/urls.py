@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-from django.conf.urls.static import static
 from ajax_select import urls as ajax_select_urls
 
 from home.views import LastfmAPIView, TwitterAPIView, ContactView, HomeView, GithubAPIView
@@ -30,7 +29,5 @@ urlpatterns = patterns('',
            url(r'^admin/', include(admin.site.urls)),
            url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
            url(r'^admin/lookups/', include(ajax_select_urls)),
-           url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-           url(r'^media/(?P.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
 )

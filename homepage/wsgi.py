@@ -8,7 +8,10 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 
 import dotenv
+from whitenoise.django import DjangoWhiteNoise
+
 dotenv.read_dotenv()
 
 from configurations.wsgi import get_wsgi_application
 application = get_wsgi_application()
+application = DjangoWhiteNoise(application)
