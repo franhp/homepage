@@ -3,8 +3,10 @@
 {% block wiki-active %}active{% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row wikilist">
+
         {% if document_list %}
+            <h3>Available articles in category <i>"{{ document_list.0.category.name }}"</i> are:</h3>
             <ul>
                 {% for document in document_list %}
                     <li><a href="{{ document.slug }}">{{ document.title }}</a></li>
@@ -13,6 +15,9 @@
         {% else %}
             <p>No documents in this category</p>
         {% endif %}
+    </div>
+    <div class="row">
+        <a href="{% url 'wiki' %}"><i class="fa fa-arrow-left"></i> Back</a>
     </div>
 
 {% endblock %}

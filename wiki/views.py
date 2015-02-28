@@ -31,5 +31,5 @@ class WikiArticleView(DetailView):
             'abbr',
             'wikilinks'
         ])
-        context['markdown'] = md.convert('[TOC]\n' + self.object.content)
+        context['markdown'] = md.convert('[TOC] \n' + self.object.content)
         return context

@@ -3,8 +3,9 @@
 {% block wiki-active %}active{% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row wikilist">
         {% if category_list %}
+            <h3>Available categories are:</h3>
             <ul>
             {% for category in category_list %}
                 <li><a href="{{ category.slug }}">{{ category.name }}</a></li>
@@ -14,5 +15,4 @@
             No categories found!
         {% endif %}
     </div>
-
 {% endblock %}

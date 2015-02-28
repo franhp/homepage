@@ -154,7 +154,13 @@ body {
   margin-bottom: 5px;
 }
 
-.codehilite{
-  background-color: #C4C4C4;
-  margin-bottom: 10px;
+.wikilist {
+  a {
+    font-size: x-large;
+  }
+
+  li {
+    list-style-type: square;
+  }
 }
+
