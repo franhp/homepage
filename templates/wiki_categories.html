@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block wiki-active %}active{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% if document_list %}
+            <ul>
+                {% for document in document_list %}
+                    <li><a href="{{ document.slug }}">{{ document.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents in this category</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

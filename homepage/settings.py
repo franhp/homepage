@@ -40,6 +40,7 @@ class Common(Configuration):
         'links',
         'myplaces',
         'tvseries',
+        'wiki',
         
         # Extra
         'django_extensions',

@@ -9054,7 +9054,7 @@ html {
 
 /* line 11, ../scss/_custom.scss */
 body {
-  background-image: linear-gradient(#d4d4d4, #888888 40%, #6E6E6E 60%, #2c2c2c);
+  background-image: linear-gradient(#d4d4d4, #888888 20%, #6E6E6E 60%, #6E6E6E);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100%;
@@ -9198,4 +9198,10 @@ body {
 .poster {
   text-align: center;
   margin-bottom: 5px;
+}
+
+/* line 157, ../scss/_custom.scss */
+.codehilite {
+  background-color: #C4C4C4;
+  margin-bottom: 10px;
 }

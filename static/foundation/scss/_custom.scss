@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(lighten($greyer, 40%), lighten($greyer, 10%) 40%, $greyer 60%, darken($darker-grey, 5%));
+  background-image: linear-gradient(lighten($greyer, 40%), lighten($greyer, 10%) 20%, $greyer 80%, $greyer);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100%;
@@ -152,4 +152,9 @@ body {
 .poster {
   text-align: center;
   margin-bottom: 5px;
+}
+
+.codehilite{
+  background-color: #C4C4C4;
+  margin-bottom: 10px;
 }

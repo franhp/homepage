@@ -7,10 +7,6 @@ from models import Github, Lastfm, Twitter
 from serializers import GithubProjectSerializer, TwitterSerializer, LastfmSerializer
 
 
-class ContactView(TemplateView):
-    template_name = 'contact.html'
-
-
 class HomeView(TemplateView):
     template_name = 'home.html'
 

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block wiki-active %}active{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h1>{{ object.title }}</h1>
+        <p>
+            {{ markdown|safe }}
+        </p>
+        <i>last updated on {{ object.date }}</i>
+    </div>
+
+{% endblock %}

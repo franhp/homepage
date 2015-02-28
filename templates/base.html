@@ -28,9 +28,9 @@
 				<img src="{% static 'img/hackergotchi-little.png'%}">
 				<label class="show-for-medium-up">Home</label>
 			</a>
-			<a class="item {% block about-active %}{% endblock %}" href="{% url 'about' %}">
+			<a class="item {% block wiki-active %}{% endblock %}" href="{% url 'wiki' %}">
 				<i class="fa fa-info"></i>
-				<label class="show-for-medium-up">About</label>
+				<label class="show-for-medium-up">Wiki</label>
 			</a>
             <a class="item {% block bookmarks-active %}{% endblock %}" href="{% url 'bookmarks' %}">
 				<i class="fa fa-bookmark"></i>
