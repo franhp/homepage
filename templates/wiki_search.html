@@ -9,7 +9,7 @@
         {% if document_list %}
         <ul>
             {% for document in document_list%}
-                <li><a href="{{ document.slug }}">{{ document.title }}</a> <br>
+                <li><a href="{% url 'wiki' %}category/{{ document.category.slug }}/{{ document.slug }}">{{ document.title }}</a> <br>
                     ... {{ document.content|slice:"20:90" }} ...
                 </li>
             {% endfor %}
