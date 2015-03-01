@@ -19,7 +19,7 @@ class WikiCategoriesView(ListView):
 
     def get_queryset(self):
         self.cat = get_object_or_404(Category, slug=self.args[0])
-        return Document.objects.filter(category=self.cat)
+        return Document.objects.filter(category=self.cat).order_by('date')
 
 
 class WikiArticleView(DetailView):
