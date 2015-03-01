@@ -3,11 +3,15 @@
 {% block wiki-active %}active{% endblock %}
 
 {% block content %}
-    <div class="row wikilist">
-
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li role="menuitem"><a href="{% url 'wiki' %}">Wiki</a></li>
+            <li role="menuitem"><a href="{% url 'wiki' %}category/{{ document_list.0.category.slug }}">{{  document_list.0.category.name }}</a></li>
+        </ul>
         {% if document_list %}
             <h3>Available articles in category <i>"{{ document_list.0.category.name }}"</i> are:</h3>
-            <ul>
+
+            <ul class="wikilist">
                 {% for document in document_list %}
                     <li><a href="{{ document.slug }}">{{ document.title }}</a></li>
                 {% endfor %}

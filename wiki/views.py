@@ -1,3 +1,7 @@
+from django import forms
+from django.db.models import Q
+from django.shortcuts import get_object_or_404, render
+from django.views.generic.base import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from wiki.models import Category, Document
@@ -12,6 +16,10 @@ class WikiView(ListView):
 class WikiCategoriesView(ListView):
     template_name = 'wiki_categories.html'
     model = Document
+
+    def get_queryset(self):
+        self.cat = get_object_or_404(Category, slug=self.args[0])
+        return Document.objects.filter(category=self.cat)
 
 
 class WikiArticleView(DetailView):
@@ -33,3 +41,23 @@ class WikiArticleView(DetailView):
         ])
         context['markdown'] = md.convert('[TOC] \n' + self.object.content)
         return context
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'ssh, screen, linux, ...'}))
+
+
+def WikiSearchView(request):
+    context = {}
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        context['form'] = form
+        if form.is_valid():
+            s = form.cleaned_data['search']
+            context['document_list'] = Document.objects.filter(Q(title__icontains=s) | Q(content__icontains=s))
+            context['search_value'] = s
+    else:
+        context['form'] = SearchForm()
+
+    return render(request, 'wiki_search.html', context)
+

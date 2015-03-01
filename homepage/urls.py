@@ -7,7 +7,7 @@ from myplaces.views import MyPlacesAPIView
 from links.views import LinksView
 from myplaces.views import MyPlacesView
 from tvseries.views import TVSeriesView
-from wiki.views import WikiView, WikiArticleView,WikiCategoriesView
+from wiki.views import WikiView, WikiArticleView, WikiCategoriesView, WikiSearchView
 
 
 urlpatterns = patterns('',
@@ -18,8 +18,9 @@ urlpatterns = patterns('',
            url(r'^tvseries/', TVSeriesView.as_view(), name='tvseries'),
 
            url(r'^wiki/$', WikiView.as_view(), name='wiki'),
-           url(r'^wiki/(?P<category>[-_\w]+)/$', WikiCategoriesView.as_view()),
-           url(r'^wiki/(?P<category>[-_\w]+)/(?P<slug>[-_\w]+)/$', WikiArticleView.as_view()),
+           url(r'^wiki/category/([-_\w]+)/$', WikiCategoriesView.as_view()),
+           url(r'^wiki/category/([-_\w]+)/(?P<slug>[-_\w]+)/$', WikiArticleView.as_view()),
+           url(r'^wiki/search/$', WikiSearchView, name='wikisearch'),
            
            # Api
            url(r'^api/github', GithubAPIView.as_view(), name='github'),
