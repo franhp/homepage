@@ -20,6 +20,6 @@ class Document(models.Model):
     category = models.ForeignKey(Category)
 
     def __unicode__(self):
-        return self.title
+        return '%s -> %s' % (self.category.name, self.title)
 
 
