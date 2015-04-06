@@ -72,12 +72,9 @@ def deploy():
             run('tar zxvf ~/website.tar.gz')
             run('rm ~/website.tar.gz')
 
-            # Syncdb
-            local('python manage.py migrate')
-            
+            run('python manage.py migrate --noinput')
+            run('python manage.py collectstatic --noinput')
+
             # Force restart
             run('mkdir -p tmp')
             restart()
-
-
-    # syncdb / migrate
