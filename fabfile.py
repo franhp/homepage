@@ -1,6 +1,7 @@
 from fabric.context_managers import shell_env, lcd
 from fabric.decorators import task
 from fabric.operations import local
+from fabric.api import env, put, run, cd
 import os
 
 COMMON_SETTINGS = {
@@ -42,3 +43,36 @@ def generate_dotenv():
             var = os.environ.get(k, COMMON_SETTINGS[k])
             print 'Writing %s="%s"' % (k, var)
             f.write('%s="%s"\n' % (k, var))
+
+
+@task
+def restart():
+    for host in env.hosts:
+        run('touch /home/grap/%s/tmp/restart.txt' % host)
+
+
+@task
+def disable_develop():
+    local('echo lol')
+
+@task
+def enable_develop():
+    local('echo lol')
+
+@task
+def pack():
+    local('tar zcf ../website.tar.gz * .env', capture=False)
+
+@task
+def deploy():
+    for host in env.hosts:
+        with cd('~/%s' % host):
+            put('../website.tar.gz', '~')
+            run('rm -rf *')
+            run('tar zxvf ~/website.tar.gz')
+            run('rm ~/website.tar.gz')
+            run('mkdir -p tmp')
+            restart()
+
+
+    # syncdb / migrate
