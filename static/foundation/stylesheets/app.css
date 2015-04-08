@@ -9203,6 +9203,21 @@ body {
   list-style-type: square;
 }
 
+/* line 162, ../scss/_custom.scss */
+.star {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+/* line 167, ../scss/_custom.scss */
+.star .star-color {
+  color: #fdd017;
+}
+/* line 170, ../scss/_custom.scss */
+.star .star-content {
+  color: #000000;
+}
+
 /* line 1, ../scss/_codehilite.scss */
 .codehilite {
   background-color: #C4C4C4;

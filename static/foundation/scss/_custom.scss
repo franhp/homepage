@@ -159,3 +159,16 @@ body {
   }
 }
 
+.star {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 5px;
+
+  .star-color {
+    color: #fdd017;
+  }
+  .star-content {
+    color: #000000;
+  }
+}
+

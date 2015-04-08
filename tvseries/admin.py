@@ -14,7 +14,7 @@ class TVSeriesForm(forms.ModelForm):
 
     class Meta:
         model = TVSeries
-        fields = ('search', 'name', 'imdbid', 'year', 'poster')
+        fields = ('search', 'name', 'imdbid', 'year', 'poster', 'rating')
 
 
 class TVSeriesAdmin(admin.ModelAdmin):
