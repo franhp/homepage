@@ -9194,17 +9194,11 @@ body {
   background-color: #ffff00;
 }
 
-/* line 152, ../scss/_custom.scss */
-.poster {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-/* line 158, ../scss/_custom.scss */
+/* line 153, ../scss/_custom.scss */
 .wikilist a {
   font-size: x-large;
 }
-/* line 162, ../scss/_custom.scss */
+/* line 157, ../scss/_custom.scss */
 .wikilist li {
   list-style-type: square;
 }

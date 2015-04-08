@@ -6,14 +6,17 @@
 
     <div class="row">
         <h1>I've watched a total of <strong>{{ tvseries_list|length }}</strong> TV Series!</h1>
+
+            <ul class="small-block-grid-3 medium-block-grid-6">
             {% for serie in tvseries_list %}
-                <div class="poster small-6 medium-3 columns">
+                <li>
                     <a href="http://www.imdb.com/title/{{ serie.imdbid }}">
-                        <img src="{{ serie.poster }}" height="150" width="150" onerror=""><br/>
+                        <img class="th" src="{{ serie.poster }}" onerror=""><br/>
                         {{ serie.name }} ({{ serie.year|date:"Y" }})
                     </a>
-                </div>
+                </li>
             {% endfor %}
+            </ul>
         </div>
 
 {% endblock %}
