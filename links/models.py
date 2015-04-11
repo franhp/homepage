@@ -8,3 +8,6 @@ class Link(models.Model):
 
     def __unicode__(self):
         return '%s (%d)' % (self.name, self.year)
+
+    class Meta:
+        ordering = ['-year']
