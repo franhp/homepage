@@ -106,11 +106,13 @@
                 <tbody>
                 {% for country in country_list %}
                     <tr id="country{{ country.id }}">
-                        <td><img src="{{ country.flag }}" width="30" height="20">
-                            {{ country.name }}
+                        <td>
+                            <img src="{{ country.flag }}" class="th" width="75">
+                            <strong>{{ country.name }}</strong>
                         </td>
                         <td>
                             {% for city in country.cities.all %}
+                                {% if not forloop.first %} | {% endif %}
                                 <a onclick="setCenter({{ country.id }}, {{ city.position.latitude }}, {{ city.position.longitude }})">
                                     {{ city.name }}
                                 </a>
