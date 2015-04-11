@@ -19,9 +19,23 @@ body {
 
 // Home section
 .mast {
-  margin-top: $head-space + 3%;
+  margin-top: $head-space;
+  padding-top: 2%;
   background-image: linear-gradient(to right, $softer-orange, $lighter-orange);
   border-radius: 5px;
+
+  .head {
+    text-align: right;
+  }
+
+  .info table{
+    background: none !important;
+    border: none !important;
+  }
+
+  .info table tr:nth-of-type(2n){
+    background: none !important;
+  }
 }
 
 .divider-right {

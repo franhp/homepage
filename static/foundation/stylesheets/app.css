@@ -9063,13 +9063,27 @@ body {
 
 /* line 21, ../scss/_custom.scss */
 .mast {
-  margin-top: 5%;
+  margin-top: 2%;
+  padding-top: 2%;
   background-image: linear-gradient(to right, #F3843E, #FF9900);
   border-radius: 5px;
 }
+/* line 27, ../scss/_custom.scss */
+.mast .head {
+  text-align: right;
+}
+/* line 31, ../scss/_custom.scss */
+.mast .info table {
+  background: none !important;
+  border: none !important;
+}
+/* line 36, ../scss/_custom.scss */
+.mast .info table tr:nth-of-type(2n) {
+  background: none !important;
+}
 
 @media only screen and (min-width: 40.063em) {
-  /* line 27, ../scss/_custom.scss */
+  /* line 41, ../scss/_custom.scss */
   .divider-right {
     border-right: 1px #FF9900 solid;
     padding-right: 15px;
@@ -9077,143 +9091,143 @@ body {
 }
 
 @media only screen and (min-width: 40.063em) {
-  /* line 34, ../scss/_custom.scss */
+  /* line 48, ../scss/_custom.scss */
   .divider-left {
     border-left: 1px #FF9900 solid;
     padding-left: 15px;
   }
 }
 
-/* line 42, ../scss/_custom.scss */
+/* line 56, ../scss/_custom.scss */
 .lists h2 {
   text-align: center;
   color: #393939;
 }
-/* line 46, ../scss/_custom.scss */
+/* line 60, ../scss/_custom.scss */
 .lists h2 a {
   color: #393939;
 }
-/* line 50, ../scss/_custom.scss */
+/* line 64, ../scss/_custom.scss */
 .lists h2 a i:hover {
   color: #FF9900;
 }
-/* line 56, ../scss/_custom.scss */
+/* line 70, ../scss/_custom.scss */
 .lists h2 i {
   color: #393939;
 }
-/* line 61, ../scss/_custom.scss */
+/* line 75, ../scss/_custom.scss */
 .lists .tweet {
   background-color: #F3843E;
   font-size: small;
   padding: 8px;
   border-radius: 5px;
 }
-/* line 67, ../scss/_custom.scss */
+/* line 81, ../scss/_custom.scss */
 .lists .tweet a {
   color: #535353;
 }
-/* line 69, ../scss/_custom.scss */
+/* line 83, ../scss/_custom.scss */
 .lists .tweet a:hover {
   color: #393939;
 }
-/* line 74, ../scss/_custom.scss */
+/* line 88, ../scss/_custom.scss */
 .lists .tweet .tweet_date {
   font-style: italic;
   font-size: xx-small;
   color: lightgray;
 }
-/* line 81, ../scss/_custom.scss */
+/* line 95, ../scss/_custom.scss */
 .lists .song {
   background-color: #F3843E;
   border-radius: 10px;
   padding: 5px;
 }
-/* line 86, ../scss/_custom.scss */
+/* line 100, ../scss/_custom.scss */
 .lists .song .song_name {
   font-weight: bold;
 }
-/* line 89, ../scss/_custom.scss */
+/* line 103, ../scss/_custom.scss */
 .lists .song .song_artist {
   font-style: italic;
   font-size: small;
 }
-/* line 93, ../scss/_custom.scss */
+/* line 107, ../scss/_custom.scss */
 .lists .song .song_date {
   font-size: xx-small;
 }
-/* line 97, ../scss/_custom.scss */
+/* line 111, ../scss/_custom.scss */
 .lists .song .song_image {
   padding-top: 5px;
 }
-/* line 102, ../scss/_custom.scss */
+/* line 116, ../scss/_custom.scss */
 .lists .github-project {
   background-color: #F3843E;
   border-radius: 10px;
   padding: 5px;
 }
-/* line 107, ../scss/_custom.scss */
+/* line 121, ../scss/_custom.scss */
 .lists .github-project a {
   color: #535353;
 }
-/* line 109, ../scss/_custom.scss */
+/* line 123, ../scss/_custom.scss */
 .lists .github-project a:hover {
   color: #393939;
 }
 
-/* line 118, ../scss/_custom.scss */
+/* line 132, ../scss/_custom.scss */
 .bookmarks {
   margin-top: 2%;
 }
-/* line 121, ../scss/_custom.scss */
+/* line 135, ../scss/_custom.scss */
 .bookmarks table {
   margin: 15px auto;
 }
-/* line 124, ../scss/_custom.scss */
+/* line 138, ../scss/_custom.scss */
 .bookmarks table td {
   font-size: x-large;
 }
 
-/* line 133, ../scss/_custom.scss */
+/* line 147, ../scss/_custom.scss */
 .map_canvas {
   margin-top: 2%;
   height: 500px;
 }
 
-/* line 138, ../scss/_custom.scss */
+/* line 152, ../scss/_custom.scss */
 .myplaces_list {
   margin-top: 2%;
   height: 500px;
   overflow: scroll;
 }
-/* line 143, ../scss/_custom.scss */
+/* line 157, ../scss/_custom.scss */
 .myplaces_list .hover {
   background-color: #ffff00;
 }
-/* line 147, ../scss/_custom.scss */
+/* line 161, ../scss/_custom.scss */
 .myplaces_list .highlighted {
   background-color: #ffff00;
 }
 
-/* line 153, ../scss/_custom.scss */
+/* line 167, ../scss/_custom.scss */
 .wikilist a {
   font-size: x-large;
 }
-/* line 157, ../scss/_custom.scss */
+/* line 171, ../scss/_custom.scss */
 .wikilist li {
   list-style-type: square;
 }
 
-/* line 162, ../scss/_custom.scss */
+/* line 176, ../scss/_custom.scss */
 .star {
   position: absolute;
   margin-top: 5px;
   margin-left: 5px;
 }
-/* line 167, ../scss/_custom.scss */
+/* line 181, ../scss/_custom.scss */
 .star .star-color {
   color: #fdd017;
 }
-/* line 170, ../scss/_custom.scss */
+/* line 184, ../scss/_custom.scss */
 .star .star-content {
   color: #000000;
 }

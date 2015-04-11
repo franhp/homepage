@@ -6,11 +6,33 @@
 {% block content %}
 
 <div class="row">
-	<div class="small-12 medium-8 medium-offset-2 columns mast">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-		Curabitur volutpat quis nisi ut convallis. Maecenas sit amet mauris 
-		et dui elementum tincidunt.
-		<img src="{% static 'img/hackergotchi.png'%}">
+	<div class="small-12 small-collapse medium-8 medium-offset-2 columns mast">
+        <div class="small-12 medium-8 columns info">
+            <table>
+                <tr>
+                    <td><small>Name:</small></td>
+                    <td><h4>Fran Hermoso</h4></td>
+                </tr>
+                <tr>
+                    <td><small>Occupation:</small></td>
+                    <td><strong>Backend Developer / DevOps / SysAdmin</strong></td>
+                </tr>
+                <tr>
+                    <td><small>Likes:</small></td>
+                    <td><strong>Python, Linux, Open Source, TV Series, Travelling, FIFA, ...</strong></td>
+                </tr>
+                <tr>
+                    <td><small>Contact:</small></td>
+                    <td><img src="{% static 'img/mail.jpg'%}"></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="small-12 medium-4 columns head">
+            <img src="{% static 'img/hackergotchi-big.png'%}">
+        </div>
+
 	</div>
 </div>
 
