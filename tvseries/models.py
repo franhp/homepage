@@ -13,4 +13,4 @@ class TVSeries(models.Model):
 
     class Meta:
         verbose_name_plural = 'TVSeries'
-        ordering = ['-rating']
+        ordering = ['-rating', 'name']
