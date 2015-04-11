@@ -1,11 +1,11 @@
 from django import forms
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
-from django.views.generic.base import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from wiki.models import Category, Document
 import markdown
+
+from wiki.models import Category, Document
 
 
 class WikiView(ListView):

@@ -5,7 +5,7 @@ import requests
 from requests_oauthlib import OAuth1Session
 
 
-class GithubProject():
+class GithubProject:
     def __init__(self, clone_url=None, name=None,
                  description=None, language=None):
         self.clone_url = clone_url
@@ -14,7 +14,7 @@ class GithubProject():
         self.language = language
 
 
-class Tweet():
+class Tweet:
     def __init__(self, text=None, date=None, status_id=None):
         tweet = []
         for word in text.split():
@@ -34,7 +34,7 @@ class Tweet():
         self.status_id = status_id
 
 
-class Song():
+class Song:
     def __init__(self, name=None, artist=None, date=None, image=None):
         self.name = name
         self.artist = artist
@@ -42,7 +42,7 @@ class Song():
         self.image = image
 
 
-class Github():
+class Github:
     def __init__(self):
         pass
 
@@ -64,7 +64,7 @@ class Github():
         return result
 
 
-class Twitter():
+class Twitter:
     def __init__(self):
         pass
 
@@ -83,7 +83,7 @@ class Twitter():
         return result
 
 
-class Lastfm():
+class Lastfm:
     def __init__(self):
         pass
 

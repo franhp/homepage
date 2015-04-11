@@ -14,7 +14,6 @@ from os.path import join, normpath, dirname
 
 from configurations import Configuration, values
 import dj_database_url
-import dotenv
 
 
 class Common(Configuration):
