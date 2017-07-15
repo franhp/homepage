@@ -1,19 +1,2 @@
-*.log
-*.pot
-*.pyc
-cache/*
-static/CACHE/*
-db.sqlite3
-
-# Dotenv
-.env
-
-#Pycharm
-.idea
-
-# Foundation
-static/foundation/bower_components/*
-static/foundation/.sass-cache/*
-*.DS_Store
-static/foundation/stylesheets/*
-static/foundation/Gemfile.lock
+__pycache__
+env/

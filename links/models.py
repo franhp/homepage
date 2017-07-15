@@ -6,7 +6,7 @@ class Link(models.Model):
     year = models.IntegerField()
     url = models.CharField(max_length=500)
 
-    def __unicode__(self):
+    def __str__(self):
         return '%s (%d)' % (self.name, self.year)
 
     class Meta:

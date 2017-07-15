@@ -1,0 +1,67 @@
+{% load staticfiles %}
+{% load compress %}
+
+<html lang="en">
+<head>
+	<title>franhp's homepage</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% compress css %}
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'foundation/stylesheets/app.css' %}"/>
+    {% endcompress %}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    {% compress js %}
+        <!-- JS -->
+        <script src="{% static 'foundation/bower_components/modernizr/modernizr.js' %}"></script>
+        <script src="{% static 'js/angular.min.js' %}"></script>
+        <script src="{% static 'js/angular-sanitize.min.js' %}"></script>
+        <script src="{% static 'js/angular-resource.min.js' %}"></script>
+        <script src="{% static 'js/controllers.js' %}"></script>
+    {% endcompress %}
+    {% block extra_top %}{% endblock %}
+</head>
+<body ng-app="franhpApp">
+	<div class="row">
+		<div class="icon-bar five-up">
+			<a class="item {% block home-active %}{% endblock %}" href="{% url 'home' %}">
+				<img src="{% static 'img/hackergotchi-little.png'%}">
+				<label class="show-for-medium-up">Home</label>
+			</a>
+			<a class="item {% block wiki-active %}{% endblock %}" href="{% url 'wiki' %}">
+				<i class="fa fa-info"></i>
+				<label class="show-for-medium-up">Wiki</label>
+			</a>
+            <a class="item {% block bookmarks-active %}{% endblock %}" href="{% url 'bookmarks' %}">
+				<i class="fa fa-bookmark"></i>
+				<label class="show-for-medium-up">Bookmarks</label>
+			</a>
+			<a class="item {% block myplaces-active %}{% endblock %}" href="{% url 'myplaces' %}">
+				<i class="fa fa-map-marker"></i>
+				<label class="show-for-medium-up">My Places</label>
+			</a>
+			<a class="item {% block tvseries-active %}{% endblock %}" href="{% url 'tvseries' %}">
+				<i class="fa fa-play"></i>
+				<label class="show-for-medium-up">TV Series</label>
+			</a>
+		</div>
+	</div>
+	{% block content %}{% endblock %}
+	<div class="row">
+		<footer>
+			<hr />
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">
+				<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/80x15.png" />
+			</a>
+		</footer>
+	</div>
+    {% compress js %}
+        <!-- JS -->
+        <script src="{% static 'foundation/bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'foundation/bower_components/foundation/js/foundation.min.js' %}"></script>
+        <script src="{% static 'foundation/js/app.js' %}"></script>
+        {% block extra_bottom %}{% endblock %}
+    {% endcompress %}
+	
+</body>
+</html>

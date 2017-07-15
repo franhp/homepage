@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for link in link_list %}
+        <a href="{{ link.url }}">{{ link.name }}<small>({{ link.url }})</small></a>
+    {% endfor %}
+{% endblock %}
