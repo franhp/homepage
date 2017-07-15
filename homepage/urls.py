@@ -17,8 +17,16 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from links.views import LinksView
+from wiki.views import (
+    WikiView, WikiCategoriesView, WikiArticleView, WikiSearchView
+)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^bookmarks/', LinksView.as_view()),
+
+    url(r'^wiki/$', WikiView.as_view(), name='wiki'),
+    url(r'^wiki/category/([-_\w]+)/$', WikiCategoriesView.as_view()),
+    url(r'^wiki/category/([-_\w]+)/(?P<slug>[-_\w]+)/$', WikiArticleView.as_view()),
+    url(r'^wiki/search/$', WikiSearchView, name='wikisearch'),
 ]

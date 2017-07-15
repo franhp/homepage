@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if category_list %}
+    <h3>Categories:</h3>
+    {% for category in category_list %}
+        <li><a href="category/{{ category.slug }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% else %}
+    No categories found!
+{% endif %}
+
+
+<form method="post" action="{% url 'wikisearch' %}">
+    {% csrf_token %}
+    <input type="text" name="search" placeholder="ssh, screen, linux, ...">
+    <a href="#">Search</a>
+</form>
+
+{% endblock %}

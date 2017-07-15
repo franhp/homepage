@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="{% url 'wiki' %}">Wiki</a></li>
+            <li><a href="{% url 'wiki' %}category/{{ document_list.0.category.slug }}">{{  document_list.0.category.name }}</a></li>
+        </ul>
+        {% if document_list %}
+            <h3>Available articles in category <i>"{{ document_list.0.category.name }}"</i> are:</h3>
+
+            <ul class="wikilist">
+                {% for document in document_list %}
+                    <li><a href="{{ document.slug }}">{{ document.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents in this category</p>
+        {% endif %}
+    </div>
+    <div class="row">
+        <a href="{% url 'wiki' %}"><i class="fa fa-arrow-left"></i> Back</a>
+    </div>
+
+{% endblock %}

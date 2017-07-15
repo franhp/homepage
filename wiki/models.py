@@ -5,7 +5,7 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -19,7 +19,5 @@ class Document(models.Model):
     date = models.DateTimeField(auto_now_add=True, blank=True)
     category = models.ForeignKey(Category)
 
-    def __unicode__(self):
+    def __str__(self):
         return '%s -> %s' % (self.category.name, self.title)
-
-

@@ -1,10 +1,9 @@
-from django import forms
-from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.db.models import Q
 import markdown
-
+from django import forms
 from wiki.models import Category, Document
 
 
@@ -18,8 +17,8 @@ class WikiCategoriesView(ListView):
     model = Document
 
     def get_queryset(self):
-        self.cat = get_object_or_404(Category, slug=self.args[0])
-        return Document.objects.filter(category=self.cat).order_by('date')
+        category = get_object_or_404(Category, slug=self.args[0])
+        return Document.objects.filter(category=category).order_by('date')
 
 
 class WikiArticleView(DetailView):
@@ -60,4 +59,3 @@ def WikiSearchView(request):
         context['form'] = SearchForm()
 
     return render(request, 'wiki_search.html', context)
-

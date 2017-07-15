@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <ul class="breadcrumbs">
+            <li><a href="{% url 'wiki' %}">Wiki</a></li>
+            <li><a href="{% url 'wiki' %}category/{{ object.category.slug }}">{{ object.category.name }}</a></li>
+            <li><a href="{% url 'wiki' %}category/{{ object.category.slug }}/{{ object.slug }}">{{ object.title }}</a></li>
+        </ul>
+
+        <h1>{{ object.title }}</h1>
+        <p>
+            {{ markdown|safe }}
+        </p>
+
+        <small><i>last updated on {{ object.date }}</i></small>
+    </div>
+    <div class="row">
+        <a href="{% url 'wiki' %}category/{{ object.category.slug }}"><i class="fa fa-arrow-left"></i> Back</a>
+    </div>
+{% endblock %}
