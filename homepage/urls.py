@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from home.views import HomeView
 from links.views import LinksView
 from myplaces.views import MyPlacesView
 from tvseries.views import TVSeriesView
@@ -25,6 +26,7 @@ from wiki.views import (
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', HomeView.as_view()),
     url(r'^bookmarks/', LinksView.as_view()),
     url(r'^myplaces/', MyPlacesView.as_view()),
     url(r'^tvseries/', TVSeriesView.as_view()),

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'myplaces',
     'geoposition',
     'tvseries',
+    'home',
 ]
 
 MIDDLEWARE = [
