@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'links',
     'wiki',
+    'myplaces',
+    'geoposition',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY'

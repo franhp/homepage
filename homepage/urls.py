@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from links.views import LinksView
+from myplaces.views import MyPlacesView
 from wiki.views import (
     WikiView, WikiCategoriesView, WikiArticleView, WikiSearchView
 )
@@ -24,6 +25,7 @@ from wiki.views import (
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^bookmarks/', LinksView.as_view()),
+    url(r'^myplaces/', MyPlacesView.as_view()),
 
     url(r'^wiki/$', WikiView.as_view(), name='wiki'),
     url(r'^wiki/category/([-_\w]+)/$', WikiCategoriesView.as_view()),

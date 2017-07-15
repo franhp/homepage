@@ -1,0 +1,28 @@
+{% block content %}
+
+<h1>I've visited a total of <strong>{{ country_list|length }}</strong> countries!</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Country</th>
+        <th>Cities</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for country in country_list %}
+        <tr>
+            <td>
+                <img src="{{ country.flag }}" class="th" width="75">
+                <strong>{{ country.name }}</strong>
+            </td>
+            <td>
+                {% for city in country.cities.all %}
+                    {% if not forloop.first %} | {% endif %}
+                    {{ city.name }}
+                {% endfor %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
