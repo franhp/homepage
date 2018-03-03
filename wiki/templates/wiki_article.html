@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load compile_static %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/codehilite.scss'|compile %}">
+{% endblock %}
 
 {% block content %}
     <div class="row">

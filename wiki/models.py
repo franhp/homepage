@@ -17,7 +17,9 @@ class Document(models.Model):
     slug = models.SlugField()
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True, blank=True)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, blank=True, null=True
+    )
 
     def __str__(self):
         return '%s -> %s' % (self.category.name, self.title)

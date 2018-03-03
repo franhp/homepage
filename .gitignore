@@ -1,2 +1,6 @@
 __pycache__
 env/
+/static/COMPILED/
+/static/.sass-cache/
+node_modules/
+package-lock.json

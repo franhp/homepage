@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField()),
                 ('content', models.TextField()),
                 ('date', models.DateTimeField(auto_now_add=True)),
-                ('category', models.ForeignKey(to='wiki.Category')),
+                ('category', models.ForeignKey(to='wiki.Category', on_delete=models.SET_NULL, null=True, blank=True)),
             ],
             options={
             },

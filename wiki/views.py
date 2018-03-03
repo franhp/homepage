@@ -17,7 +17,7 @@ class WikiCategoriesView(ListView):
     model = Document
 
     def get_queryset(self):
-        category = get_object_or_404(Category, slug=self.args[0])
+        category = get_object_or_404(Category, slug=self.kwargs['category'])
         return Document.objects.filter(category=category).order_by('date')
 
 
