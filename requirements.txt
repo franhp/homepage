@@ -3,3 +3,4 @@ django-geoposition==0.3.0
 django-static-precompiler==1.7.1
 PyMySQL==0.8.0
 Markdown==2.6.11
+geojson==2.3.0

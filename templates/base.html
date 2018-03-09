@@ -5,15 +5,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Fran Hermoso">
     <title>franhp</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link rel="stylesheet" href="{% static 'css/custom.scss'|compile %}">
     {% block extra_head %}{% endblock %}
 
@@ -25,47 +24,45 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container">
-        <div class="header clearfix">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation"
-                        {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>
-                        <a href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li role="presentation"
-                        {% if request.resolver_match.url_name == 'wiki' %}class="active"{% endif %}>
-                        <a href="{% url 'wiki' %}">Wiki</a>
-                    </li>
-                    <li role="presentation"
-                        {% if request.resolver_match.url_name == 'bookmarks' %}class="active"{% endif %}>
-                        <a href="{% url 'bookmarks' %}">Bookmarks</a>
-                    </li>
-                    <li role="presentation"
-                        {% if request.resolver_match.url_name == 'myplaces' %}class="active"{% endif %}>
-                        <a href="{% url 'myplaces' %}">My Places</a>
-                    </li>
-                    <li role="presentation"
-                        {% if request.resolver_match.url_name == 'tvseries' %}class="active"{% endif %}>
-                        <a href="{% url 'tvseries' %}">TV Series</a>
-                    </li>
-                    {% if user.is_superuser %}
-                        <li role="presentation"><a href="{% url 'admin:login' %}">Admin</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-            <h3 class="text-muted">franhp</h3>
-        </div>
-        {% block content %}<h1>Hello, world!</h1>{% endblock %}
-        <footer class="footer">
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">
-				<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/80x15.png" />
-			</a>
-        </footer>
-    </div> <!-- container -->
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead">
+                <div class="inner">
+                    <h3 class="masthead-brand">franhp</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                            Home
+                        </a>
+                        <a href="{% url 'wiki' %}" class="nav-link {% if request.resolver_match.url_name == 'wiki' %}active{% endif %}">
+                            Wiki
+                        </a>
+                        <a href="{% url 'bookmarks' %}" class="nav-link {% if request.resolver_match.url_name == 'bookmarks' %}active{% endif %}">
+                            Bookmarks
+                        </a>
+                        <a href="{% url 'myplaces' %}" class="nav-link {% if request.resolver_match.url_name == 'myplaces' %}active{% endif %}">
+                            Places
+                        </a>
+                        <a href="{% url 'tvseries' %}" class="nav-link {% if request.resolver_match.url_name == 'tvseries' %}active{% endif %}">
+                            TV Series
+                        </a>
+                    </nav>
+                </div>
+            </header>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    {% block extra_bottom %}{% endblock %}
+            <main role="main" class="inner">
+                {% block content %}Content{% endblock %}
+            </main>
+
+            <footer class="text-center mt-auto">
+                <div class="inner">
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">
+                        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/80x15.png" />
+                    </a>
+                </div>
+            </footer>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% block extra_bottom %}{% endblock %}
   </body>
 </html>

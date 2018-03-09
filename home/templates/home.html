@@ -2,41 +2,53 @@
 {% load static %}
 
 {% block content %}
-    <div class="jumbotron">
+
+<div class="container">
+    <h1 class="display-4">Fran Hermoso</h1>
+    <div class="row">
         <div class="col-md-8">
-            <h1>Fran Hermoso</h1>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+                    <i class="fas fa-briefcase fa-2x"></i> DevOps / Dev / SysAdmin
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center  list-group-item-action">
+                    <i class="fas fa-map-marker fa-2x"></i>London &amp; Manresa
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+                    <i class="fas fa-thumbs-up fa-2x"></i>
+                    <hr>
+                    <i class="fab fa-python fa-2x"></i>&nbsp;
+                    <i class="fab fa-docker fa-2x"></i>&nbsp;
+                    <i class="fab fa-linux fa-2x"></i>&nbsp;
+                    <i class="fas fa-plane fa-2x"></i>&nbsp;
+                    <i class="fas fa-headphones fa-2x"></i>&nbsp;
+                    <i class="fas fa-gamepad fa-2x"></i>&nbsp;
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+                    <i class="fas fa-thumbs-down fa-2x"></i>
+                    <hr>
+                    <i class="fab fa-windows fa-2x"></i>&nbsp;
+                    <i class="fab fa-edge fa-2x"></i>&nbsp;
+                    <i class="fab fa-wordpress fa-2x"></i>&nbsp;
+                    <i class="fas fa-umbrella fa-2x"></i>&nbsp;
+                </li>
+            </ul>
         </div>
         <div class="col-md-4">
-            <img class="thumbnail" src="{% static 'img/headshot.jpg' %} ">
-        </div>
-
-
-
-
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </div>
-
-    <div class="row wall">
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+            <img class="img-thumbnail w-100" src="{% static 'img/headshot.jpg' %} ">
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="https://uk.linkedin.com/in/franhp"><i class="fab fa-linkedin fa-4x"></i></a>
+            <a href="https://twitter.com/franhp"><i class="fab fa-twitter fa-4x"></i></a>
+            <a href="https://github.com/franhp"><i class="fab fa-github fa-4x"></i></a>
+            <a href="http://lastfm.es/user/franhp"><i class="fab fa-lastfm fa-4x"></i></a>
+        </div>
+    </div>
+
+
+</div>
+
 {% endblock %}

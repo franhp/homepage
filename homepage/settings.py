@@ -1,6 +1,10 @@
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.conf import global_settings
+from django.contrib.staticfiles import finders
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -29,6 +33,7 @@ INSTALLED_APPS = [
     'geoposition',
     'tvseries',
     'home',
+    'homepage',
     'static_precompiler',
 ]
 
@@ -66,15 +71,23 @@ WSGI_APPLICATION = 'homepage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'franhpnet',
-        'USER': 'mysql_user',
-        'PASSWORD': 'mysql_password',
-        'HOST': 'db'
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'franhpnet.db',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'franhpnet',
+            'USER': os.getenv('MYSQL_USER', 'mysql_user'),
+            'PASSWORD': os.getenv('MYSQL_PASSWORD', 'mysql_password'),
+            'HOST': os.getenv('MYSQL_HOST', 'db')
+        }
+    }
 
 # docker run -d -p "3306:3306" -e "MYSQL_DATABASE=franhpnet" -e "MYSQL_ALLOW_EMPTY_PASSWORD=true" -e "MYSQL_USER=mysql_user" -e "MYSQL_PASSWORD=mysql_password" -v "/Users/franhp/Downloads/franhpnet.sql:/docker-entrypoint-initdb.d/franhpnet.sql" --name="test_mysql" mysql
 
@@ -119,7 +132,10 @@ STATICFILES_DIRS = (
    os.path.join(BASE_DIR, 'static'),
 )
 
+STATICFILES_FINDERS = global_settings.STATICFILES_FINDERS + [
+    'static_precompiler.finders.StaticPrecompilerFinder'
+]
 
 # Geoposition
 
-GEOPOSITION_GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY'
+GEOPOSITION_GOOGLE_MAPS_API_KEY = os.getenv('MAPS_KEY', 'x')

@@ -1,0 +1,31 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+
+    {{ block.super }}
+
+    <li>
+        <a href="#" onclick="showImport()" class="grp-state-focus addlink">Import</a>
+    </li>
+    <li>
+
+        <form id="import" style="display: none;background-color: burlywood"
+              action="import/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            WARNING: Delete existing Titles as they won't be overriden. Proceed with caution!
+            <input name="upload" type="file">
+            <input type="submit" value="Upload & Import">
+        </form>
+    </li>
+
+    <script type="text/javascript">
+        if (!$) {
+            $ = django.jQuery
+        }
+        function showImport() {
+            $('#import').show();
+        }
+
+    </script>
+
+
+{% endblock %}

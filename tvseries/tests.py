@@ -1,3 +1,9 @@
 from django.test import TestCase
 
-# Create your tests here.
+from tvseries.models import Title
+
+
+class TestTvSeries(TestCase):
+
+    def test_import(self):
+        Title.import_imdb()

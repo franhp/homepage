@@ -43,7 +43,10 @@ class WikiArticleView(DetailView):
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'ssh, screen, linux, ...'}))
+    search = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'placeholder': 'ssh, screen, linux, ...'})
+    )
 
 
 def WikiSearchView(request):
@@ -53,7 +56,9 @@ def WikiSearchView(request):
         context['form'] = form
         if form.is_valid():
             s = form.cleaned_data['search']
-            context['document_list'] = Document.objects.filter(Q(title__icontains=s) | Q(content__icontains=s))
+            context['document_list'] = Document.objects.filter(
+                Q(title__icontains=s) | Q(content__icontains=s)
+            )
             context['search_value'] = s
     else:
         context['form'] = SearchForm()

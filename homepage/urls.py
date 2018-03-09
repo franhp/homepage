@@ -22,8 +22,8 @@ from django.contrib import admin
 
 from home.views import HomeView
 from links.views import LinksView
-from myplaces.views import MyPlacesView
-from tvseries.views import TVSeriesView
+from myplaces.views import MyPlacesView, geojsonView
+from tvseries.views import TitlesView
 from wiki.views import (
     WikiView, WikiCategoriesView, WikiArticleView, WikiSearchView
 )
@@ -33,11 +33,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
     path('bookmarks/', LinksView.as_view(), name='bookmarks'),
+    path('tvseries/', TitlesView.as_view(), name='tvseries'),
+
     path('myplaces/', MyPlacesView.as_view(), name='myplaces'),
-    path('tvseries/', TVSeriesView.as_view(), name='tvseries'),
+    path('myplaces/geojson', geojsonView, name='myplaces_api'),
 
     path('wiki/', WikiView.as_view(), name='wiki'),
-    path('wiki/category/<slug:category>/', WikiCategoriesView.as_view()),
-    path('wiki/category/<slug:category>/<slug:slug>/', WikiArticleView.as_view()),
+    path('wiki/category/<slug:category>/', WikiCategoriesView.as_view(), name='wiki_category'),
+    path('wiki/category/<slug:category>/<slug:slug>/', WikiArticleView.as_view(), name='wiki_article'),
     path('wiki/search/', WikiSearchView, name='wikisearch'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -7,21 +7,32 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <ul class="breadcrumbs">
-            <li><a href="{% url 'wiki' %}">Wiki</a></li>
-            <li><a href="{% url 'wiki' %}category/{{ object.category.slug }}">{{ object.category.name }}</a></li>
-            <li><a href="{% url 'wiki' %}category/{{ object.category.slug }}/{{ object.slug }}">{{ object.title }}</a></li>
-        </ul>
 
-        <h1>{{ object.title }}</h1>
-        <p>
-            {{ markdown|safe }}
-        </p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'wiki' %}">Wiki</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'wiki_category' object.category.slug %}">{{ object.category.name }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a href="{% url 'wiki_article' object.category.slug object.slug %}">{{ object.title }}</a>
+            </li>
+        </ol>
+    </nav>
 
-        <small><i>last updated on {{ object.date }}</i></small>
-    </div>
-    <div class="row">
-        <a href="{% url 'wiki' %}category/{{ object.category.slug }}"><i class="fa fa-arrow-left"></i> Back</a>
-    </div>
+    <h1>{{ object.title }}</h1>
+    <p>
+        {{ markdown|safe }}
+    </p>
+
+    <small><i>last updated on {{ object.date }}</i></small>
+
+    <hr>
+
+    <a class="btn btn-light" href="{% url 'wiki_category' object.category.slug %}">
+        <i class="fa fa-arrow-left"></i> Back
+    </a>
+
 {% endblock %}
