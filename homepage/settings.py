@@ -12,9 +12,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'my_super_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['.franhp.net']
 
 
 # Application definition
@@ -25,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'livereload',
     'django.contrib.staticfiles',
     'links',
     'wiki',
@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'homepage',
     'static_precompiler',
 ]
+
+if DEBUG is True:
+    INSTALLED_APPS.append('livereload')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,14 +86,11 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'franhpnet',
-            'USER': os.getenv('MYSQL_USER', 'mysql_user'),
-            'PASSWORD': os.getenv('MYSQL_PASSWORD', 'mysql_password'),
+            'USER': os.getenv('MYSQL_USER', 'root'),
+            'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
             'HOST': os.getenv('MYSQL_HOST', 'db')
         }
     }
-
-# docker run -d -p "3306:3306" -e "MYSQL_DATABASE=franhpnet" -e "MYSQL_ALLOW_EMPTY_PASSWORD=true" -e "MYSQL_USER=mysql_user" -e "MYSQL_PASSWORD=mysql_password" -v "/Users/franhp/Downloads/franhpnet.sql:/docker-entrypoint-initdb.d/franhpnet.sql" --name="test_mysql" mysql
-
 
 
 # Password validation
@@ -131,6 +131,7 @@ STATIC_PRECOMPILER_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
    os.path.join(BASE_DIR, 'static'),
 )
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_FINDERS = global_settings.STATICFILES_FINDERS + [
     'static_precompiler.finders.StaticPrecompilerFinder'
