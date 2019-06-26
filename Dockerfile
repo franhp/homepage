@@ -14,8 +14,9 @@ RUN apt-get -y update && \
   pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-COPY --from=0 static/COMPILED/css/* static/COMPILED/css/
 
+VOLUME ["/usr/src/app/static/"]
+COPY --from=0 static/COMPILED/css/* static/COMPILED/css/
 RUN python manage.py collectstatic --noinput
 
 CMD ["gunicorn", "-b", ":8000", "-w", "4", "homepage.wsgi"]
