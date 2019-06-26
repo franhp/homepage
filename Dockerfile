@@ -1,9 +1,3 @@
-FROM node:10
-COPY static/ static/
-COPY package.json .
-RUN npm i && npm run sass
-
-
 FROM python:3.7
 
 WORKDIR /usr/src/app
@@ -14,6 +8,5 @@ RUN apt-get -y update && \
   pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-COPY --from=0 static/COMPILED/css/* static/COMPILED/css/
 
 CMD ["gunicorn", "-b", ":8000", "-w", "4", "homepage.wsgi"]
