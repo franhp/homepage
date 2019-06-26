@@ -1,15 +1,15 @@
 {
   "name": "homepage",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Homepage",
-  "main": "Gruntfile.js",
-  "dependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1"
   },
-  "devDependencies": {},
   "scripts": {
+    "sass": "node-sass --include-path scss static/css/custom.scss static/COMPILED/css/custom.css && node-sass --include-path scss static/css/codehilite.scss static/COMPILED/css/codehilite.css ",
+    "watch": "nodemon -e scss -x \"npm run sass\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

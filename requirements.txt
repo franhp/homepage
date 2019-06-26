@@ -1,9 +1,7 @@
-Django==2.1.4
+Django==2.2.2
 django-geoposition==0.3.0
-django-static-precompiler==1.7.1
 django-livereload==1.7
-PyMySQL==0.8.0
-Markdown==2.6.11
-geojson==2.3.0
+Markdown==3.1.1
+geojson==2.4.1
 gunicorn==19.9.0
-mysql
+mysqlclient

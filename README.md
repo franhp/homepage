@@ -3,9 +3,10 @@ Homepage
 
 Visit [franhp.net](http://franhp.net)  
 
-[ ![Codeship Status for franhp/homepage](https://codeship.com/projects/bf06eeb0-b2fb-0132-32d7-6a71bba51758/status?branch=master)](https://codeship.com/projects/70115)
 
+# Useful commands
 
-
-
-gem install compass
+```bash
+node run watch # generates all the css as you make changes to it
+node run sass # generates all the css
+```

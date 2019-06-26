@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'my_super_secret_key')
 DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['.franhp.net']
+CSRF_TRUSTED_ORIGINS = ['.franhp.net', '.franhp.dev']
 
 
 # Application definition
@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'tvseries',
     'home',
     'homepage',
-    'static_precompiler',
 ]
 
 if DEBUG is True:
@@ -127,15 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATIC_PRECOMPILER_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (
-   os.path.join(BASE_DIR, 'static'),
-)
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_FINDERS = global_settings.STATICFILES_FINDERS + [
-    'static_precompiler.finders.StaticPrecompilerFinder'
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Geoposition
 

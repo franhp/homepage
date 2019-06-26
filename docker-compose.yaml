@@ -13,7 +13,7 @@ api:
     - "8000:8000"
 
 db:
-  image: mysql
+  image: mariadb:5
   environment:
     - MYSQL_DATABASE=franhpnet
     - MYSQL_USER=mysql_user
