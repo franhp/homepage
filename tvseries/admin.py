@@ -35,7 +35,7 @@ def import_titles(self):
                 imdbid=line[1],
                 name=line[5],
                 year=line[13],
-                imdb_rating=float(line[8]),
+                imdb_rating=float(line[8]) if line[8] else None,
                 my_rating=int(line[15]) if line[15] else None,
                 title_type=line[7],
             )
