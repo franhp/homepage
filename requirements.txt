@@ -1,4 +1,4 @@
-Django==2.2.2
+Django==2.2.4
 django-geoposition==0.3.0
 django-livereload==1.7
 Markdown==3.1.1
