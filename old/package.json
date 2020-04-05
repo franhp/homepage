@@ -1,0 +1,25 @@
+{
+  "name": "homepage",
+  "version": "2.0.0",
+  "description": "Homepage",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "sass": "node-sass --include-path scss static/css/custom.scss static/COMPILED/css/custom.css && node-sass --include-path scss static/css/codehilite.scss static/COMPILED/css/codehilite.css ",
+    "watch": "nodemon -e scss -x \"npm run sass\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franhp/homepage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franhp/homepage/issues"
+  },
+  "homepage": "https://github.com/franhp/homepage#readme"
+}
