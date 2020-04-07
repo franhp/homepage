@@ -1,0 +1,14 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+
+    {{ block.super }}
+
+    <li>
+        <form id="import" action="import/" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Import">
+        </form>
+    </li>
+
+
+{% endblock %}

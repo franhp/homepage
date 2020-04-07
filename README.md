@@ -46,9 +46,10 @@ Visit [franhp.dev](https://franhp.dev)
 
 ### Watched 
 
-[ ] Load WATCHED.csv directly from IMDB
+[*] Load WATCHED.csv directly from IMDB
 [ ] Display top 10 movies and tv series based on IMDB personal rankings
 [ ] Allow manual ordering
 [ ] Display total amount of watched tv series and movies separately
 [ ] show date of the last load of WATCHED.csv
 [ ] load WATCHED.csv periodically and automatically
+[ ] top books
