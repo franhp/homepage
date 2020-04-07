@@ -19,13 +19,12 @@ class CustomTitle(admin.ModelAdmin):
 
     def get_urls(self):
         urls = super(CustomTitle, self).get_urls()
-        new_urls = [path("import/", import_titles)]
+        new_urls = [path("import/", self.import_titles)]
         return new_urls + urls
+
+    def import_titles(self):
+        Title.import_imdb()
+        return HttpResponseRedirect(self.META["HTTP_REFERER"])
 
 
 admin.site.register(Title, CustomTitle)
-
-
-def import_titles(self):
-    Title.import_imdb()
-    return HttpResponseRedirect(self.META["HTTP_REFERER"])

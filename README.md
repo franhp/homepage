@@ -9,7 +9,7 @@ Visit [franhp.dev](https://franhp.dev)
 [ ] Use reactjs + python
 [ ] Move away from database and into json files generated during build
 [ ] Automatic build and deploy with github actions (ssh?)
-[ ] Linting (black?)
+[*] Linting (black?)
 [ ] Bring back the orange
 [ ] Personal Blog
 [ ] RSS
