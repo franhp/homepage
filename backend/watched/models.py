@@ -4,6 +4,7 @@ import os
 import time
 
 import requests
+import xmltodict
 
 from django.db import models
 from django.conf import settings
@@ -30,13 +31,13 @@ class Title(models.Model):
         (BOOK, "Book"),
     )
 
-    reference = models.CharField(max_length=50)
+    reference = models.CharField(max_length=255)
     name = models.CharField(max_length=255, blank=True, null=True)
     title_type = models.CharField(
         max_length=50, choices=TITLE_TYPES, blank=True, null=True
     )
     my_rating = models.PositiveSmallIntegerField(blank=True, null=True)
-    imdb_rating = models.FloatField(blank=True, null=True)
+    site_rating = models.FloatField(blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
     ranking_order = models.PositiveSmallIntegerField(blank=True, null=True)
 
@@ -49,9 +50,9 @@ class Title(models.Model):
         next(reader)  #  Skip the header row
         for line in reader:
             Title.objects.update_or_create(
-                reference=line[1],
+                reference=line[6],
                 name=line[5],
-                imdb_rating=float(line[8]) if line[8] else None,
+                site_rating=float(line[8]) if line[8] else None,
                 my_rating=int(line[15]) if line[15] else None,
                 title_type=line[7],
             )
@@ -85,3 +86,19 @@ class Title(models.Model):
         driver.quit()
 
         return csv_file.content.decode("iso-8859-1")
+
+    @staticmethod
+    def import_goodreads():
+        response = requests.get(
+            "https://www.goodreads.com/review/list_rss/39044705?shelf=read"
+        )
+
+        books = xmltodict.parse(response.content)
+        for book in books["rss"]["channel"]["item"]:
+            Title.objects.update_or_create(
+                reference=book["link"],
+                name=book["title"],
+                my_rating=book["user_rating"],
+                site_rating=book["average_rating"],
+                title_type=Title.BOOK,
+            )

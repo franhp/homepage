@@ -4,9 +4,15 @@
     {{ block.super }}
 
     <li>
-        <form id="import" action="import/" method="post">
+        <form id="import" action="import_imdb/" method="post">
             {% csrf_token %}
-            <input type="submit" value="Import">
+            <input type="submit" value="Import IMDB">
+        </form>
+    </li>
+    <li>
+        <form id="import" action="import_goodreads/" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Import Goodreads">
         </form>
     </li>
 
