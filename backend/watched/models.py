@@ -1,7 +1,5 @@
 import csv
 import io
-import os
-import time
 
 import requests
 import xmltodict
@@ -9,7 +7,6 @@ import xmltodict
 from django.db import models
 from django.conf import settings
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
 
@@ -51,10 +48,12 @@ class Title(models.Model):
         for line in reader:
             Title.objects.update_or_create(
                 reference=line[6],
-                name=line[5],
-                site_rating=float(line[8]) if line[8] else None,
-                my_rating=int(line[15]) if line[15] else None,
-                title_type=line[7],
+                defaults={
+                    "name": line[5],
+                    "site_rating": float(line[8]) if line[8] else None,
+                    "my_rating": int(line[15]) if line[15] else None,
+                    "title_type": line[7],
+                },
             )
 
     @staticmethod
@@ -90,15 +89,19 @@ class Title(models.Model):
     @staticmethod
     def import_goodreads():
         response = requests.get(
-            "https://www.goodreads.com/review/list_rss/39044705?shelf=read"
+            "https://www.goodreads.com/review/list_rss/{}?shelf=read".format(
+                settings.GOODREADS_ID
+            )
         )
 
         books = xmltodict.parse(response.content)
         for book in books["rss"]["channel"]["item"]:
             Title.objects.update_or_create(
                 reference=book["link"],
-                name=book["title"],
-                my_rating=book["user_rating"],
-                site_rating=book["average_rating"],
-                title_type=Title.BOOK,
+                defaults={
+                    "name": book["title"],
+                    "my_rating": book["user_rating"],
+                    "site_rating": book["average_rating"],
+                    "title_type": Title.BOOK,
+                },
             )

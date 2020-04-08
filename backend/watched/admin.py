@@ -6,12 +6,7 @@ from watched.models import Title
 
 
 class CustomTitle(admin.ModelAdmin):
-    list_display = (
-        "name",
-        "title_type",
-        "site_rating",
-        "my_rating",
-    )
+    list_display = ("name", "title_type", "site_rating", "my_rating", "ranking_order")
     list_filter = ("title_type",)
     search_fields = ("name",)
 
