@@ -121,8 +121,4 @@ IMDB_USERNAME = os.environ.get("IMDB_USERNAME")
 IMDB_PASSWORD = os.environ.get("IMDB_PASSWORD")
 IMDB_WATCHLISTID = "ls053627486"
 
-GECKODRIVER_PATH = BASE_DIR + "/../node_modules/geckodriver/bin/"
-if GECKODRIVER_PATH not in os.environ["PATH"]:
-    os.environ["PATH"] += os.pathsep + GECKODRIVER_PATH
-
 GOODREADS_ID = "39044705"

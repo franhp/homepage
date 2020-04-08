@@ -3,6 +3,7 @@ import io
 
 import requests
 import xmltodict
+import geckodriver_autoinstaller
 
 from django.db import models
 from django.conf import settings
@@ -58,6 +59,8 @@ class Title(models.Model):
 
     @staticmethod
     def fetch_csv_from_imdb():
+        geckodriver_autoinstaller.install()
+
         options = Options()
         options.headless = True
 
