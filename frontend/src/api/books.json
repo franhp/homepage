@@ -1,0 +1,132 @@
+[
+{
+    "model": "watched.title",
+    "pk": 2716,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164850666?utm_medium=api&utm_source=rss",
+        "name": "The Fellowship of the Ring (The Lord of the Rings, #1)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.36,
+        "updated_at": "2020-04-08T21:07:07.200Z",
+        "ranking_order": 1
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2722,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164846936?utm_medium=api&utm_source=rss",
+        "name": "A Dance with Dragons (A Song of Ice and Fire, #5)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.32,
+        "updated_at": "2020-04-08T21:07:07.242Z",
+        "ranking_order": 2
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2718,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164849234?utm_medium=api&utm_source=rss",
+        "name": "The Return of the King (The Lord of the Rings, #3)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.53,
+        "updated_at": "2020-04-08T21:07:07.214Z",
+        "ranking_order": 3
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2691,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164920068?utm_medium=api&utm_source=rss",
+        "name": "The Name of the Wind (The Kingkiller Chronicle, #1)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.54,
+        "updated_at": "2020-04-08T21:07:07.045Z",
+        "ranking_order": 4
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2687,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/3091613865?utm_medium=api&utm_source=rss",
+        "name": "The Final Empire (Mistborn, #1)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.44,
+        "updated_at": "2020-04-08T21:07:07.020Z",
+        "ranking_order": 5
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2682,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1271823114?utm_medium=api&utm_source=rss",
+        "name": "The Great Big Book of Horrible Things: The Definitive Chronicle of History's 100 Worst Atrocities",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.14,
+        "updated_at": "2020-04-08T21:07:06.989Z",
+        "ranking_order": 6
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2711,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164860445?utm_medium=api&utm_source=rss",
+        "name": "Harry Potter and the Order of the Phoenix (Harry Potter, #5)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.49,
+        "updated_at": "2020-04-08T21:07:07.168Z",
+        "ranking_order": 7
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2726,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164845081?utm_medium=api&utm_source=rss",
+        "name": "A Game of Thrones (A Song of Ice and Fire, #1)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.45,
+        "updated_at": "2020-04-08T21:07:07.270Z",
+        "ranking_order": 8
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2684,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/2515366938?utm_medium=api&utm_source=rss",
+        "name": "A Little History of the World",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.13,
+        "updated_at": "2020-04-08T21:07:07.002Z",
+        "ranking_order": 9
+    }
+},
+{
+    "model": "watched.title",
+    "pk": 2724,
+    "fields": {
+        "reference": "https://www.goodreads.com/review/show/1164846075?utm_medium=api&utm_source=rss",
+        "name": "A Storm of Swords (A Song of Ice and Fire, #3)",
+        "title_type": "book",
+        "my_rating": 5,
+        "site_rating": 4.54,
+        "updated_at": "2020-04-08T21:07:07.257Z",
+        "ranking_order": 10
+    }
+}
+]
