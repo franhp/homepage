@@ -102,8 +102,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Ideas
 
-[ ] Use reactjs + python
-[ ] Move away from database and into json files generated during build
+[*] Use reactjs + python
+[*] Move away from database and into json files generated during build
 [ ] Automatic build and deploy with github actions (ssh?)
 [*] Linting (black?)
 [ ] Bring back the orange
