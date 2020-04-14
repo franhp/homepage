@@ -8,7 +8,7 @@ class Home extends React.Component {
         return (
             <div className="App">
 
-                <Image src={logo} width="300" height="300" thumbnail />
+                <Image src={logo} width="200" height="400" thumbnail />
 
 
 

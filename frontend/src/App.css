@@ -7,14 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-nav a {
-  list-style: none;
-  margin: 0 60px;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-
-nav img {
-  width: 80px;
+#footer-logo {
+  width: 50px;
 }

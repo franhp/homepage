@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBook, faLocationArrow, faLink, faFilm } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faBook, faLocationArrow, faLink, faFilm, faExclamation } from '@fortawesome/free-solid-svg-icons'
 
 import cc from './images/by-nc-sa.eu.svg';
 import './App.css';
@@ -16,29 +16,38 @@ import Rankings from './modules/Rankings';
 function App() {
   return (
     <Router>
-      <Navbar sticky="top" expand="lg" variant="dark" bg="dark">
-        <Navbar.Brand href="/">
-          <FontAwesomeIcon icon={faUser} />
-        </Navbar.Brand>
+      <Navbar sticky="top" expand="md" variant="dark" bg="dark">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse>
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
           <Nav>
-            <Nav.Link href="/wiki">
-              Wiki <FontAwesomeIcon icon={faBook} />
+            <Nav.Link href="/" className="mr-5">
+              <span className="d-md-none d-lg-inline d-xl-inline">Home</span>&nbsp;
+              <FontAwesomeIcon icon={faUser} />
             </Nav.Link>
-            <Nav.Link href="/bookmarks">
-              Bookmarks <FontAwesomeIcon icon={faLink} />
+            <Nav.Link href="/wiki" className="mr-5">
+              <span className="d-md-none d-lg-inline d-xl-inline">Wiki</span>&nbsp;
+              <FontAwesomeIcon icon={faBook} />
             </Nav.Link>
-            <Nav.Link href="/places">
-              Places <FontAwesomeIcon icon={faLocationArrow} />
+            <Nav.Link href="/bookmarks" className="mr-5">
+              <span className="d-md-none d-lg-inline d-xl-inline">Bookmarks</span>&nbsp;
+              <FontAwesomeIcon icon={faLink} />
             </Nav.Link>
-            <Nav.Link href="/rankings">
-              Rankings <FontAwesomeIcon icon={faFilm} />
+            <Nav.Link href="/places" className="mr-5">
+              <span className="d-md-none d-lg-inline d-xl-inline">Places</span>&nbsp;
+              <FontAwesomeIcon icon={faLocationArrow} />
+            </Nav.Link>
+            <Nav.Link href="/rankings" className="mr-5">
+              <span className="d-md-none d-lg-inline d-xl-inline">Rankings</span>&nbsp;
+              <FontAwesomeIcon icon={faFilm} />
+            </Nav.Link>
+            <Nav.Link href="/unknown" className="mr-5">
+              <span className="d-md-none d-lg-inline d-xl-inline">Unknown</span>&nbsp;
+              <FontAwesomeIcon icon={faExclamation} />
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Container>
+      <Container className="content">
         <Switch>
           <Route exact path="/">
             <Home />
@@ -49,7 +58,7 @@ function App() {
         </Switch>
       </Container>
       <Navbar sticky="bottom" variant="dark" bg="dark" className="justify-content-center">
-        <Image src={cc} className="p-3" />
+        <Image src={cc} id="footer-logo" />
       </Navbar>
     </Router >
   );
