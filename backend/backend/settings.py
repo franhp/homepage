@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.gis",
     "watched",
+    "places",
 ]
 
 MIDDLEWARE = [
@@ -76,9 +78,13 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+        #     "ENGINE": "django.db.backends.sqlite3",
+        #     "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        # },
+        # "positions": {
+        "ENGINE": "django.contrib.gis.db.backends.spatialite",
+        "NAME": os.path.join(BASE_DIR, "positions.spatialite"),
+    },
 }
 
 
@@ -122,3 +128,7 @@ IMDB_PASSWORD = os.environ.get("IMDB_PASSWORD")
 IMDB_WATCHLISTID = "ls053627486"
 
 GOODREADS_ID = "39044705"
+
+# Places
+
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")

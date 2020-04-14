@@ -2,6 +2,15 @@
 
 Visit [franhp.dev](https://franhp.dev)
 
+# Places
+
+Macos installation
+```
+brew install spatialite-tools gdal
+```
+
+# Frontend
+
 ```
 Success! Created frontend2 at /Users/franhp/code/homepage/frontend2
 Inside that directory, you can run several commands:
