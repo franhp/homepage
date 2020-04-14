@@ -43,11 +43,11 @@ class Command(BaseCommand):
             serializers.serialize("json", reversed(tvseries[:10]), stream=out, indent=4)
 
         with open("../frontend/src/api/watched.json", "w+") as out:
-            last_update = str(Title.objects.order_by("-updated_at")[0].updated_at)
+            last_update = Title.objects.order_by("-updated_at")[0].updated_at
             out.write(
                 json.dumps(
                     {
-                        "last_update": last_update.strftime("%Y-%m-%d %H:M"),
+                        "last_update": last_update.strftime("%Y-%m-%d %H:%M"),
                         "count_tvseries": tvseries.count(),
                         "count_movies": movies.count(),
                         "count_books": books.count(),
