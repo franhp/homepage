@@ -47,7 +47,7 @@ class Command(BaseCommand):
             out.write(
                 json.dumps(
                     {
-                        "last_update": last_update,
+                        "last_update": last_update.strftime("%Y-%m-%d %H:M"),
                         "count_tvseries": tvseries.count(),
                         "count_movies": movies.count(),
                         "count_books": books.count(),

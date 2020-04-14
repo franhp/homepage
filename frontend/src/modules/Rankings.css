@@ -1,0 +1,10 @@
+
+a.nav-link.active {
+    background-color: #f8f9fa !important;
+}
+
+.star {
+    font-size: small;
+    font-weight: bolder;
+    color: black;
+}

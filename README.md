@@ -109,6 +109,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [ ] Bring back the orange
 [ ] Personal Blog
 [ ] RSS
+[ ] wine ranking?
 [ ] Showcase panel (for selling stuff)(bookmarks replacement?)
 https://react-bootstrap.netlify.com/layout/media/#media-list
 
