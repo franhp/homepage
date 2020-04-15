@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './modules/Home';
 import Rankings from './modules/Rankings';
+import Places from './modules/Places';
 
 
 class App extends React.Component {
@@ -51,6 +52,9 @@ class App extends React.Component {
             </Route>
             <Route path="/rankings">
               <Rankings />
+            </Route>
+            <Route path="/places">
+              <Places />
             </Route>
           </Switch>
         </Container>
