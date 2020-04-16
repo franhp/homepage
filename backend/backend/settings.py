@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.gis",
     "watched",
     "places",
+    "bookmarks",
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         # },
         # "positions": {
         "ENGINE": "django.contrib.gis.db.backends.spatialite",
-        "NAME": os.path.join(BASE_DIR, "positions.spatialite"),
+        "NAME": os.path.join(BASE_DIR, "database.spatialite"),
     },
 }
 

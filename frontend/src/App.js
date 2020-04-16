@@ -1,16 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar, Nav, Container, Image } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBook, faLocationArrow, faLink, faFilm, faExclamation } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faFileCode, faLocationArrow, faExclamation, faBookmark, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faCreativeCommons, faCreativeCommonsBy, faCreativeCommonsNcEu, faCreativeCommonsSa } from '@fortawesome/free-brands-svg-icons'
 
-import cc from './images/by-nc-sa.eu.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './modules/Home';
 import Rankings from './modules/Rankings';
 import Places from './modules/Places';
+import Bookmarks from './modules/Bookmarks';
 
 
 class App extends React.Component {
@@ -36,16 +37,16 @@ class App extends React.Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
             <Nav>
-              {this.renderTopButton("/wiki", faBook, "Wiki")}
-              {this.renderTopButton("/bookmarks", faLink, "Bookmarks")}
+              {this.renderTopButton("/rankings", faTrophy, "Rankings")}
               {this.renderTopButton("/places", faLocationArrow, "Places")}
-              {this.renderTopButton("/rankings", faFilm, "Rankings")}
+              {this.renderTopButton("/bookmarks", faBookmark, "Bookmarks")}
+              {this.renderTopButton("/wiki", faFileCode, "Wiki")}
               {this.renderTopButton("/unknown", faExclamation, "Unknown")}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
 
-        <Container className="p-3 min">
+        <Container className="p-3">
           <Switch>
             <Route exact path="/">
               <Home />
@@ -56,11 +57,19 @@ class App extends React.Component {
             <Route path="/places">
               <Places />
             </Route>
+            <Route path="/bookmarks">
+              <Bookmarks />
+            </Route>
           </Switch>
         </Container>
 
         <Navbar sticky="bottom" variant="light" bg="light" className="justify-content-center">
-          <Image src={cc} id="footer-logo" />
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <FontAwesomeIcon icon={faCreativeCommons} />
+            <FontAwesomeIcon icon={faCreativeCommonsBy} />
+            <FontAwesomeIcon icon={faCreativeCommonsNcEu} />
+            <FontAwesomeIcon icon={faCreativeCommonsSa} />
+          </a>
         </Navbar>
       </Router >
     );

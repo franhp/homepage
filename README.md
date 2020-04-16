@@ -1,5 +1,8 @@
 # Homepage
 
+[![Requirements Status](https://requires.io/github/franhp/homepage/requirements.svg?branch=develop)](https://requires.io/github/franhp/homepage/requirements/?branch=develop)
+
+
 Visit [franhp.dev](https://franhp.dev)
 
 # Places
@@ -119,18 +122,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [ ] Personal Blog
 [ ] RSS
 [ ] wine ranking?
+[ ] add license file to the github repo
 [ ] Showcase panel (for selling stuff)(bookmarks replacement?)
-https://react-bootstrap.netlify.com/layout/media/#media-list
+[ ] Squash all django migrations
 
 ### Home
 
 [ ] Links to github, lastfm, twitter, linkedin, goodreads?
+[ ] Lastfm top?
 [ ] Location
 [ ] Likes
 [ ] New picture
 [ ] Huge name
 [ ] Job
-[ ] License by-nc-sa (new logo with fontawesome)
+[*] License by-nc-sa (new logo with fontawesome)
 
 ### Wiki
 
@@ -147,9 +152,9 @@ https://react-bootstrap.netlify.com/layout/media/#media-list
 
 ### Places
 
-[ ] Display hackergotchi in each city that has been visited
-[ ] Display list of visited countries, cities and years
-[ ] Display different hackergotchi depending on type of visit (alone, together)
+[*] Display hackergotchi in each city that has been visited
+[*] Display list of visited countries, cities and years
+[*] Display different hackergotchi depending on type of visit (alone, together)
 
 ### Watched 
 

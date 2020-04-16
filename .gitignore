@@ -1,8 +1,7 @@
 __pycache__
 node_modules/
 package-lock.json
-db.sqlite3
-positions.spatialite
+database.spatialite
 geckodriver.log
 
 # Generated
