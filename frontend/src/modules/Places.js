@@ -10,25 +10,25 @@ class PlacesList extends React.Component {
         super(props);
 
         var flags = {}
-        var content = {}
+        var places = {}
 
         points.features.forEach(feature => {
 
             flags[feature.properties.country] = feature.properties.flag;
 
             var city = [feature.properties.city, feature.properties.date.split("-")[0]]
-            if (Array.isArray(content[feature.properties.country])) {
-                content[feature.properties.country].push(city);
+            if (Array.isArray(places[feature.properties.country])) {
+                places[feature.properties.country].push(city);
             } else {
-                content[feature.properties.country] = [city];
+                places[feature.properties.country] = [city];
             }
 
         });
 
         this.state = {
-            places: content,
+            places: places,
             flags: flags,
-            country_names: Object.keys(flags)
+            countries: Object.keys(flags)
         }
     }
 
@@ -69,9 +69,9 @@ class PlacesList extends React.Component {
     render() {
         return (
             <Container>
-                <h1>{this.state.country_names.length} countries visited</h1>
+                <h1>{this.state.countries.length} countries visited</h1>
                 <Row>
-                    {this.split_array(this.state.country_names).map(slice => {
+                    {this.split_array(this.state.countries).map(slice => {
                         return this.renderMediaCol(slice);
                     })}
                 </Row>
