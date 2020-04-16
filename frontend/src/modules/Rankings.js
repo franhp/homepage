@@ -18,13 +18,13 @@ class Ranking extends React.Component {
             <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center" action href={value.fields.reference}>
                 {index + 1}. {value.fields.name}
                 <span className="badge badge-secondary">
-                    <i className="fa-3x">
+                    <i className="fa-2x">
                         <span className="fa-layers fa-fw">
                             <FontAwesomeIcon icon={faStar} />
                             <span className="fa-layers-text star">{value.fields.site_rating.toFixed(1)}</span>
                         </span>
                     </i>
-                    {(item_type === "Books") ? <FontAwesomeIcon size="3x" icon={faGoodreads} /> : <FontAwesomeIcon size="3x" icon={faImdb} />}
+                    {(item_type === "Books") ? <FontAwesomeIcon size="2x" icon={faGoodreads} /> : <FontAwesomeIcon size="2x" icon={faImdb} />}
                 </span>
             </ListGroup.Item >
         );

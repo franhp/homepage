@@ -4,7 +4,7 @@ a.nav-link.active {
 }
 
 .star {
-    font-size: small;
+    font-size: 0.4em;
     font-weight: bolder;
     color: black;
 }

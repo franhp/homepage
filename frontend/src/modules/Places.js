@@ -46,7 +46,7 @@ class PlacesList extends React.Component {
                     <ul className="list-unstyled">{this.state.places[country].map(city => {
                         return (
                             <li key={city}>
-                                <small>{city[0]} <span className="badge badge-primary">{city[1]}</span></small>
+                                <small>{city[0]} <span className="badge badge-primary year">{city[1]}</span></small>
                             </li>
                         )
                     })}
@@ -93,13 +93,7 @@ class Places extends React.Component {
         map.data.addGeoJson(points);
 
         map.data.setStyle(function (feature) {
-            if (feature.j.attendants === "both") {
-                return ({ "icon": "./both.png" })
-            } else if (feature.j.attendants === "fran") {
-                return ({ "icon": "./fran.png" })
-            } else if (feature.j.attendants === "sara") {
-                return ({ "icon": "./sara.png" })
-            }
+            return ({ "icon": "./faces/" + feature.j.attendants + ".png" })
         });
     }
 
