@@ -59,7 +59,7 @@ class App extends React.Component {
           </Switch>
         </Container>
 
-        <Navbar fixed="bottom" variant="light" bg="light" className="justify-content-center">
+        <Navbar sticky="bottom" variant="light" bg="light" className="justify-content-center">
           <Image src={cc} id="footer-logo" />
         </Navbar>
       </Router >
