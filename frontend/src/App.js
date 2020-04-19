@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faFileCode, faLocationArrow, faExclamation, faBookmark, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import { faCreativeCommons, faCreativeCommonsBy, faCreativeCommonsNcEu, faCreativeCommonsSa } from '@fortawesome/free-brands-svg-icons'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './images/logo.png';
 
 import Home from './modules/Home';
 import Rankings from './modules/Rankings';
@@ -30,7 +31,7 @@ class App extends React.Component {
         <Navbar sticky="top" expand="md" variant="light" bg="light">
           <Navbar.Brand>
             <a href="/">
-              <FontAwesomeIcon icon={faUser} />&nbsp;
+              <Image src={logo} width={25} />&nbsp;
               <span className="d-md-none d-lg-inline d-xl-inline">franhp</span>
             </a>
           </Navbar.Brand>

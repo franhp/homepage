@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGoodreads, faLastfmSquare, faGithubSquare, faTwitterSquare, faDocker, faLinux, faPython, faJava, faAws, faHtml5, faCss3, faJenkins, faReact, faSass, faJs, faLess } from '@fortawesome/free-brands-svg-icons';
 import { faHeadphones, faPlaneDeparture, faTerminal, faGamepad, faHeart, faFilm, faMapMarkerAlt, faBook, faMusic, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
-import logo from '../images/logo.svg';
+import profile from '../images/profile.png';
 
 
 class Home extends React.Component {
@@ -13,7 +13,7 @@ class Home extends React.Component {
             <Container>
                 <Row>
                     <Col sm={6} className="text-center">
-                        <Image src={logo} width="350" thumbnail />
+                        <Image src={profile} width="350" thumbnail />
                     </Col>
                     <Col sm={6}>
                         <h2>Other</h2>
