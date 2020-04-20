@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faFileCode, faLocationArrow, faExclamation, faBookmark, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faFileCode, faLocationArrow, faExclamation, faBookmark, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import { faCreativeCommons, faCreativeCommonsBy, faCreativeCommonsNcEu, faCreativeCommonsSa } from '@fortawesome/free-brands-svg-icons'
 
 import './App.css';

@@ -10,7 +10,7 @@ class Command(BaseCommand):
     help = "Outputs the JSON for the website"
 
     def handle(self, *args, **options):
-        visits = Visit.objects.all()
+        visits = Visit.objects.all().order_by("-date")
         features = json.loads(serializers.serialize("geojson", visits))
 
         for index, visit in enumerate(visits):
