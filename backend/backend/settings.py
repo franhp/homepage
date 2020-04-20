@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "watched",
     "places",
     "bookmarks",
+    "wiki",
 ]
 
 MIDDLEWARE = [

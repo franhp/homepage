@@ -150,6 +150,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Add screenshot and description
 [ ] Loading of old bookmarks.html files from firefox?
 [*] automatically check all bookmarks are alive
+[ ] check bookmarks on mobile/tablet
 
 ### Places
 

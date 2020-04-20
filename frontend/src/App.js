@@ -13,6 +13,7 @@ import Home from './modules/Home';
 import Rankings from './modules/Rankings';
 import Places from './modules/Places';
 import Bookmarks from './modules/Bookmarks';
+import Wiki from './modules/Wiki';
 
 
 class App extends React.Component {
@@ -60,6 +61,9 @@ class App extends React.Component {
             </Route>
             <Route path="/bookmarks">
               <Bookmarks />
+            </Route>
+            <Route path="/wiki">
+              <Wiki />
             </Route>
           </Switch>
         </Container>
