@@ -121,7 +121,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Bring back the orange
 [ ] Personal Blog?
 [ ] RSS?
-[ ] wine ranking?
+
 [ ] add license file to the github repo
 [ ] Showcase panel (for selling stuff)(bookmarks replacement?)
 [ ] Squash all django migrations
@@ -146,18 +146,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Bookmarks
 
-[ ] List of personal links, ordered by year
-[ ] Add screenshot and description
+[*] List of personal links, ordered by year
+[*] Add screenshot and description
 [ ] Loading of old bookmarks.html files from firefox?
-[ ] automatically check all bookmarks are alive
+[*] automatically check all bookmarks are alive
 
 ### Places
 
 [*] Display hackergotchi in each city that has been visited
 [*] Display list of visited countries, cities and years
 [*] Display different hackergotchi depending on type of visit (alone, together)
-[ ] places where i lived
-[ ] multiple visits to the same place ie Brussels
+[*] places where i lived
+[ ] multiple visits to the same place ie Brussels shown in map (also home)
 
 ### Rankings
 
@@ -169,3 +169,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [ ] load WATCHED.csv periodically and automatically
 [*] top books
 [ ] top games
+[ ] wine ranking?
