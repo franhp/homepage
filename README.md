@@ -118,9 +118,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Move away from database and into json files generated during build
 [ ] Automatic build and deploy with github actions (ssh?)
 [*] Linting (black?)
-[ ] Bring back the orange
-[ ] Personal Blog
-[ ] RSS
+[*] Bring back the orange
+[ ] Personal Blog?
+[ ] RSS?
 [ ] wine ranking?
 [ ] add license file to the github repo
 [ ] Showcase panel (for selling stuff)(bookmarks replacement?)
@@ -129,7 +129,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### Home
 
 [ ] Links to github, lastfm, twitter, linkedin, goodreads?
-[ ] Lastfm top?
+[ ] Lastfm top? https://github.com/jishaal/react-lastfm
 [ ] Location
 [ ] Likes
 [ ] New picture
@@ -142,21 +142,24 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [ ] new snippets?
 [ ] Load markdown files
 [ ] Search markdown files
-
+[ ] Recetas
 
 ### Bookmarks
 
 [ ] List of personal links, ordered by year
 [ ] Add screenshot and description
 [ ] Loading of old bookmarks.html files from firefox?
+[ ] automatically check all bookmarks are alive
 
 ### Places
 
 [*] Display hackergotchi in each city that has been visited
 [*] Display list of visited countries, cities and years
 [*] Display different hackergotchi depending on type of visit (alone, together)
+[ ] places where i lived
+[ ] multiple visits to the same place ie Brussels
 
-### Watched 
+### Rankings
 
 [*] Load WATCHED.csv directly from IMDB
 [*] Display top 10 movies and tv series based on IMDB personal rankings
@@ -165,4 +168,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] show date of the last load of WATCHED.csv
 [ ] load WATCHED.csv periodically and automatically
 [*] top books
-[ ] have you seen this movie?
+[ ] top games

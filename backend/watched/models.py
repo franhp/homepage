@@ -19,6 +19,7 @@ class Title(models.Model):
     TVMINISERIES = "tvMiniSeries"
     VIDEO = "video"
     BOOK = "book"
+    GAME = "game"
     TITLE_TYPES = (
         (MOVIE, "Movie"),
         (TVSERIES, "TV Series"),
@@ -27,6 +28,7 @@ class Title(models.Model):
         (TVMINISERIES, "TV Miniseries"),
         (VIDEO, "Video"),
         (BOOK, "Book"),
+        (GAME, "Game"),
     )
 
     reference = models.CharField(max_length=255)
