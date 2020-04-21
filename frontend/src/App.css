@@ -5,8 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  
   background: rgb(255,143,0);
   background: linear-gradient(90deg, rgba(255,143,0,1) 10%, rgba(248,249,250,1) 75%);
 }
@@ -23,7 +21,6 @@ nav svg {
   color: rgba(0,0,0,.5);
   text-decoration: none;
 }
-
 
 #footer-logo {
   width: 50px;

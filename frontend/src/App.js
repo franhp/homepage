@@ -68,12 +68,12 @@ class App extends React.Component {
           </Switch>
         </Container>
 
-        <Navbar sticky="bottom" variant="light" bg="light" className="justify-content-center">
+        <Navbar fixed="bottom" variant="light" bg="light" className="justify-content-center">
           <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-            <FontAwesomeIcon icon={faCreativeCommons} />
-            <FontAwesomeIcon icon={faCreativeCommonsBy} />
-            <FontAwesomeIcon icon={faCreativeCommonsNcEu} />
-            <FontAwesomeIcon icon={faCreativeCommonsSa} />
+            <FontAwesomeIcon icon={faCreativeCommons} size="sm" />
+            <FontAwesomeIcon icon={faCreativeCommonsBy} size="sm" />
+            <FontAwesomeIcon icon={faCreativeCommonsNcEu} size="sm" />
+            <FontAwesomeIcon icon={faCreativeCommonsSa} size="sm" />
           </a>
         </Navbar>
       </Router >
