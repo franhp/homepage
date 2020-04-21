@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ListGroup, Tab, Accordion, Card } from 'react-bootstrap';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import ReactMarkDown from 'react-markdown';
@@ -7,6 +9,21 @@ import categories from '../api/wiki_categories.json';
 import documents from '../api/wiki.json';
 
 import './Wiki.css'
+
+class CodeBlock extends React.PureComponent {
+    static defaultProps = {
+        language: null
+    };
+
+    render() {
+        const { language, value } = this.props;
+        return (
+            <SyntaxHighlighter language={language} style={coy}>
+                {value}
+            </SyntaxHighlighter>
+        );
+    }
+}
 
 function CollapsibleCard(document) {
     const [open, setOpen] = useState(false);
@@ -18,7 +35,8 @@ function CollapsibleCard(document) {
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={document.fields.slug}>
                 <Card.Body>
-                    <ReactMarkDown source={document.fields.content} />
+                    <ReactMarkDown source={document.fields.content} renderers={{ code: CodeBlock }} />
+                    <div className="text-right">Last Update: <i>{document.fields.date.split('T')[0]}</i></div>
                 </Card.Body>
             </Accordion.Collapse>
         </Card>
@@ -33,7 +51,10 @@ class Wiki extends React.Component {
                     {categories.map(category => {
                         return (
                             <ListGroup.Item action href={"#" + category.fields.slug}>
-                                {category.fields.name}
+                                {category.fields.name}&nbsp;
+                                <div className="badge badge-secondary badge-pill">
+                                    {documents.map(document => { return (document.fields.category === category.pk) ? 1 : 0 }).reduce((a, b) => a + b, 0)}
+                                </div>
                             </ListGroup.Item>
                         )
                     })}
