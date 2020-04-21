@@ -118,12 +118,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Move away from database and into json files generated during build
 [ ] Automatic build and deploy with github actions (ssh?)
 [*] Linting (black?)
+[ ] Linting JS
 [*] Bring back the orange
-[ ] Personal Blog?
-[ ] RSS?
 
 [ ] add license file to the github repo
-[ ] Showcase panel (for selling stuff)(bookmarks replacement?)
 [ ] Squash all django migrations
 
 ### Home
@@ -139,18 +137,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### Wiki
 
-[ ] new snippets?
-[ ] Load markdown files
-[ ] Search markdown files
-[ ] Recetas
+[*] Load markdown files
+[*] Search markdown files
+[*] Recetas
+[ ] codehilite + toc
 
 ### Bookmarks
 
 [*] List of personal links, ordered by year
 [*] Add screenshot and description
-[ ] Loading of old bookmarks.html files from firefox?
 [*] automatically check all bookmarks are alive
-[ ] check bookmarks on mobile/tablet
 
 ### Places
 
@@ -167,7 +163,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Allow manual ordering
 [*] Display total amount of watched tv series and movies separately
 [*] show date of the last load of WATCHED.csv
-[ ] load WATCHED.csv periodically and automatically
+[ ] load IMDB&Goodreads periodically and automatically with docker
 [*] top books
 [ ] top games
-[ ] wine ranking?

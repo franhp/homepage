@@ -20,7 +20,7 @@ class Bookmarks extends React.Component {
                                 />
                             </a>
                             <Media.Body>
-                                <h5><a href={bookmark.fields.url}>{bookmark.fields.name}</a></h5>
+                                <h5><a href={bookmark.fields.url}>{bookmark.fields.name} <small>({bookmark.fields.year})</small></a></h5>
                                 <p>{bookmark.fields.description}</p>
                             </Media.Body>
                         </Media>
