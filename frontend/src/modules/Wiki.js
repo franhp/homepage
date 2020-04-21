@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { ListGroup, Tab, Accordion, Card } from 'react-bootstrap';
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import ReactMarkDown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import categories from '../api/wiki_categories.json';
 import documents from '../api/wiki.json';
 

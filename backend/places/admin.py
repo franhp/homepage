@@ -3,7 +3,7 @@ from places.models import City, Country, Visit
 
 
 class CustomVisit(admin.ModelAdmin):
-    list_display = ("date", "attendants", "city")
+    list_display = ("date", "attendants", "city", "display")
 
 
 admin.site.register(City, admin.OSMGeoAdmin)

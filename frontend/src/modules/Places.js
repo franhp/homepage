@@ -3,10 +3,21 @@ import { Container, Row, Media, Col, Collapse } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import GoogleMapReact from 'google-map-react';
-import points from '../api/places.json';
+import points from '../api/geoplaces.json';
+import countries from '../api/countries.json';
+import visits from '../api/visits.json';
+
 
 import './Places.css';
 
+function CityWithBadges(city) {
+    return (
+        <small>
+            {city[0]}&nbsp;
+            {city[1].map(year => { return <span className="badge badge-primary year">{year}</span> })}
+        </small>
+    );
+}
 
 function CollapsibleCityList(params) {
     const [open, setOpen] = useState(false);
@@ -23,7 +34,7 @@ function CollapsibleCityList(params) {
                     {params.cities.map(city => {
                         return (
                             <li key={city}>
-                                <small>{city[0]} <span className="badge badge-primary year">{city[1]}</span></small>
+                                <CityWithBadges {...city} />
                             </li>
                         )
                     })}
@@ -33,59 +44,35 @@ function CollapsibleCityList(params) {
     );
 }
 
+
+
 class PlacesList extends React.Component {
-    constructor(props) {
-        super(props);
-
-        var flags = {}
-        var places = {}
-
-        points.features.forEach(feature => {
-
-            flags[feature.properties.country] = feature.properties.flag;
-
-            var city = [feature.properties.city, feature.properties.date.split("-")[0]]
-            if (Array.isArray(places[feature.properties.country])) {
-                places[feature.properties.country].push(city);
-            } else {
-                places[feature.properties.country] = [city];
-            }
-
-        });
-
-        this.state = {
-            places: places,
-            flags: flags,
-            countries: Object.keys(flags)
-        }
-    }
-
-    split_array(keys) {
-        return [keys.slice(0, keys.length / 2), keys.slice(keys.length / 2)];
-    }
-
-    renderCityList(country) {
-        if (this.state.places[country].length > 3) {
+    renderCityList(country, cities) {
+        var city_visits = cities.map(city => {
+            var v = visits.map(visit => { return visit.fields.city === city ? visit.fields.date.split("-")[0] : null })
+            return [city, v.filter(val => val !== null)]
+        })
+        if (cities.length > 3) {
             return (
                 <>
                     {
-                        this.state.places[country].slice(0, 3).map(city => {
+                        city_visits.slice(0, 3).map(city => {
                             return (
                                 <li key={city}>
-                                    <small>{city[0]} <span className="badge badge-primary year">{city[1]}</span></small>
+                                    <CityWithBadges {...city} />
                                 </li>
                             )
                         })
                     }
-                    < CollapsibleCityList country={country} cities={this.state.places[country].slice(3)} />
+                    < CollapsibleCityList country={country} cities={city_visits.slice(3)} />
                 </>
             )
         } else {
             return (
-                this.state.places[country].map(city => {
+                city_visits.map(city => {
                     return (
                         <li key={city}>
-                            <small>{city[0]} <span className="badge badge-primary year">{city[1]}</span></small>
+                            <CityWithBadges {...city} />
                         </li>
 
                     )
@@ -96,12 +83,12 @@ class PlacesList extends React.Component {
 
     renderMedia(country) {
         return (
-            <Media key={country}>
-                <img width={65} height={45} className="mr-3" src={this.state.flags[country]} alt={country} />
+            <Media key={country.fields.name}>
+                <img width={65} height={45} className="mr-3" src={country.fields.flag} alt={country.fields.name} />
                 <Media.Body>
-                    <h5>{country}</h5>
+                    <h5>{country.fields.name}</h5>
                     <ul className="list-unstyled">
-                        {this.renderCityList(country)}
+                        {this.renderCityList(country.fields.name, country.fields.cities)}
                     </ul>
                 </Media.Body>
             </Media >
@@ -118,12 +105,16 @@ class PlacesList extends React.Component {
         );
     }
 
+    split_in_half(keys) {
+        return [keys.slice(0, Math.ceil(keys.length / 2)), keys.slice(Math.ceil(keys.length / 2))];
+    }
+
     render() {
         return (
             <Container>
-                <h1>{this.state.countries.length} countries visited</h1>
+                <h1>{countries.length} countries visited</h1>
                 <Row>
-                    {this.split_array(this.state.countries).map(slice => {
+                    {this.split_in_half(countries).map(slice => {
                         return this.renderMediaCol(slice);
                     })}
                 </Row>

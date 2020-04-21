@@ -120,6 +120,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Linting (black?)
 [ ] Linting JS
 [*] Bring back the orange
+[ ] require.io integration
+[ ] package.json security audit?
 
 [ ] add license file to the github repo
 [ ] Squash all django migrations
@@ -140,7 +142,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Load markdown files
 [*] Search markdown files
 [*] Recetas
-[ ] codehilite + toc
+[*] codehilite 
+[ ] toc?
 
 ### Bookmarks
 
@@ -154,7 +157,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Display list of visited countries, cities and years
 [*] Display different hackergotchi depending on type of visit (alone, together)
 [*] places where i lived
-[ ] multiple visits to the same place ie Brussels shown in map (also home)
+[*] multiple visits to the same place ie Brussels shown in map (also home)
 
 ### Rankings
 

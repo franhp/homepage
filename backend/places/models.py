@@ -34,6 +34,7 @@ class Visit(models.Model):
     attendants = models.CharField(max_length=255, choices=ATTENDANT_CHOICES)
     date = models.DateField()
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    display = models.BooleanField(default=True)
 
     def __str__(self):
         return self.date.strftime("%Y-%m-%d")
