@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileCode, faLocationArrow, faExclamation, faBookmark, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { faFileCode, faLocationArrow, faBookmark, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import { faCreativeCommons, faCreativeCommonsBy, faCreativeCommonsNcEu, faCreativeCommonsSa } from '@fortawesome/free-brands-svg-icons'
 
 import './App.css';
@@ -43,7 +43,7 @@ class App extends React.Component {
               {this.renderTopButton("/places", faLocationArrow, "Places")}
               {this.renderTopButton("/bookmarks", faBookmark, "Bookmarks")}
               {this.renderTopButton("/wiki", faFileCode, "Wiki")}
-              {this.renderTopButton("/unknown", faExclamation, "Unknown")}
+              {/* {this.renderTopButton("/unknown", faTrophy, "Unknown")} */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

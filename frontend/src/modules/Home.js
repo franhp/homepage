@@ -1,57 +1,124 @@
 import React from 'react';
-import { Image, Row, Col, Container } from 'react-bootstrap';
+import { Image, Row, Col, Container, ListGroup, Jumbotron } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGoodreads, faLastfmSquare, faGithubSquare, faTwitterSquare, faDocker, faLinux, faPython, faJava, faAws, faHtml5, faCss3, faJenkins, faReact, faSass, faJs, faLess } from '@fortawesome/free-brands-svg-icons';
-import { faHeadphones, faPlaneDeparture, faTerminal, faGamepad, faHeart, faFilm, faMapMarkerAlt, faBook, faMusic, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGoodreads, faLastfmSquare, faGithubSquare, faTwitterSquare, faDocker, faLinux, faPython, faJava, faAws, faHtml5, faCss3, faJenkins, faReact, faSass, faJs } from '@fortawesome/free-brands-svg-icons';
+import { faHeadphones, faPlaneDeparture, faGamepad, faHeart, faFilm, faMapMarkerAlt, faBook, faMusic, faBriefcase, faCoffee, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 import profile from '../images/profile.png';
 
+import './Home.css';
 
 class Home extends React.Component {
     render() {
         return (
-            <Container>
+            <Jumbotron className="Home pt-2">
                 <Row>
-                    <Col sm={6} className="text-center">
-                        <Image src={profile} width="350" thumbnail />
+                    <Col sm={4} className="text-center">
+                        <Image src={profile} thumbnail width={200} />
                     </Col>
-                    <Col sm={6}>
-                        <h2>Other</h2>
-                        <FontAwesomeIcon icon={faMapMarkerAlt} />
-                        <FontAwesomeIcon icon={faBriefcase} />
-                        <h2>Profiles</h2>
-                        <FontAwesomeIcon icon={faLastfmSquare} />
-                        <FontAwesomeIcon icon={faGoodreads} />
-                        <FontAwesomeIcon icon={faLinkedin} />
-                        <FontAwesomeIcon icon={faGithubSquare} />
-                        <FontAwesomeIcon icon={faTwitterSquare} />
+                    <Col sm={8}>
+                        <Container>
+                            <h1>Fran Hermoso</h1>
+                        </Container>
+                        <Container className="ProfileLinks text-right mt-4">
+                            <a href="https://uk.linkedin.com/in/franhp">
+                                <FontAwesomeIcon icon={faLinkedin} size="4x" />
+                            </a>
+                            <a href="https://github.com/franhp">
+                                <FontAwesomeIcon icon={faGithubSquare} size="4x" />
+                            </a>
+                            <a href="https://twitter.com/franhp">
+                                <FontAwesomeIcon icon={faTwitterSquare} size="4x" />
+                            </a>
+                            <a href="http://lastfm.es/user/franhp">
+                                <FontAwesomeIcon icon={faLastfmSquare} size="4x" />
+                            </a>
+                            <a href="https://www.goodreads.com/user/show/39044705-fran-hermoso">
+                                <FontAwesomeIcon icon={faGoodreads} size="4x" />
+                            </a>
 
-                        <h2>Hobbies</h2><FontAwesomeIcon icon={faHeart} />
-                        <FontAwesomeIcon icon={faHeadphones} />
-                        <FontAwesomeIcon icon={faMusic} />
-                        <FontAwesomeIcon icon={faBook} />
-                        <FontAwesomeIcon icon={faPlaneDeparture} />
-                        <FontAwesomeIcon icon={faGamepad} />
-                        <FontAwesomeIcon icon={faFilm} />
+                        </Container>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm={12} className="m-2">
+                        <ListGroup variant="flush" className="ProfileBox">
 
-                        <h2>Technologies</h2>
-                        <FontAwesomeIcon icon={faDocker} />
-                        <FontAwesomeIcon icon={faLinux} />
-                        <FontAwesomeIcon icon={faTerminal} />
-                        <FontAwesomeIcon icon={faPython} />
-                        <FontAwesomeIcon icon={faJenkins} />
-                        <FontAwesomeIcon icon={faJava} />
-                        <FontAwesomeIcon icon={faJs} />
-                        <FontAwesomeIcon icon={faAws} />
-                        <FontAwesomeIcon icon={faReact} />
-                        <FontAwesomeIcon icon={faHtml5} />
-                        <FontAwesomeIcon icon={faCss3} />
-                        <FontAwesomeIcon icon={faSass} />
-                        <FontAwesomeIcon icon={faLess} />
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col xs={2} sm={2} md={3} className="vertical-line text-center">
+                                        <FontAwesomeIcon icon={faBriefcase} size="2x" />
+                                    </Col>
+                                    <Col xs={6} sm={8} md={7} className="text-center">
+                                        DevOps, Developer, SysAdmin
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col xs={2} sm={2} md={3} className="vertical-line text-center">
+                                        <FontAwesomeIcon icon={faMapMarkerAlt} size="2x" />
+                                    </Col>
+                                    <Col xs={6} sm={8} md={7} className="text-center">
+                                        Manresa, Barcelona
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col xs={2} sm={2} md={3} className="vertical-line text-center">
+                                        <FontAwesomeIcon icon={faHeart} size="2x" />
+                                    </Col>
+                                    <Col xs={6} sm={7} md={7} className="text-center">
+                                        <FontAwesomeIcon icon={faHeadphones} size="2x" />
+                                        <FontAwesomeIcon icon={faMusic} size="2x" />
+                                        <FontAwesomeIcon icon={faBook} size="2x" />
+                                        <FontAwesomeIcon icon={faPlaneDeparture} size="2x" />
+                                        <FontAwesomeIcon icon={faGamepad} size="2x" />
+                                        <FontAwesomeIcon icon={faFilm} size="2x" />
+                                        <FontAwesomeIcon icon={faCoffee} size="2x" />
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col xs={2} sm={2} md={3} className="vertical-line text-center">
+                                        <FontAwesomeIcon icon={faThumbsUp} size="2x" />
+                                    </Col>
+                                    <Col xs={6} sm={8} md={7} className="text-center">
+                                        <Row>
+                                            <Col sm={4}>
+                                                Systems:<br />
+                                                <FontAwesomeIcon icon={faDocker} size="2x" />
+                                                <FontAwesomeIcon icon={faLinux} size="2x" />
+                                                <FontAwesomeIcon icon={faJenkins} size="2x" />
+                                                <FontAwesomeIcon icon={faAws} size="2x" />
+                                            </Col>
+
+                                            <Col sm={2}>
+                                                Backend:<br />
+                                                <FontAwesomeIcon icon={faPython} size="2x" />
+                                                <FontAwesomeIcon icon={faJava} size="2x" />
+                                            </Col>
+
+                                            <Col sm={5}>
+                                                Frontend:<br />
+                                                <FontAwesomeIcon icon={faReact} size="2x" />
+                                                <FontAwesomeIcon icon={faHtml5} size="2x" />
+                                                <FontAwesomeIcon icon={faCss3} size="2x" />
+                                                <FontAwesomeIcon icon={faSass} size="2x" />
+                                                <FontAwesomeIcon icon={faJs} size="2x" />
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                        </ListGroup>
 
                     </Col>
                 </Row>
-            </Container>
+            </Jumbotron>
+
 
         );
     }

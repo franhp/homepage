@@ -122,19 +122,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] Bring back the orange
 [ ] require.io integration
 [ ] package.json security audit?
+[ ] favicon and html title
 
 [ ] add license file to the github repo
 [ ] Squash all django migrations
+[ ] migrate to scss
 
 ### Home
 
-[ ] Links to github, lastfm, twitter, linkedin, goodreads?
-[ ] Lastfm top? https://github.com/jishaal/react-lastfm
-[ ] Location
-[ ] Likes
-[ ] New picture
-[ ] Huge name
-[ ] Job
+[*] Links to github, lastfm, twitter, linkedin, goodreads?
+[*] Location
+[*] Likes
+[*] New picture
+[*] Huge name
+[*] Job
 [*] License by-nc-sa (new logo with fontawesome)
 
 ### Wiki
@@ -168,4 +169,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] show date of the last load of WATCHED.csv
 [ ] load IMDB&Goodreads periodically and automatically with docker
 [*] top books
-[ ] top games
+[ ] top games?
