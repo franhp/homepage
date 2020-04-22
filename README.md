@@ -24,9 +24,6 @@ cd backend && pip install -r requirements.txt
 
 TODO
 
-
-
-
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -58,7 +55,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -89,7 +85,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-
 ## TODO
 
 ### Ideas
@@ -97,19 +92,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [ ] top games from grouvee
 [ ] wiki toc
 
-
 ## Pending fixes
 
-[ ] Automatic build and deploy with github actions (ssh?)
-[ ] Linting JS
+[*] Linting JS
 [ ] require.io integration
 [ ] auto package.json security audit
-[ ] favicon and html title
+[ ] dockerise all things
+
+[ ] Squash all django migrations
 [ ] manifest build
 [ ] add license file to the github repo
-[ ] Squash all django migrations
+
+[ ] Add basic commands to package.json so it's easier to run the project
+[ ] Automatic build and deploy with github actions (ssh?)
+
+[ ] favicon and html title
 [ ] migrate to scss
 [ ] load IMDB&Goodreads periodically and automatically with docker
 [ ] Default .env file
-[ ] Add basic commands to package.json so it's easier to run the project
-
