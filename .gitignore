@@ -6,7 +6,6 @@ geckodriver.log
 
 # Generated
 frontend/src/api/
-frontend/public/thumbnails/
 
 ## React
 

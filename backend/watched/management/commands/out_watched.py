@@ -1,6 +1,7 @@
 import json
+import os
 
-
+from django.conf import settings
 from django.core import serializers
 from django.core.management.base import BaseCommand
 from django.db.models import Q
@@ -22,7 +23,9 @@ class Command(BaseCommand):
             Title.import_imdb()
 
         books = Title.objects.filter(title_type=Title.BOOK).order_by("-ranking_order")
-        with open("../frontend/src/api/books.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/books.json"), "w+"
+        ) as out:
             serializers.serialize("json", reversed(books[:10]), stream=out, indent=4)
 
         movies = Title.objects.filter(
@@ -32,17 +35,23 @@ class Command(BaseCommand):
             | Q(title_type=Title.VIDEO)
             | Q(title_type=Title.SHORT)
         ).order_by("-ranking_order")
-        with open("../frontend/src/api/movies.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/movies.json"), "w+"
+        ) as out:
             serializers.serialize("json", reversed(movies[:10]), stream=out, indent=4)
 
         tvseries = Title.objects.filter(
             Q(title_type=Title.TVMINISERIES) | Q(title_type=Title.TVSERIES)
         ).order_by("-ranking_order")
 
-        with open("../frontend/src/api/tvseries.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/tvseries.json"), "w+"
+        ) as out:
             serializers.serialize("json", reversed(tvseries[:10]), stream=out, indent=4)
 
-        with open("../frontend/src/api/watched.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/watched.json"), "w+"
+        ) as out:
             last_update = Title.objects.order_by("-updated_at")[0].updated_at
             out.write(
                 json.dumps(

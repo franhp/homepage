@@ -1,5 +1,7 @@
 import json
+import os
 
+from django.conf import settings
 from django.core import serializers
 from django.core.management.base import BaseCommand
 
@@ -25,10 +27,14 @@ class Command(BaseCommand):
                 }
             )
 
-        with open("../frontend/src/api/geoplaces.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/geoplaces.json"), "w+"
+        ) as out:
             out.write(json.dumps(features, indent=4))
 
-        with open("../frontend/src/api/countries.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/countries.json"), "w+"
+        ) as out:
             countries = json.loads(serializers.serialize("json", Country.objects.all()))
             for index, country in enumerate(countries):
                 countries[index]["fields"]["cities"] = [
@@ -39,7 +45,9 @@ class Command(BaseCommand):
                 ]
             out.write(json.dumps(countries, indent=4))
 
-        with open("../frontend/src/api/visits.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/visits.json"), "w+"
+        ) as out:
             visits = json.loads(serializers.serialize("json", Visit.objects.all()))
             for index, visit in enumerate(visits):
                 visits[index]["fields"]["city"] = City.objects.get(

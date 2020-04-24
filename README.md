@@ -95,18 +95,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Pending fixes
 
 [*] Linting JS
-[ ] require.io integration
+[*] require.io integration
 [ ] auto package.json security audit
-[ ] dockerise all things
+[*] dockerise all things
 
-[ ] Squash all django migrations
-[ ] manifest build
+[*] Squash all django migrations
+[ ] manifest build and public directory cleanup
 [ ] add license file to the github repo
 
 [ ] Add basic commands to package.json so it's easier to run the project
+[ ] Add command to clean all the generated json files
 [ ] Automatic build and deploy with github actions (ssh?)
 
 [ ] favicon and html title
 [ ] migrate to scss
 [ ] load IMDB&Goodreads periodically and automatically with docker
 [ ] Default .env file
+[ ] dockerise checks

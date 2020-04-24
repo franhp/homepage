@@ -1,6 +1,8 @@
 import logging
+import os
 import sys
 
+from django.conf import settings
 from django.core import serializers
 from django.core.management.base import BaseCommand
 
@@ -35,10 +37,17 @@ class Command(BaseCommand):
                     logger.info("Generating thumbnail for [{}]".format(bookmark.url))
                     bookmark.generate_thumbnail()
 
-        with open("../frontend/src/api/bookmarks.json", "w+") as out:
+        with open(
+            os.path.join(settings.BASE_DIR, "../frontend/src/api/bookmarks.json"), "w+"
+        ) as out:
             serializers.serialize("json", bookmarks, stream=out, indent=4)
 
-        with open("../frontend/src/api/bookmark_categories.json", "w+") as out:
+        with open(
+            os.path.join(
+                settings.BASE_DIR, "../frontend/src/api/bookmark_categories.json"
+            ),
+            "w+",
+        ) as out:
             serializers.serialize(
                 "json", Category.objects.all().order_by("order"), stream=out, indent=4
             )
