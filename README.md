@@ -103,8 +103,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] manifest build and public directory cleanup
 [*] add license file to the github repo
 
-[ ] Add basic commands to package.json so it's easier to run the project
-[ ] Add command to clean all the generated json files
+[*] Add command to clean all the generated json files
 [ ] Automatic build and deploy with github actions (ssh?)
 
 [ ] favicon and html title

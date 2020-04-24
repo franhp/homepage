@@ -21,7 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "clean": "rm -rf build/* && find src/api -name \"*.json\" -exec rm {} \\;"
   },
   "eslintConfig": {
     "extends": "react-app"
