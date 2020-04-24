@@ -100,8 +100,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 [*] dockerise all things
 
 [*] Squash all django migrations
-[ ] manifest build and public directory cleanup
-[ ] add license file to the github repo
+[*] manifest build and public directory cleanup
+[*] add license file to the github repo
 
 [ ] Add basic commands to package.json so it's easier to run the project
 [ ] Add command to clean all the generated json files
