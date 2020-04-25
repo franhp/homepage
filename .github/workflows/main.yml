@@ -5,7 +5,7 @@ on:
     branches: [master, feature/rewrite-2020]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +17,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           script: |
-            whoami
-            ls -al
-            touch IWASHERE
+            cd containers/homepage
+            docker-compose pull
+            docker-compose run backend
+            docker-compose run frontend
