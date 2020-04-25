@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "very_secret_key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -80,10 +80,6 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        #     "ENGINE": "django.db.backends.sqlite3",
-        #     "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        # },
-        # "positions": {
         "ENGINE": "django.contrib.gis.db.backends.spatialite",
         "NAME": os.path.join(BASE_DIR, "database.spatialite"),
     },
@@ -130,7 +126,3 @@ IMDB_PASSWORD = os.environ.get("IMDB_PASSWORD")
 IMDB_WATCHLISTID = "ls053627486"
 
 GOODREADS_ID = "39044705"
-
-# Places
-
-GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")

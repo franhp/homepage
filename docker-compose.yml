@@ -25,5 +25,5 @@ admin:
   volumes:
     - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
   ports:
-    - "8000:8000"
-  command: python manage.py runserver
+    - "8080:8080"
+  command: python manage.py runserver 0.0.0.0:8080
