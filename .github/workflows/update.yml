@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  schedule:
+    - cron: "0 1 2 * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: load external sites
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd containers/homepage
+            docker-compose run --rm jobs

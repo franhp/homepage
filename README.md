@@ -34,8 +34,16 @@ TODO
 ## Pending fixes
 
 [*] admin page in elrond
-[ ] migrate to scss
-[ ] load IMDB&Goodreads periodically and automatically with docker
+[*] generate bookmark thumbnails automatically
+[*] load IMDB&Goodreads periodically and automatically with docker
+[ ] markdown editor in the admin for wiki
 [ ] Default .env file
 [ ] dockerise checks
+[ ] check links are alive automatically
+
+[ ] migrate to scss
+[ ] fix colors in bookmarks (h1 = grey, link color = grey)
+[ ] change focus when document selected on wiki
+[ ] button active in top when section is active
+
 [ ] auto package.json security audit
