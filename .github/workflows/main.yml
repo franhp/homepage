@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [master, feature/rewrite-2020 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: multiple command
+        uses: appleboy/ssh-action@master
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY }}
+            port: 22
+            script: |
+            whoami
+            ls -al
+            touch IWASHERE

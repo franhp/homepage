@@ -40,11 +40,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
@@ -81,10 +76,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
 ## TODO
 
 ### Ideas
@@ -94,20 +85,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## Pending fixes
 
-[*] Linting JS
-[*] require.io integration
-[ ] auto package.json security audit
-[*] dockerise all things
-
-[*] Squash all django migrations
-[*] manifest build and public directory cleanup
-[*] add license file to the github repo
-
-[*] Add command to clean all the generated json files
+[ ] choose a new profile pic
+[ ] choose a new home icon for maps
 [ ] Automatic build and deploy with github actions (ssh?)
 
-[ ] favicon and html title
 [ ] migrate to scss
 [ ] load IMDB&Goodreads periodically and automatically with docker
 [ ] Default .env file
 [ ] dockerise checks
+[ ] auto package.json security audit
