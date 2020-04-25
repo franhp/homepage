@@ -15,3 +15,15 @@ frontend:
   volumes:
     - "./frontend/build:/usr/src/app/homepage/frontend/build"
   command: npm run-script build
+
+admin:
+  build: ./
+  dockerfile: Dockerfile.backend
+  environment:
+    - IMDB_USERNAME=${IMDB_USERNAME}
+    - IMDB_PASSWORD=${IMDB_PASSWORD}
+  volumes:
+    - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
+  ports:
+    - "8000:8000"
+  command: python manage.py runserver

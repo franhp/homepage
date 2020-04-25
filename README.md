@@ -33,6 +33,7 @@ TODO
 
 ## Pending fixes
 
+[*] admin page in elrond
 [ ] migrate to scss
 [ ] load IMDB&Goodreads periodically and automatically with docker
 [ ] Default .env file
