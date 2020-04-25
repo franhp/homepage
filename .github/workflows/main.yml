@@ -15,10 +15,12 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          port: 22
+          port: ${{ secrets.PORT }}
           script: |
             cd containers/homepage
             git pull origin master
             docker-compose pull
-            docker-compose run backend
-            docker-compose run frontend
+            docker-compose build
+            docker-compose run --rm frontend npm run clean
+            docker-compose run --rm backend
+            docker-compose run --rm frontend
