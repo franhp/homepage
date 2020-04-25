@@ -13,6 +13,7 @@ frontend:
   build: ./
   dockerfile: Dockerfile.frontend
   volumes:
+    - "./frontend/src/api:/usr/src/app/homepage/frontend/src/api"
     - "./frontend/build:/usr/src/app/homepage/frontend/build"
   command: npm run-script build
 
