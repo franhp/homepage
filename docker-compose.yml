@@ -1,0 +1,17 @@
+backend:
+  build: ./
+  dockerfile: Dockerfile.backend
+  volumes:
+    - "./frontend/src/api:/usr/src/app/homepage/frontend/src/api"
+    - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
+  environment:
+    - IMDB_USERNAME=${IMDB_USERNAME}
+    - IMDB_PASSWORD=${IMDB_PASSWORD}
+  command: bash -c "python manage.py out_bookmarks && python manage.py out_wiki && python manage.py out_places && python manage.py out_watched"
+
+frontend:
+  build: ./
+  dockerfile: Dockerfile.frontend
+  volumes:
+    - "./frontend/build:/usr/src/app/homepage/frontend/build"
+  command: npm run-script build

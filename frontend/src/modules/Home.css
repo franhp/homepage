@@ -1,0 +1,41 @@
+.Home {
+  background: rgba(248, 249, 250, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(248, 249, 250, 1) 25%,
+    rgb(255, 143, 0) 90%
+  );
+}
+
+.Home h1 {
+  font-weight: 700;
+  font-size: 5em;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.ProfileLinks a {
+  margin-left: 5%;
+  color: #f8f9fa;
+}
+
+.ProfileLinks a:hover {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.ProfileBox .list-group-item {
+  background: rgba(248, 249, 250, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(248, 249, 250, 1) 25%,
+    rgb(255, 143, 0) 90%
+  );
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.ProfileBox svg {
+  margin-left: 1%;
+}
+.vertical-line {
+  border-right: 1px dotted rgba(0, 0, 0, 0.3);
+}
