@@ -104,7 +104,7 @@ class Home extends React.Component {
                     <FontAwesomeIcon icon={faMapMarkerAlt} size="2x" />
                   </Col>
                   <Col xs={6} sm={8} md={7} className="text-center">
-                    Manresa, Barcelona
+                    Manresa (Barcelona)
                   </Col>
                 </Row>
               </ListGroup.Item>

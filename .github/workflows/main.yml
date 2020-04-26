@@ -19,8 +19,4 @@ jobs:
           script: |
             cd containers/homepage
             git pull origin master
-            docker-compose pull
-            docker-compose build
-            docker-compose run --rm frontend npm run clean
-            docker-compose run --rm backend
-            docker-compose run --rm frontend
+            ./refresh.sh

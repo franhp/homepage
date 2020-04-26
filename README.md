@@ -36,6 +36,8 @@ TODO
 [*] admin page in elrond
 [*] generate bookmark thumbnails automatically
 [*] load IMDB&Goodreads periodically and automatically with docker
+[*] fix index for xs and sm
+[ ] wiki last update is not last update date
 [ ] markdown editor in the admin for wiki
 [ ] Default .env file
 [ ] dockerise checks

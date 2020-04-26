@@ -62,7 +62,7 @@ class App extends React.Component {
           </Navbar.Collapse>
         </Navbar>
 
-        <Container className="p-3">
+        <Container className="p-3 pb-5">
           <Switch>
             <Route exact path="/">
               <Home />

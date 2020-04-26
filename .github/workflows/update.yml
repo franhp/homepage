@@ -19,3 +19,4 @@ jobs:
           script: |
             cd containers/homepage
             docker-compose run --rm jobs
+            ./refresh.sh
