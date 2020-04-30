@@ -8,8 +8,6 @@ import movies from "../api/movies.json";
 import tvseries from "../api/tvseries.json";
 import watched from "../api/watched.json";
 
-import "./Rankings.css";
-
 class Ranking extends React.Component {
   renderItem(index, value, item_type) {
     return (

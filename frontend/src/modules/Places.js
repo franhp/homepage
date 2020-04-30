@@ -7,8 +7,6 @@ import points from "../api/geoplaces.json";
 import countries from "../api/countries.json";
 import visits from "../api/visits.json";
 
-import "./Places.css";
-
 function CityWithBadges(city) {
   return (
     <small>

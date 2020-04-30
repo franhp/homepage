@@ -1,0 +1,10 @@
+$light: rgba(248, 249, 250, 1);
+$dark: rgba(0, 0, 0, 0.8);
+$orange: rgb(255, 143, 0);
+
+$list-group-active-bg: $dark;
+$list-group-active-border: $dark;
+$component-active-bg: $light;
+
+$link-color: $dark;
+$link-hover-color: lighten($dark, 25%);

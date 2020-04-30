@@ -37,13 +37,13 @@ TODO
 [*] generate bookmark thumbnails automatically
 [*] load IMDB&Goodreads periodically and automatically with docker
 [*] fix index for xs and sm
-[ ] wiki last update is not last update date
+[*] wiki last update is not last update date
 [ ] markdown editor in the admin for wiki
 [ ] Default .env file
 [ ] dockerise checks
 [ ] check links are alive automatically
 
-[ ] migrate to scss
+[*] migrate to scss
 [ ] fix colors in bookmarks (h1 = grey, link color = grey)
 [ ] change focus when document selected on wiki
 [ ] button active in top when section is active

@@ -1,0 +1,71 @@
+@import "variables";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* General */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  background: $orange;
+  background: linear-gradient(90deg, $orange 10%, $light 75%);
+}
+
+nav svg {
+  color: darken($orange, 10%);
+}
+
+#footer-logo {
+  width: 50px;
+}
+
+/* Wiki */
+.star {
+  font-size: 0.4em;
+  font-weight: bolder;
+  color: $dark;
+}
+
+/* Places */
+.year {
+  background-color: $light;
+  color: $dark;
+}
+
+/* Home */
+.Home {
+  background: $light;
+  background: linear-gradient(90deg, $light 25%, $orange 90%);
+}
+
+.Home h1 {
+  font-weight: 700;
+  font-size: 6vw;
+  color: $dark;
+}
+
+.ProfileLinks a {
+  margin-left: 5%;
+  color: lighten($dark, 65%);
+}
+
+.ProfileLinks a:hover {
+  color: $dark;
+}
+
+.ProfileBox .list-group-item {
+  background: $light;
+  background: linear-gradient(90deg, $light 25%, $orange 90%);
+  font-weight: 600;
+  color: $dark;
+}
+
+.ProfileBox svg {
+  margin-left: 1%;
+}
+.vertical-line {
+  border-right: 1px dotted rgba(0, 0, 0, 0.3);
+}

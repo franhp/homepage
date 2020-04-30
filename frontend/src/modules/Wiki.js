@@ -8,8 +8,6 @@ import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import categories from "../api/wiki_categories.json";
 import documents from "../api/wiki.json";
 
-import "./Wiki.css";
-
 class CodeBlock extends React.PureComponent {
   static defaultProps = {
     language: null,
