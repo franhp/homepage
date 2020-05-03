@@ -18,6 +18,10 @@ nav svg {
   color: darken($orange, 10%);
 }
 
+.navbar-nav a.active {
+  background-color: lighten($dark, 80%);
+}
+
 #footer-logo {
   width: 50px;
 }

@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,11 +32,11 @@ import Wiki from "./modules/Wiki";
 class App extends React.Component {
   renderTopButton(href, icon, name) {
     return (
-      <Nav.Link href={href} className="mr-5">
+      <NavLink to={href} className="nav-link" activeClassName="active">
         <FontAwesomeIcon icon={icon} />
         &nbsp;
         <span className="d-md-none d-lg-inline d-xl-inline">{name}</span>
-      </Nav.Link>
+      </NavLink>
     );
   }
 
