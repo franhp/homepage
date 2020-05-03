@@ -1,6 +1,6 @@
 # Homepage
 
-[![Requirements Status](https://requires.io/github/franhp/homepage/requirements.svg?branch=develop)](https://requires.io/github/franhp/homepage/requirements/?branch=develop)
+[![Requirements Status](https://requires.io/github/franhp/homepage/requirements.svg?branch=master)](https://requires.io/github/franhp/homepage/requirements/?branch=master)
 
 Visit [franhp.dev](https://franhp.dev)
 
