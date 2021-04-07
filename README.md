@@ -10,6 +10,8 @@ Visit [franhp.dev](https://franhp.dev)
 
 ```
 brew install spatialite-tools gdal
+OR
+apt-get install gdal-bin libsqlite3-mod-spatialite
 ```
 
 ```
