@@ -3,12 +3,9 @@ import io
 
 import requests
 import xmltodict
-import geckodriver_autoinstaller
 
 from django.db import models
 from django.conf import settings
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 
 
 class Title(models.Model):
@@ -45,8 +42,8 @@ class Title(models.Model):
         return self.name
 
     @staticmethod
-    def import_imdb():
-        reader = csv.reader(io.StringIO(Title.fetch_csv_from_imdb()))
+    def import_imdb(watchlist_file):
+        reader = csv.reader(io.StringIO(watchlist_file))
         next(reader)  #  Skip the header row
         for line in reader:
             Title.objects.update_or_create(
@@ -58,38 +55,6 @@ class Title(models.Model):
                     "title_type": line[7],
                 },
             )
-
-    @staticmethod
-    def fetch_csv_from_imdb():
-        geckodriver_autoinstaller.install()
-
-        options = Options()
-        options.headless = True
-
-        driver = webdriver.Firefox(options=options)
-
-        driver.set_window_size(1280, 1024)
-        driver.get("https://www.imdb.com/registration/signin?ref=nv_generic_lgin")
-
-        login_option = driver.find_element_by_link_text("Sign in with IMDb")
-        login_option.click()
-
-        username = driver.find_element_by_id("ap_email")
-        username.send_keys(settings.IMDB_USERNAME)
-        password = driver.find_element_by_id("ap_password")
-        password.send_keys(settings.IMDB_PASSWORD)
-
-        login = driver.find_element_by_id("signInSubmit")
-        login.click()
-
-        csv_file = requests.get(
-            "https://www.imdb.com/list/{}/export".format(settings.IMDB_WATCHLISTID),
-            cookies={i["name"]: i["value"] for i in driver.get_cookies()},
-        )
-
-        driver.quit()
-
-        return csv_file.content.decode("iso-8859-1")
 
     @staticmethod
     def import_goodreads():

@@ -1,20 +1,38 @@
-{% extends "admin/change_list.html" %}
-{% block object-tools-items %}
+{% extends "admin/change_list.html" %} {% block object-tools-items %} {{
+block.super }}
 
-    {{ block.super }}
-
-    <li>
-        <form id="import" action="import_imdb/" method="post">
-            {% csrf_token %}
-            <input type="submit" value="Import IMDB">
-        </form>
-    </li>
-    <li>
-        <form id="import" action="import_goodreads/" method="post">
-            {% csrf_token %}
-            <input type="submit" value="Import Goodreads">
-        </form>
-    </li>
-
+<li>
+  <button
+    style="
+      background: #79aec8;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+    "
+    onclick="django.jQuery('#import_imdb').show();django.jQuery('#imdb_button').hide();django.jQuery('#import_goodreads').hide();"
+    id="imdb_button"
+  >
+    Import IMDB
+  </button>
+  <form
+    id="import_imdb"
+    action="import_imdb/"
+    method="post"
+    enctype="multipart/form-data"
+    style="display: none;"
+  >
+    {% csrf_token %} Select WATCHLIST.csv:
+    <input type="file" name="watchlist" id="watchlist" />
+    <input type="submit" value="Upload" />
+  </form>
+</li>
+<li>
+  <form id="import_goodreads" action="import_goodreads/" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Import Goodreads" />
+  </form>
+</li>
 
 {% endblock %}

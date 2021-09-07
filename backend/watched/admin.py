@@ -19,14 +19,16 @@ class CustomTitle(admin.ModelAdmin):
         return new_urls + urls
 
 
-def import_imdb(self):
-    Title.import_imdb()
-    return HttpResponseRedirect(self.META["HTTP_REFERER"])
+def import_imdb(request):
+    Title.import_imdb(
+        request.FILES["watchlist"].read().decode("utf-8", errors="replace")
+    )
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
-def import_goodreads(self):
+def import_goodreads(request):
     Title.import_goodreads()
-    return HttpResponseRedirect(self.META["HTTP_REFERER"])
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
 admin.site.register(Title, CustomTitle)
