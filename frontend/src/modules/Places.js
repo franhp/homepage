@@ -162,7 +162,7 @@ class Places extends React.Component {
     map.data.addGeoJson(points);
 
     map.data.setStyle(function (feature) {
-      return { icon: "./faces/" + feature.i.attendants + ".png" };
+      return { icon: "./faces/" + feature.j.attendants + ".png" };
     });
 
     map.data.addListener("click", function (event) {

@@ -1,7 +1,5 @@
 # Homepage
 
-[![Requirements Status](https://requires.io/github/franhp/homepage/requirements.svg?branch=master)](https://requires.io/github/franhp/homepage/requirements/?branch=master)
-
 Visit [franhp.dev](https://franhp.dev)
 
 ## Installation
@@ -39,6 +37,5 @@ TODO
 - [ ] Default .env file
 - [ ] dockerise checks
 - [ ] check links are alive automatically
-- [ ] auto package.json security audit
 
 - [ ] change focus when document selected on wiki

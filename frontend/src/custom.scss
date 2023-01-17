@@ -53,11 +53,15 @@ nav svg {
 
 .ProfileLinks a {
   margin-left: 5%;
-  color: lighten($dark, 65%);
+  color: $dark;
 }
 
 .ProfileLinks a:hover {
-  color: $dark;
+  color: lighten($dark, 65%);
+}
+
+.ProfileBox.list-group {
+  border-radius: 2em;
 }
 
 .ProfileBox .list-group-item {

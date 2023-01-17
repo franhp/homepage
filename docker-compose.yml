@@ -1,19 +1,16 @@
-version: '3.5'
+version: "3.5"
 services:
   backend:
-    build: 
+    build:
       context: ./
       dockerfile: Dockerfile.backend
     volumes:
       - "./frontend/src/api:/usr/src/app/homepage/frontend/src/api"
       - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
-    environment:
-      - IMDB_USERNAME=${IMDB_USERNAME}
-      - IMDB_PASSWORD=${IMDB_PASSWORD}
     command: bash -c "python manage.py out_bookmarks && python manage.py out_wiki && python manage.py out_places && python manage.py out_watched"
 
   frontend:
-    build: 
+    build:
       context: ./
       dockerfile: Dockerfile.frontend
     volumes:
@@ -22,29 +19,11 @@ services:
     command: npm run-script build
 
   admin:
-    build: 
+    build:
       context: ./
       dockerfile: Dockerfile.backend
-    environment:
-      - IMDB_USERNAME=${IMDB_USERNAME}
-      - IMDB_PASSWORD=${IMDB_PASSWORD}
     volumes:
       - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
     ports:
-      - "8000:8080"
-    command: python manage.py runserver 0.0.0.0:8080
-
-  jobs:
-    build: 
-      context: ./
-      shm_size: '2gb'
-      dockerfile: Dockerfile.backend
-    shm_size: '2gb'
-    environment:
-      - IMDB_USERNAME=${IMDB_USERNAME}
-      - IMDB_PASSWORD=${IMDB_PASSWORD}
-    volumes:
-      - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
-      - "./frontend/public/thumbnails:/usr/src/app/homepage/frontend/public/thumbnails"
-    #command: bash -c "python manage.py out_bookmarks --check && python manage.py out_watched --update"
-    command: /bin/bash
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
