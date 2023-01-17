@@ -39,7 +39,7 @@ class Home extends React.Component {
       <Jumbotron className="Home pt-2">
         <Row>
           <Col sm={4} className="text-center">
-            <Image src={profile} thumbnail width={200} />
+            <Image src={profile} thumbnail width={300} />
           </Col>
           <Col sm={8}>
             <Col sm={12}>

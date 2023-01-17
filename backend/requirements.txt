@@ -1,6 +1,6 @@
-Django==3.1.12
+Django==4.1
+requests==2.28.2
+black==22.12.0
+xmltodict==0.13.0
 selenium==3.141.0
 geckodriver-autoinstaller==0.1.0
-requests==2.23.0
-black==19.10b0
-xmltodict==0.12.0
