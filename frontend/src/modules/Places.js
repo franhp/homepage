@@ -162,7 +162,7 @@ class Places extends React.Component {
     map.data.addGeoJson(points);
 
     map.data.setStyle(function (feature) {
-      return { icon: "./faces/" + feature.i.attendants + ".png" };
+      return { icon: "./faces/" + feature.j.attendants + ".png" };
     });
 
     map.data.addListener("click", function (event) {
@@ -185,7 +185,9 @@ class Places extends React.Component {
         <div style={{ height: "50vh", width: "100%" }}>
           {
             <GoogleMapReact
-              bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
+              bootstrapURLKeys={{
+                key: "AIzaSyColWNrAt5-HWfYYGDO8VeAuupHrsEYj1g",
+              }}
               defaultCenter={this.props.center}
               defaultZoom={this.props.zoom}
               yesIWantToUseGoogleMapApiInternals
