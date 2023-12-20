@@ -2,28 +2,22 @@ import json
 import os
 
 from django.conf import settings
-from django.core import serializers
 from django.core.management.base import BaseCommand
-
-from places.models import Visit, Country, City
+from places.models import Country, Visit
 
 
 class Command(BaseCommand):
     help = "Outputs the JSON for the website"
 
     def handle(self, *args, **options):
+        features = []
         visits = Visit.objects.filter(display=True).order_by("-date")
-        features = json.loads(serializers.serialize("geojson", visits))
-
-        for index, visit in enumerate(visits):
-            features["features"][index]["geometry"] = json.loads(
-                visit.city.position.geojson
-            )
-            features["features"][index]["properties"].update(
+        for visit in visits:
+            features.append(
                 {
-                    "city": visit.city.name,
-                    "flag": visit.city.country_set.first().flag,
-                    "country": visit.city.country_set.first().name,
+                    "name": visit.city.name,
+                    "position": [visit.city.position.y, visit.city.position.x],
+                    "icon": visit.attendants,
                 }
             )
 
@@ -35,23 +29,19 @@ class Command(BaseCommand):
         with open(
             os.path.join(settings.BASE_DIR, "../frontend/src/api/countries.json"), "w+"
         ) as out:
-            countries = json.loads(serializers.serialize("json", Country.objects.all()))
-            for index, country in enumerate(countries):
-                countries[index]["fields"]["cities"] = [
-                    x
-                    for x in Country.objects.get(pk=country["pk"])
-                    .cities.all()
-                    .values_list("name", flat=True)
-                ]
+            countries = []
+            for country in Country.objects.all().order_by("-cities__visit__date"):
+                # I wish sqlite would have distinct ....
+                if country.name not in [x["fields"]["name"] for x in countries]:
+                    countries.append(
+                        {
+                            "fields": {
+                                "name": country.name,
+                                "flag": "",
+                                "cities": list(
+                                    country.cities.values_list("name", flat=True)
+                                ),
+                            }
+                        }
+                    )
             out.write(json.dumps(countries, indent=4))
-
-        with open(
-            os.path.join(settings.BASE_DIR, "../frontend/src/api/visits.json"), "w+"
-        ) as out:
-            visits = json.loads(serializers.serialize("json", Visit.objects.all()))
-            for index, visit in enumerate(visits):
-                visits[index]["fields"]["city"] = City.objects.get(
-                    pk=visit["fields"]["city"]
-                ).name
-
-            out.write(json.dumps(visits, indent=4))

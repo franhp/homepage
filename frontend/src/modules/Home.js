@@ -1,12 +1,10 @@
 import React from "react";
-import { Image, Row, Col, ListGroup, Jumbotron } from "react-bootstrap";
+import { Image, Row, Col, ListGroup, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
-  faGoodreads,
   faLastfmSquare,
   faGithubSquare,
-  faTwitterSquare,
   faDocker,
   faLinux,
   faPython,
@@ -16,8 +14,19 @@ import {
   faCss3,
   faJenkins,
   faReact,
-  faSass,
+  faGitlab,
+  faNodeJs,
   faJs,
+  faPlaystation,
+  faWizardsOfTheCoast,
+  faUbuntu,
+  faReddit,
+  faImdb,
+  faGolang,
+  faBitcoin,
+  faEthereum,
+  faDebian,
+  // faJs,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faPlaneDeparture,
@@ -36,8 +45,8 @@ import profile from "../images/profile.png";
 class Home extends React.Component {
   render() {
     return (
-      <Jumbotron className="Home pt-2">
-        <Row>
+      <Container className="Home pt-2 mt-4 p-5 bg-primary rounded">
+        <Row className="mb-4">
           <Col sm={4} className="text-center">
             <Image src={profile} thumbnail width={300} />
           </Col>
@@ -45,35 +54,25 @@ class Home extends React.Component {
             <Col sm={12}>
               <h1>Fran Hermoso</h1>
             </Col>
-            <Col sm={{ span: 9, offset: 3 }} className="text-right">
+            <Col sm={{ span: 9 }} className="ProfileLinks text-right">
               I'm a GNU/Linux and Python enthusiast who is always willing to try
               new technologies. I am most often working as a DevOps but I also
               enjoy Developer oriented opportunities, specially backend.
+              <hr />
+              <a href="https://uk.linkedin.com/in/franhp">
+                <FontAwesomeIcon icon={faLinkedin} size="4x" />
+              </a>
+              <a href="https://github.com/franhp">
+                <FontAwesomeIcon icon={faGithubSquare} size="4x" />
+              </a>
+              <a href="http://lastfm.es/user/franhp">
+                <FontAwesomeIcon icon={faLastfmSquare} size="4x" />
+              </a>
             </Col>
           </Col>
         </Row>
         <Row>
-          <Col sm={4} className="ProfileLinks text-center pt-2 pb-2">
-            <a href="https://uk.linkedin.com/in/franhp">
-              <FontAwesomeIcon icon={faLinkedin} size="4x" />
-            </a>
-            <a href="https://github.com/franhp">
-              <FontAwesomeIcon icon={faGithubSquare} size="4x" />
-            </a>
-            <br className="d-none d-md-block" />
-            <a href="https://twitter.com/franhp">
-              <FontAwesomeIcon icon={faTwitterSquare} size="4x" />
-            </a>
-            <br className="d-block d-sm-none" />
-            <a href="http://lastfm.es/user/franhp">
-              <FontAwesomeIcon icon={faLastfmSquare} size="4x" />
-            </a>
-            <br className="d-none d-md-block" />
-            <a href="https://www.goodreads.com/user/show/39044705-fran-hermoso">
-              <FontAwesomeIcon icon={faGoodreads} size="4x" />
-            </a>
-          </Col>
-          <Col sm={8}>
+          <Col sm={6}>
             <ListGroup variant="flush" className="ProfileBox">
               <ListGroup.Item>
                 <Row>
@@ -82,42 +81,6 @@ class Home extends React.Component {
                   </Col>
                   <Col xs={10} className="text-center">
                     Manresa (Barcelona)
-                  </Col>
-                </Row>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col xs={2} className="vertical-line text-center">
-                    <FontAwesomeIcon icon={faThumbsUp} size="2x" />
-                  </Col>
-                  <Col xs={10} className="text-center">
-                    <Row>
-                      <Col xs={12} md={5}>
-                        Systems:
-                        <br />
-                        <FontAwesomeIcon icon={faDocker} size="2x" />
-                        <FontAwesomeIcon icon={faLinux} size="2x" />
-                        <FontAwesomeIcon icon={faJenkins} size="2x" />
-                        <FontAwesomeIcon icon={faAws} size="2x" />
-                      </Col>
-
-                      <Col xs={12} md={2}>
-                        Backend:
-                        <br />
-                        <FontAwesomeIcon icon={faPython} size="2x" />
-                        <FontAwesomeIcon icon={faJava} size="2x" />
-                      </Col>
-
-                      <Col xs={12} md={5}>
-                        Frontend:
-                        <br />
-                        <FontAwesomeIcon icon={faReact} size="2x" />
-                        <FontAwesomeIcon icon={faHtml5} size="2x" />
-                        <FontAwesomeIcon icon={faCss3} size="2x" />
-                        <FontAwesomeIcon icon={faSass} size="2x" />
-                        <FontAwesomeIcon icon={faJs} size="2x" />
-                      </Col>
-                    </Row>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -133,13 +96,76 @@ class Home extends React.Component {
                     <FontAwesomeIcon icon={faGamepad} size="2x" />
                     <FontAwesomeIcon icon={faFilm} size="2x" />
                     <FontAwesomeIcon icon={faCoffee} size="2x" />
+                    <FontAwesomeIcon icon={faGitlab} size="2x" />
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col xs={2} className="vertical-line text-center">
+                    <FontAwesomeIcon icon={faThumbsUp} size="2x" />
+                  </Col>
+                  <Col xs={10} className="text-center">
+                    <FontAwesomeIcon icon={faPlaystation} size="2x" />
+                    <FontAwesomeIcon icon={faWizardsOfTheCoast} size="2x" />
+                    <FontAwesomeIcon icon={faBitcoin} size="2x" />
+                    <FontAwesomeIcon icon={faEthereum} size="2x" />
+                    <FontAwesomeIcon icon={faReddit} size="2x" />
+                    <FontAwesomeIcon icon={faImdb} size="2x" />
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col sm={6}>
+            <ListGroup variant="flush" className="ProfileBox">
+              <ListGroup.Item>
+                <Row>
+                  <Col xs={3} className="vertical-line text-center">
+                    Backend
+                  </Col>
+                  <Col xs={9} className="text-center">
+                    <FontAwesomeIcon icon={faPython} size="2x" />
+                    <FontAwesomeIcon icon={faJava} size="2x" />
+                    <FontAwesomeIcon icon={faGolang} size="2x" />
+                    <FontAwesomeIcon icon={faNodeJs} size="2x" />
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col xs={3} className="vertical-line text-center">
+                    Systems
+                  </Col>
+                  <Col xs={9} className="text-center">
+                    <FontAwesomeIcon icon={faLinux} size="2x" />
+                    <FontAwesomeIcon icon={faDebian} size="2x" />
+                    <FontAwesomeIcon icon={faUbuntu} size="2x" />
+                    <FontAwesomeIcon icon={faDocker} size="2x" />
+                    <FontAwesomeIcon icon={faJenkins} size="2x" />
+                    <FontAwesomeIcon icon={faAws} size="2x" />
+                    <FontAwesomeIcon icon={faGitlab} size="2x" />
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col xs={3} className="vertical-line text-center">
+                    Frontend
+                  </Col>
+                  <Col xs={9} className="text-center">
+                    <FontAwesomeIcon icon={faReact} size="2x" />
+                    <FontAwesomeIcon icon={faHtml5} size="2x" />
+                    <FontAwesomeIcon icon={faCss3} size="2x" />
+                    {/* <FontAwesomeIcon icon={faSass} size="2x" /> */}
+                    <FontAwesomeIcon icon={faJs} size="2x" />
                   </Col>
                 </Row>
               </ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>
-      </Jumbotron>
+      </Container>
     );
   }
 }

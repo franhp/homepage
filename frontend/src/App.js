@@ -1,14 +1,13 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   NavLink,
 } from "react-router-dom";
 import { Navbar, Nav, Container, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFileCode,
   faLocationArrow,
   faBookmark,
   faTrophy,
@@ -27,12 +26,12 @@ import Home from "./modules/Home";
 import Rankings from "./modules/Rankings";
 import Places from "./modules/Places";
 import Bookmarks from "./modules/Bookmarks";
-import Wiki from "./modules/Wiki";
+// import Wiki from "./modules/Wiki";
 
 class App extends React.Component {
   renderTopButton(href, icon, name) {
     return (
-      <NavLink to={href} className="nav-link" activeClassName="active">
+      <NavLink to={href} className="nav-link">
         <FontAwesomeIcon icon={icon} />
         &nbsp;
         <span className="d-md-none d-lg-inline d-xl-inline">{name}</span>
@@ -44,12 +43,10 @@ class App extends React.Component {
     return (
       <Router>
         <Navbar sticky="top" expand="md" variant="light" bg="light">
-          <Navbar.Brand>
-            <a href="/">
-              <Image src={logo} width={25} />
-              &nbsp;
-              <span className="d-md-none d-lg-inline d-xl-inline">franhp</span>
-            </a>
+          <Navbar.Brand href="/" className="ms-5">
+            <Image src={logo} width={25} />
+            &nbsp;
+            <span className="d-md-none d-lg-inline d-xl-inline">franhp</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
@@ -60,30 +57,20 @@ class App extends React.Component {
               {this.renderTopButton("/rankings", faTrophy, "Rankings")}
               {this.renderTopButton("/places", faLocationArrow, "Places")}
               {this.renderTopButton("/bookmarks", faBookmark, "Bookmarks")}
-              {this.renderTopButton("/wiki", faFileCode, "Wiki")}
+              {/* {this.renderTopButton("/wiki", faFolderOpen, "Wiki")} */}
               {/* {this.renderTopButton("/unknown", faTrophy, "Unknown")} */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
 
         <Container className="p-3 pb-5">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/rankings">
-              <Rankings />
-            </Route>
-            <Route path="/places">
-              <Places />
-            </Route>
-            <Route path="/bookmarks">
-              <Bookmarks />
-            </Route>
-            <Route path="/wiki">
-              <Wiki />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/rankings" element={<Rankings />} />
+            <Route path="/places" element={<Places />} />
+            <Route path="/bookmarks" element={<Bookmarks />} />
+            {/* <Route path="/wiki" element={<Wiki />} /> */}
+          </Routes>
         </Container>
 
         <Navbar

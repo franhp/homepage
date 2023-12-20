@@ -1,202 +1,89 @@
-import React, { useState } from "react";
-import { Container, Row, Media, Col, Collapse } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import GoogleMapReact from "google-map-react";
+import React from "react";
+import { Container, Row, ListGroup, ListGroupItem } from "react-bootstrap";
 import points from "../api/geoplaces.json";
 import countries from "../api/countries.json";
-import visits from "../api/visits.json";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
-function CityWithBadges(city) {
-  return (
-    <small>
-      {city[0]}&nbsp;
-      {city[1].map((year) => {
-        return <span className="badge badge-primary year">{year}</span>;
-      })}
-    </small>
-  );
-}
-
-function CollapsibleCityList(params) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className={params.country + "collapsible"}>
-      <span
-        onClick={() => setOpen(!open)}
-        aria-controls={params.country + "unfold"}
-        aria-expanded={open}
-      >
-        {open ? (
-          <FontAwesomeIcon icon={faMinus} size="xs" />
-        ) : (
-          <FontAwesomeIcon icon={faPlus} size="xs" />
-        )}
-      </span>
-      <Collapse in={open}>
-        <div id={params.country + "unfold"}>
-          {params.cities.map((city) => {
-            return (
-              <li key={city}>
-                <CityWithBadges {...city} />
-              </li>
-            );
-          })}
-        </div>
-      </Collapse>
-    </div>
-  );
-}
+import "leaflet/dist/leaflet.css";
+import { Icon } from "leaflet";
+import markerFranPng from "./../images/faces/fran.png";
+import markerSaraPng from "./../images/faces/sara.png";
+import markerHomePng from "./../images/faces/home.png";
+import markerTogetherPng from "./../images/faces/together.png";
 
 class PlacesList extends React.Component {
-  renderCityList(country, cities) {
-    var city_visits = cities.map((city) => {
-      var v = visits.map((visit) => {
-        return visit.fields.city === city
-          ? visit.fields.date.split("-")[0]
-          : null;
-      });
-      return [city, v.filter((val) => val !== null)];
-    });
-    if (cities.length > 3) {
-      return (
-        <>
-          {city_visits.slice(0, 3).map((city) => {
-            return (
-              <li key={city}>
-                <CityWithBadges {...city} />
-              </li>
-            );
-          })}
-          <CollapsibleCityList
-            country={country}
-            cities={city_visits.slice(3)}
-          />
-        </>
-      );
-    } else {
-      return city_visits.map((city) => {
-        return (
-          <li key={city}>
-            <CityWithBadges {...city} />
-          </li>
-        );
-      });
-    }
-  }
-
   renderMedia(country) {
     return (
-      <Media key={country.fields.name}>
-        <img
-          width={65}
-          height={45}
-          className="mr-3"
-          src={country.fields.flag}
-          alt={country.fields.name}
-        />
-        <Media.Body>
-          <h5>{country.fields.name}</h5>
-          <ul className="list-unstyled">
-            {this.renderCityList(country.fields.name, country.fields.cities)}
-          </ul>
-        </Media.Body>
-      </Media>
+      <ListGroupItem className="d-flex justify-content-between align-items-start">
+        <div className="ms-2 me-auto">
+          <h5 className="fw-bold">
+            {country.fields.name} {country.fields.flag}
+          </h5>
+          {country.fields.cities.join(", ")}
+        </div>
+        <span className="badge bg-secondary rounded-pill">
+          {country.fields.cities.length} visited cities
+        </span>
+      </ListGroupItem>
     );
-  }
-
-  renderMediaCol(slice) {
-    return (
-      <Col sm={6} key={slice}>
-        {slice.map((country) => {
-          return this.renderMedia(country);
-        })}
-      </Col>
-    );
-  }
-
-  split_in_half(keys) {
-    return [
-      keys.slice(0, Math.ceil(keys.length / 2)),
-      keys.slice(Math.ceil(keys.length / 2)),
-    ];
   }
 
   render() {
     return (
       <Container>
         <h1>{countries.length} countries visited</h1>
-        <Row>
-          {this.split_in_half(countries).map((slice) => {
-            return this.renderMediaCol(slice);
-          })}
-        </Row>
+        <ListGroup>
+          {countries.map((country) => this.renderMedia(country))}
+        </ListGroup>
       </Container>
     );
   }
 }
 
-const getInfoWindowString = (place) => `
-    <div style="width: 100%; overflow: hidden; table; text-align: center;">
-            <div style="width: 100px; float: left;">
-                <img src="${place.getProperty("flag")}" width="75px"/>
-            </div>
-            <div style="margin-left: 100px; color: black;">
-                <b>${place.getProperty("city")}</b><br>
-                ${place.getProperty("country")} <br>
-                <i>${place.getProperty("date").split("-")[0]}</i>
-            </div>
-    </div>`;
-
 class Places extends React.Component {
-  static defaultProps = {
-    center: {
-      lat: 50.736455,
-      lng: 13.007813,
-    },
-    zoom: 3,
-  };
-
-  handleApiLoaded(map, maps) {
-    map.data.addGeoJson(points);
-
-    map.data.setStyle(function (feature) {
-      return { icon: "./faces/" + feature.j.attendants + ".png" };
-    });
-
-    map.data.addListener("click", function (event) {
-      // Create nice infowindow
-      var info = new maps.InfoWindow();
-      info.setContent(getInfoWindowString(event.feature));
-      info.setPosition(event.feature.getGeometry().get());
-      info.setOptions({ pixelOffset: new maps.Size(0, -30) });
-      info.open(map);
-
-      // Center the face
-      map.setZoom(6);
-      map.setCenter(event.feature.getGeometry().get());
-    });
-  }
-
   render() {
     return (
-      <div className="Places">
-        <div style={{ height: "50vh", width: "100%" }}>
-          {
-            <GoogleMapReact
-              bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
-              defaultCenter={this.props.center}
-              defaultZoom={this.props.zoom}
-              yesIWantToUseGoogleMapApiInternals
-              onGoogleApiLoaded={({ map, maps }) =>
-                this.handleApiLoaded(map, maps)
-              }
-            ></GoogleMapReact>
-          }
-        </div>
-        <PlacesList />
-      </div>
+      <Container className="Places">
+        <MapContainer
+          center={[51.0, 19.0]}
+          zoom={3}
+          scrollWheelZoom={false}
+          className="MapContainer"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {points.map((point) => {
+            let icon;
+            switch (point.icon) {
+              case "together":
+                icon = markerTogetherPng;
+                break;
+              case "sara":
+                icon = markerSaraPng;
+                break;
+              case "fran":
+                icon = markerFranPng;
+                break;
+              case "home":
+                icon = markerHomePng;
+                break;
+              default:
+                icon = markerFranPng;
+            }
+            return (
+              <Marker
+                position={point.position}
+                icon={new Icon({ iconUrl: icon })}
+              />
+            );
+          })}
+        </MapContainer>
+        <Row>
+          <PlacesList />
+        </Row>
+      </Container>
     );
   }
 }

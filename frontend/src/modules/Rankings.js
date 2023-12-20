@@ -18,7 +18,7 @@ class Ranking extends React.Component {
         href={value.fields.reference}
       >
         {index + 1}. {value.fields.name}
-        <span className="badge badge-secondary">
+        <span className="badge text-bg-secondary">
           <i className="fa-2x">
             <span className="fa-layers fa-fw">
               <FontAwesomeIcon icon={faStar} />
@@ -52,11 +52,12 @@ class Rankings extends React.Component {
   renderPill(keyname, name, count) {
     return (
       <Nav.Item>
-        <Nav.Link eventKey={keyname}>
+        <Nav.Link
+          eventKey={keyname}
+          className="d-flex justify-content-between align-items-center"
+        >
           <strong className="text-secondary">{name}</strong>
-          <span className="badge badge-secondary badge-pill float-right">
-            {count}
-          </span>
+          <span className="badge rounded-pill text-bg-secondary">{count}</span>
         </Nav.Link>
       </Nav.Item>
     );

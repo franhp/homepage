@@ -29,7 +29,7 @@ class Bookmark(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField()
     url = models.URLField()
-    year = models.PositiveIntegerField()
+    year = models.PositiveIntegerField(null=True, blank=True)
     description = models.TextField()
 
     def __str__(self):
@@ -46,6 +46,7 @@ class Bookmark(models.Model):
         driver.set_script_timeout(10)
 
         driver.get(self.url)
+        driver.implicitly_wait(15) # seconds
         driver.save_screenshot(
             os.path.join(
                 settings.BASE_DIR, "../frontend/public/thumbnails/" + self.slug + ".png"
