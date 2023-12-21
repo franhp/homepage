@@ -16,14 +16,10 @@ class PlacesList extends React.Component {
     return (
       <ListGroupItem className="d-flex justify-content-between align-items-start">
         <div className="ms-2 me-auto">
-          <h5 className="fw-bold">
-            {country.fields.name} {country.fields.flag}
-          </h5>
+          <h5 className="fw-bold">{country.fields.name}</h5>
           {country.fields.cities.join(", ")}
         </div>
-        <span className="badge bg-secondary rounded-pill">
-          {country.fields.cities.length} visited cities
-        </span>
+        <span className="fs-1">{country.fields.flag}</span>
       </ListGroupItem>
     );
   }

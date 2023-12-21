@@ -37,7 +37,7 @@ class Command(BaseCommand):
                         {
                             "fields": {
                                 "name": country.name,
-                                "flag": "",
+                                "flag": country.flag,
                                 "cities": list(
                                     country.cities.values_list("name", flat=True)
                                 ),
