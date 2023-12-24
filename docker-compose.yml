@@ -3,7 +3,7 @@ services:
   backend:
     build:
       context: ./
-      dockerfile: Dockerfile.backend
+      target: backend
     volumes:
       - "./frontend/src/api:/usr/src/app/homepage/frontend/src/api"
       - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
@@ -12,7 +12,7 @@ services:
   frontend:
     build:
       context: ./
-      dockerfile: Dockerfile.frontend
+      target: frontend
     volumes:
       - "./frontend/src/api:/usr/src/app/homepage/frontend/src/api"
       - "./frontend/build:/usr/src/app/homepage/frontend/build"
@@ -21,7 +21,7 @@ services:
   admin:
     build:
       context: ./
-      dockerfile: Dockerfile.backend
+      target: backend
     volumes:
       - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
     ports:

@@ -1,8 +1,0 @@
-FROM node:20
-
-RUN mkdir -p /usr/src/app/homepage/frontend/
-ADD frontend/package.json /usr/src/app/homepage/frontend/
-WORKDIR /usr/src/app/homepage/frontend
-RUN npm i
-
-ADD frontend /usr/src/app/homepage/frontend
