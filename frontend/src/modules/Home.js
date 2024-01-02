@@ -96,7 +96,6 @@ class Home extends React.Component {
                     <FontAwesomeIcon icon={faGamepad} size="2x" />
                     <FontAwesomeIcon icon={faFilm} size="2x" />
                     <FontAwesomeIcon icon={faCoffee} size="2x" />
-                    <FontAwesomeIcon icon={faGitlab} size="2x" />
                   </Col>
                 </Row>
               </ListGroup.Item>
