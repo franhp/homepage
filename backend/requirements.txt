@@ -1,5 +1,5 @@
 Django==4.1.13
-requests==2.31.0
+requests==2.32.0
 ruff==0.0.289
 xmltodict==0.13.0
 selenium==4.12.0
