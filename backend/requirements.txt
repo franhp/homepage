@@ -1,4 +1,4 @@
-Django==4.1.13
+Django==4.2.16
 requests==2.32.0
 ruff==0.0.289
 xmltodict==0.13.0
