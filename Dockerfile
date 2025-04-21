@@ -18,7 +18,7 @@ WORKDIR /usr/src/app/homepage/backend
 RUN bash -c "python manage.py out_bookmarks && python manage.py out_wiki && python manage.py out_places && python manage.py out_watched"
 
 
-FROM node:20 as frontend
+FROM node:23 as frontend
 
 COPY --from=backend /usr/src/app/homepage/ /usr/src/app/homepage/
 WORKDIR /usr/src/app/homepage/frontend
