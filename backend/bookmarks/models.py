@@ -1,11 +1,9 @@
 import os
 
-from django.db import models
-
 import geckodriver_autoinstaller
 import requests
-
 from django.conf import settings
+from django.db import models
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
@@ -46,7 +44,7 @@ class Bookmark(models.Model):
         driver.set_script_timeout(10)
 
         driver.get(self.url)
-        driver.implicitly_wait(15) # seconds
+        driver.implicitly_wait(15)  # seconds
         driver.save_screenshot(
             os.path.join(
                 settings.BASE_DIR, "../frontend/public/thumbnails/" + self.slug + ".png"

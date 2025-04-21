@@ -14,7 +14,6 @@ class Command(BaseCommand):
     help = "Outputs the JSON for the website"
 
     def handle(self, *args, **options):
-
         with open(
             os.path.join(settings.BASE_DIR, "../frontend/src/api/wiki.json"), "w+"
         ) as out:

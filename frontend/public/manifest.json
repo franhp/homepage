@@ -1,15 +1,15 @@
 {
-  "short_name": "franhp",
-  "name": "franhp homepage",
+  "background_color": "#ffffff",
+  "display": "standalone",
   "icons": [
     {
-      "src": "favicon.ico",
       "sizes": "192x192 512x512 64x64 32x32 24x24 16x16",
+      "src": "favicon.ico",
       "type": "image/x-icon"
     }
   ],
+  "name": "franhp homepage",
+  "short_name": "franhp",
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#000000"
 }

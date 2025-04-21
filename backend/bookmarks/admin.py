@@ -3,6 +3,7 @@ from django.contrib import admin
 from bookmarks.models import Bookmark, Category
 
 
+@admin.register(Bookmark)
 class CustomBookmark(admin.ModelAdmin):
     list_display = (
         "name",
@@ -13,9 +14,6 @@ class CustomBookmark(admin.ModelAdmin):
     list_filter = ("link_type",)
 
 
+@admin.register(Category)
 class CustomCategory(admin.ModelAdmin):
     list_display = ("name", "slug", "order")
-
-
-admin.site.register(Bookmark, CustomBookmark)
-admin.site.register(Category, CustomCategory)

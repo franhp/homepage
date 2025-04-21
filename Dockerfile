@@ -1,4 +1,4 @@
-FROM python:3.12 as backend
+FROM docker.io/library/python:3.12 as backend
 
 RUN apt-get -y update && \
     apt-get -y upgrade && \

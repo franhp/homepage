@@ -5,6 +5,7 @@ from django.urls import path
 from watched.models import Title
 
 
+@admin.register(Title)
 class CustomTitle(admin.ModelAdmin):
     list_display = ("name", "title_type", "site_rating", "my_rating", "ranking_order")
     list_filter = ("title_type",)
@@ -23,12 +24,9 @@ def import_imdb(request):
     Title.import_imdb(
         request.FILES["watchlist"].read().decode("utf-8", errors="replace")
     )
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+    return HttpResponseRedirect(request.headers["referer"])
 
 
 def import_goodreads(request):
     Title.import_goodreads()
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
-
-
-admin.site.register(Title, CustomTitle)
+    return HttpResponseRedirect(request.headers["referer"])
