@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "==2.32.3"
+xmltodict = "==0.14.2"
+selenium = "==4.31.0"
+geckodriver-autoinstaller = "==0.1.0"
+django = "<5"
+
+[dev-packages]
+
+[requires]
+python_version = "3.13"

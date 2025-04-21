@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.12 as backend
+FROM docker.io/library/python:3.13 as backend
 
 RUN apt-get -y update && \
     apt-get -y upgrade && \
@@ -8,8 +8,8 @@ RUN apt-get -y update && \
         gdal-bin \
         libsqlite3-mod-spatialite
 
-ADD backend/requirements.txt /
-RUN pip install -r /requirements.txt
+ADD backend/Pipfile /
+RUN pip install pipenv && pipenv install
 
 RUN mkdir -p /usr/src/app/homepage
 ADD . /usr/src/app/homepage

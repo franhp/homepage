@@ -17,7 +17,7 @@ cd frontend && npm i
 ```
 
 ```
-cd backend && pip install -r requirements.txt
+cd backend && pipenv install
 ```
 
 ## Running
@@ -37,5 +37,3 @@ TODO
 - [ ] Default .env file
 - [ ] dockerise checks
 - [ ] check links are alive automatically
-
-- [ ] change focus when document selected on wiki

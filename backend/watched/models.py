@@ -41,17 +41,35 @@ class Title(models.Model):
         return self.name
 
     @staticmethod
+    def _translate(title_type):
+        match title_type:
+            case "Película":
+                return Title.MOVIE
+            case "Serie de TV":
+                return Title.TVSERIES
+            case "Corto":
+                return Title.SHORT
+            case "Película de TV":
+                return Title.TVMOVIE
+            case "Miniserie de TV":
+                return Title.TVMINISERIES
+            case "Vídeo":
+                return Title.VIDEO
+            case _:
+                return None
+
+    @staticmethod
     def import_imdb(watchlist_file):
         reader = csv.reader(io.StringIO(watchlist_file))
         next(reader)  #  Skip the header row
         for line in reader:
             Title.objects.update_or_create(
-                reference=line[6],
+                reference=line[7],
                 defaults={
-                    "name": line[5],
-                    "site_rating": float(line[8]) if line[8] else None,
-                    "my_rating": int(line[15]) if line[15] else None,
-                    "title_type": line[7],
+                    "name": line[6],
+                    "site_rating": float(line[9]) if line[9] else None,
+                    "my_rating": int(line[16]) if line[16] else None,
+                    "title_type": Title._translate(line[8]),
                 },
             )
 
