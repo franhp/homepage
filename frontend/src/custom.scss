@@ -3,6 +3,10 @@
 
 /* General */
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -10,16 +14,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  background: $orange;
-  background: linear-gradient(90deg, $orange 10%, $light 75%);
+  min-height: 100%;
+  background: $orange-light;
+  background: linear-gradient(135deg, $orange-pale 0%, $orange-light 100%) fixed;
+  padding-bottom: 60px; /* Space for the fixed footer */
 }
 
 nav svg {
-  color: darken($orange, 10%);
+  color: $orange-dark;
 }
 
 .navbar-nav a.active {
-  background-color: lighten($dark, 80%);
+  background-color: $orange-pale;
+  color: $orange-dark;
 }
 
 #footer-logo {
@@ -30,7 +37,7 @@ nav svg {
 .star {
   font-size: 0.4em;
   font-weight: bolder;
-  color: $dark;
+  color: $orange-dark;
 }
 
 /* Places */
@@ -41,38 +48,72 @@ nav svg {
 /* Home */
 .Home {
   background: $light;
-  background: linear-gradient(90deg, $light 25%, $orange 90%);
+  background: linear-gradient(135deg, $light 0%, $orange-light 100%);
+  border: none;
 }
 
 .Home h1 {
   font-weight: 700;
   font-size: 6vw;
   color: $dark;
+  text-shadow: 1px 1px 3px rgba($orange-light, 0.5);
 }
 
-.ProfileLinks a {
+.ProfileLinks a,
+.social-links a {
   margin-left: 5%;
-  color: $dark;
+  color: $orange-dark;
+  transition: all 0.3s ease;
 }
 
-.ProfileLinks a:hover {
-  color: lighten($dark, 65%);
+.ProfileLinks a:hover,
+.social-links a:hover {
+  color: $orange;
+  transform: translateY(-3px);
 }
 
 .ProfileBox.list-group {
-  border-radius: 2em;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba($orange-light, 0.3);
 }
 
 .ProfileBox .list-group-item {
   background: $light;
-  background: linear-gradient(90deg, $light 25%, $orange 90%);
   font-weight: 600;
   color: $dark;
+  border-color: rgba($orange-light, 0.2);
+
+  &.bg-light {
+    background: $orange-pale !important;
+  }
 }
 
 .ProfileBox svg {
   margin-left: 1%;
+  color: $orange-dark;
 }
 .vertical-line {
-  border-right: 1px dotted rgba(0, 0, 0, 0.3);
+  border-right: 1px dotted rgba($orange-dark, 0.3);
+}
+
+/* Equal height boxes */
+.equal-height-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ProfileBox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ProfileBox .list-group-item {
+  flex: 1 0 auto;
+}
+
+/* Make sure the last items in each box take up equal space */
+.ProfileBox .list-group-item:last-child {
+  flex-grow: 1;
 }

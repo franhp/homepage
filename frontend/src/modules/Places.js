@@ -7,9 +7,7 @@ import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import markerFranPng from "./../images/faces/fran.png";
-import markerSaraPng from "./../images/faces/sara.png";
 import markerHomePng from "./../images/faces/home.png";
-import markerTogetherPng from "./../images/faces/together.png";
 
 class PlacesList extends React.Component {
   renderMedia(country) {
@@ -53,12 +51,6 @@ class Places extends React.Component {
           {points.map((point) => {
             let icon;
             switch (point.icon) {
-              case "together":
-                icon = markerTogetherPng;
-                break;
-              case "sara":
-                icon = markerSaraPng;
-                break;
               case "fran":
                 icon = markerFranPng;
                 break;

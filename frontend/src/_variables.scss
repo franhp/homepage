@@ -1,10 +1,19 @@
-$light: rgba(248, 249, 250, 1);
-$dark: rgba(0, 0, 0, 0.8);
-$orange: rgb(255, 143, 0);
+// Main color palette
+$light: #fff1e6; // Lighter cream-orange
+$dark: #3d2e29; // Deeper brown for better contrast
+$orange: #e67e22; // Main orange - darker than before
+$orange-light: #f39c12; // Light accent orange - darker
+$orange-dark: #d35400; // Darker accent orange
+$orange-pale: #ffecd9; // Very light orange for backgrounds
 
-$list-group-active-bg: $dark;
-$list-group-active-border: $dark;
+// Bootstrap overrides
+$primary: $orange;
+$secondary: $orange-dark;
+$light: $orange-pale;
+
+$list-group-active-bg: $orange-dark;
+$list-group-active-border: $orange-dark;
 $component-active-bg: $light;
 
 $link-color: $dark;
-$link-hover-color: lighten($dark, 25%);
+$link-hover-color: $orange-dark;

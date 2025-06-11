@@ -26,9 +26,7 @@ class Country(models.Model):
 
 class Visit(models.Model):
     ATTENDANT_CHOICES = (
-        ("together", "Fran&Sara"),
         ("fran", "Fran"),
-        ("sara", "Sara"),
         ("home", "Home"),
     )
     attendants = models.CharField(max_length=255, choices=ATTENDANT_CHOICES)

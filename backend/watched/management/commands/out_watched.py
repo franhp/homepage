@@ -32,7 +32,6 @@ class Command(BaseCommand):
             Q(title_type=Title.TVMOVIE)
             | Q(title_type=Title.MOVIE)
             | Q(title_type=Title.VIDEO)
-            | Q(title_type=Title.VIDEO)
             | Q(title_type=Title.SHORT)
         ).order_by("-ranking_order")
         with open(
