@@ -45,6 +45,7 @@ import {
 
 // Assets
 import profile from "../images/profile.jpg";
+import profile2 from "../images/profile2.png";
 
 // Icon groups for better organization
 const socialIcons = [
@@ -119,7 +120,7 @@ const Home = () => {
       <Row className="mb-5 align-items-center">
         <Col md={4} className="text-center mb-4 mb-md-0">
           <Image
-            src={profile}
+            src={[profile, profile2][Math.floor(Math.random() * 2)]}
             thumbnail
             width={280}
             className="profile-image shadow"
