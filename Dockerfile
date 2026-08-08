@@ -28,4 +28,5 @@ WORKDIR /usr/src/app/homepage/frontend
 RUN npm i && npm run-script build
 
 FROM docker.io/library/caddy:latest AS static
+COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=frontend /usr/src/app/homepage/frontend/build/ /usr/share/caddy/
