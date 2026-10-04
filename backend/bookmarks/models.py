@@ -1,11 +1,4 @@
-import os
-
-import geckodriver_autoinstaller
-import requests
-from django.conf import settings
 from django.db import models
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 
 
 class Category(models.Model):
@@ -32,29 +25,3 @@ class Bookmark(models.Model):
 
     def __str__(self):
         return self.name
-
-    def generate_thumbnail(self):
-        geckodriver_autoinstaller.install()
-
-        options = Options()
-        options.headless = True
-
-        driver = webdriver.Firefox(options=options)
-        driver.set_window_size(1280, 1024)
-        driver.set_script_timeout(10)
-
-        driver.get(self.url)
-        driver.implicitly_wait(15)  # seconds
-        driver.save_screenshot(
-            os.path.join(
-                settings.BASE_DIR, "../frontend/public/thumbnails/" + self.slug + ".png"
-            )
-        )
-        driver.quit()
-
-    def is_alive(self):
-        try:
-            response = requests.get(self.url)
-            return response.status_code == 200
-        except Exception:
-            return False

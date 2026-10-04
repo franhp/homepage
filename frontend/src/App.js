@@ -19,6 +19,7 @@ import {
   faCreativeCommonsSa,
 } from "@fortawesome/free-brands-svg-icons";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./custom.scss";
 import logo from "./images/logo.png";
 

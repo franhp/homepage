@@ -11,21 +11,22 @@ import {
   faLinux,
   faPython,
   faJava,
-  faAws,
   faHtml5,
   faCss3,
-  faJenkins,
-  faReact,
+  faKubernetes,
+  faTypescript,
+  faBrave,
+  faWaze,
+  faClaude,
+  faGithub,
+  faTelegram,
   faGitlab,
   faNodeJs,
   faJs,
   faPlaystation,
   faReddit,
-  faImdb,
-  faSteam,
   faGolang,
   faBitcoin,
-  faEthereum,
   faDebian,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -37,15 +38,14 @@ import {
   faFilm,
   faMapMarkerAlt,
   faBook,
-  faMusic,
   faCoffee,
   faThumbsUp,
-  faTv,
+  faDumbbell,
+  faPersonHiking,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Assets
 import profile from "../images/profile.jpg";
-import profile2 from "../images/profile2.png";
 
 // Icon groups for better organization
 const socialIcons = [
@@ -60,25 +60,26 @@ const socialIcons = [
     url: "http://lastfm.es/user/franhp",
     label: "Last.fm",
   },
-  { icon: faTv, url: "https://trakt.tv/users/franhp", label: "Trakt.tv" },
 ];
 
 const interestIcons = [
-  { icon: faMusic, label: "Music" },
   { icon: faBook, label: "Reading" },
   { icon: faPlaneDeparture, label: "Travel" },
   { icon: faGamepad, label: "Gaming" },
   { icon: faFilm, label: "Movies" },
   { icon: faCoffee, label: "Coffee" },
+  { icon: faDumbbell, label: "Gym" },
+  { icon: faPersonHiking, label: "Hiking" },
 ];
 
 const likeIcons = [
   { icon: faPlaystation, label: "PlayStation" },
-  { icon: faSteam, label: "Steam" },
   { icon: faBitcoin, label: "Bitcoin" },
-  { icon: faEthereum, label: "Ethereum" },
   { icon: faReddit, label: "Reddit" },
-  { icon: faImdb, label: "IMDB" },
+  { icon: faTelegram, label: "Telegram" },
+  { icon: faWaze, label: "Waze" },
+  { icon: faClaude, label: "Claude" },
+  { icon: faBrave, label: "Brave" },
 ];
 
 const skillGroups = [
@@ -97,15 +98,15 @@ const skillGroups = [
       { icon: faLinux, label: "Linux" },
       { icon: faDebian, label: "Debian" },
       { icon: faDocker, label: "Docker" },
-      { icon: faJenkins, label: "Jenkins" },
-      { icon: faAws, label: "AWS" },
       { icon: faGitlab, label: "GitLab" },
+      { icon: faGithub, label: "GitHub" },
+      { icon: faKubernetes, label: "Kubernetes" },
     ],
   },
   {
     category: "Frontend",
     icons: [
-      { icon: faReact, label: "React" },
+      { icon: faTypescript, label: "TypeScript" },
       { icon: faHtml5, label: "HTML5" },
       { icon: faCss3, label: "CSS3" },
       { icon: faJs, label: "JavaScript" },
@@ -120,10 +121,10 @@ const Home = () => {
       <Row className="mb-5 align-items-center">
         <Col md={4} className="text-center mb-4 mb-md-0">
           <Image
-            src={[profile, profile2][Math.floor(Math.random() * 2)]}
+            src={profile}
             thumbnail
             width={280}
-            className="profile-image shadow"
+            className="shadow"
             alt="Fran Hermoso profile"
             style={{ borderColor: "#F39C12", padding: "4px" }}
           />
@@ -140,7 +141,6 @@ const Home = () => {
               <a
                 key={index}
                 href={item.url}
-                className="social-icon"
                 aria-label={item.label}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -153,7 +153,7 @@ const Home = () => {
       </Row>
 
       {/* Profile Details Section */}
-      <Row className="mt-4 d-flex equal-height-row">
+      <Row className="mt-4 d-flex">
         {/* Personal Info */}
         <Col lg={6} className="mb-4 mb-lg-0 d-flex">
           <ListGroup
@@ -179,7 +179,7 @@ const Home = () => {
                 <Col xs={10}>
                   <div className="d-flex flex-wrap justify-content-center gap-3">
                     {interestIcons.map((item, index) => (
-                      <div key={index} className="text-center icon-with-label">
+                      <div key={index} className="text-center">
                         <FontAwesomeIcon icon={item.icon} size="2x" />
                         <div className="small mt-1">{item.label}</div>
                       </div>
@@ -197,7 +197,7 @@ const Home = () => {
                 <Col xs={10}>
                   <div className="d-flex flex-wrap justify-content-center gap-3">
                     {likeIcons.map((item, index) => (
-                      <div key={index} className="text-center icon-with-label">
+                      <div key={index} className="text-center">
                         <FontAwesomeIcon icon={item.icon} size="2x" />
                         <div className="small mt-1">{item.label}</div>
                       </div>
@@ -227,10 +227,7 @@ const Home = () => {
                   <Col xs={9}>
                     <div className="d-flex flex-wrap justify-content-center gap-3">
                       {group.icons.map((item, index) => (
-                        <div
-                          key={index}
-                          className="text-center icon-with-label"
-                        >
+                        <div key={index} className="text-center">
                           <FontAwesomeIcon icon={item.icon} size="2x" />
                           <div className="small mt-1">{item.label}</div>
                         </div>

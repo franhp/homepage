@@ -22,4 +22,4 @@ class Document(models.Model):
     )
 
     def __str__(self):
-        return "%s -> %s" % (self.category.name, self.title)
+        return f"{self.category.name} -> {self.title}"

@@ -1,19 +1,7 @@
 // Main color palette
-$light: #fff1e6; // Lighter cream-orange
-$dark: #3d2e29; // Deeper brown for better contrast
-$orange: #e67e22; // Main orange - darker than before
-$orange-light: #f39c12; // Light accent orange - darker
-$orange-dark: #d35400; // Darker accent orange
-$orange-pale: #ffecd9; // Very light orange for backgrounds
-
-// Bootstrap overrides
-$primary: $orange;
-$secondary: $orange-dark;
-$light: $orange-pale;
-
-$list-group-active-bg: $orange-dark;
-$list-group-active-border: $orange-dark;
-$component-active-bg: $light;
-
-$link-color: $dark;
-$link-hover-color: $orange-dark;
+$light: #fae8d8;
+$dark: #33251f;
+$orange: #d97736;
+$orange-light: #f2a65a;
+$orange-dark: #9a4f16;
+$orange-pale: #fae8d8;

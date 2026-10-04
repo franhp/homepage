@@ -84,7 +84,6 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "database.spatialite"),
     },
 }
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -126,8 +125,5 @@ STATIC_URL = "/static/"
 
 # Watched settings
 
-IMDB_USERNAME = os.environ.get("IMDB_USERNAME")
-IMDB_PASSWORD = os.environ.get("IMDB_PASSWORD")
-IMDB_WATCHLISTID = "ls053627486"
-
-GOODREADS_ID = "39044705"
+FLOPPY_API_URL = os.environ.get("FLOPPY_API_URL", "https://tracking.franhp.dev")
+FLOPPY_API_KEY = os.environ.get("FLOPPY_API_KEY")

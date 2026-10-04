@@ -1,4 +1,3 @@
-version: "3.5"
 services:
   backend:
     build:
@@ -16,12 +15,15 @@ services:
     volumes:
       - "./frontend/src/api:/usr/src/app/homepage/frontend/src/api"
       - "./frontend/build:/usr/src/app/homepage/frontend/build"
-    command: npm run-script build
+    command: npm run-script start
 
   admin:
     build:
       context: ./
       target: backend
+    environment:
+      FLOPPY_API_URL: ${FLOPPY_API_URL:-https://tracking.franhp.dev}
+      FLOPPY_API_KEY: ${FLOPPY_API_KEY:-}
     volumes:
       - "./backend/database.spatialite:/usr/src/app/homepage/backend/database.spatialite"
     ports:

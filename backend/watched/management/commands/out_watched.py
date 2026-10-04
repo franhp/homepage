@@ -5,7 +5,6 @@ from django.conf import settings
 from django.core import serializers
 from django.core.management.base import BaseCommand
 from django.db.models import Q
-
 from watched.models import Title
 
 
@@ -14,13 +13,18 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--update", action="store_true", help="Forces fetch from IMDB&Goodreads"
+            "--update",
+            action="store_true",
+            help="Fetches the latest watched titles from Floppy",
         )
 
     def handle(self, *args, **options):
         if options["update"]:
-            Title.import_goodreads()
-            Title.import_imdb()
+            summary = Title.sync_tracking()
+            self.stdout.write(
+                "Synchronized {fetched} titles from Floppy: {created} "
+                "created, {updated} updated.".format(**summary)
+            )
 
         books = Title.objects.filter(title_type=Title.BOOK).order_by("-ranking_order")
         with open(
@@ -29,19 +33,16 @@ class Command(BaseCommand):
             serializers.serialize("json", reversed(books[:10]), stream=out, indent=4)
 
         movies = Title.objects.filter(
-            Q(title_type=Title.TVMOVIE)
-            | Q(title_type=Title.MOVIE)
-            | Q(title_type=Title.VIDEO)
-            | Q(title_type=Title.SHORT)
+            Q(title_type=Title.MOVIE) | Q(title_type=Title.SHORT)
         ).order_by("-ranking_order")
         with open(
             os.path.join(settings.BASE_DIR, "../frontend/src/api/movies.json"), "w+"
         ) as out:
             serializers.serialize("json", reversed(movies[:10]), stream=out, indent=4)
 
-        tvseries = Title.objects.filter(
-            Q(title_type=Title.TVMINISERIES) | Q(title_type=Title.TVSERIES)
-        ).order_by("-ranking_order")
+        tvseries = Title.objects.filter(title_type=Title.TVSERIES).order_by(
+            "-ranking_order"
+        )
 
         with open(
             os.path.join(settings.BASE_DIR, "../frontend/src/api/tvseries.json"), "w+"

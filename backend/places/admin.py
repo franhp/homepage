@@ -8,5 +8,5 @@ class CustomVisit(admin.ModelAdmin):
     list_display = ("date", "attendants", "city", "display")
 
 
-admin.site.register(City, admin.OSMGeoAdmin)
+admin.site.register(City, admin.GISModelAdmin)
 admin.site.register(Country)

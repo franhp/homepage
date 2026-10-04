@@ -12,21 +12,23 @@ import markerHomePng from "./../images/faces/home.png";
 class PlacesList extends React.Component {
   renderMedia(country) {
     return (
-      <ListGroupItem className="d-flex justify-content-between align-items-start">
-        <div className="ms-2 me-auto">
-          <h5 className="fw-bold">{country.fields.name}</h5>
-          {country.fields.cities.join(", ")}
+      <ListGroupItem className="country-item d-flex justify-content-between align-items-center">
+        <div className="country-copy">
+          <h5 className="country-name">{country.fields.name}</h5>
+          <span className="country-cities">
+            {country.fields.cities.join(", ")}
+          </span>
         </div>
-        <span className="fs-1">{country.fields.flag}</span>
+        <span className="country-flag">{country.fields.flag}</span>
       </ListGroupItem>
     );
   }
 
   render() {
     return (
-      <Container>
-        <h1>{countries.length} countries visited</h1>
-        <ListGroup>
+      <Container className="places-list">
+        <h1 className="places-title">{countries.length} countries visited</h1>
+        <ListGroup className="country-list">
           {countries.map((country) => this.renderMedia(country))}
         </ListGroup>
       </Container>
@@ -63,7 +65,7 @@ class Places extends React.Component {
             return (
               <Marker
                 position={point.position}
-                icon={new Icon({ iconUrl: icon })}
+                icon={new Icon({ iconUrl: icon, iconAnchor: [16, 16] })}
               />
             );
           })}

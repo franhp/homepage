@@ -4,7 +4,6 @@ import os
 from django.conf import settings
 from django.core import serializers
 from django.core.management.base import BaseCommand
-
 from wiki.models import Category, Document
 
 logger = logging.getLogger("main")

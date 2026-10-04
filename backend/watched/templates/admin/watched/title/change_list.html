@@ -2,36 +2,9 @@
 block.super }}
 
 <li>
-  <button
-    style="
-      background: #79aec8;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      color: #fff;
-      cursor: pointer;
-    "
-    onclick="django.jQuery('#import_imdb').show();django.jQuery('#imdb_button').hide();django.jQuery('#import_goodreads').hide();"
-    id="imdb_button"
-  >
-    Import IMDB
-  </button>
-  <form
-    id="import_imdb"
-    action="import_imdb/"
-    method="post"
-    enctype="multipart/form-data"
-    style="display: none;"
-  >
-    {% csrf_token %} Select WATCHLIST.csv:
-    <input type="file" name="watchlist" id="watchlist" />
-    <input type="submit" value="Upload" />
-  </form>
-</li>
-<li>
-  <form id="import_goodreads" action="import_goodreads/" method="post">
+  <form id="sync_tracking" action="sync_tracking/" method="post">
     {% csrf_token %}
-    <input type="submit" value="Import Goodreads" />
+    <input type="submit" value="Sync tracking.franhp.dev" />
   </form>
 </li>
 
