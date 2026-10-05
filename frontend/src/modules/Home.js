@@ -51,13 +51,13 @@ import profile from "../images/profile.jpg";
 const socialIcons = [
   {
     icon: faLinkedin,
-    url: "https://uk.linkedin.com/in/franhp",
+    url: "https://www.linkedin.com/in/franhp",
     label: "LinkedIn",
   },
   { icon: faGithubSquare, url: "https://github.com/franhp", label: "GitHub" },
   {
     icon: faLastfmSquare,
-    url: "http://lastfm.es/user/franhp",
+    url: "https://www.last.fm/user/franhp",
     label: "Last.fm",
   },
 ];
@@ -143,7 +143,7 @@ const Home = () => {
                 href={item.url}
                 aria-label={item.label}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
               >
                 <FontAwesomeIcon icon={item.icon} size="3x" />
               </a>

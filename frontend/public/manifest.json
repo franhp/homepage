@@ -1,5 +1,6 @@
 {
-  "background_color": "#ffffff",
+  "background_color": "#fae8d8",
+  "description": "Personal homepage of Fran Hermoso (franhp)",
   "display": "standalone",
   "icons": [
     {
@@ -8,8 +9,8 @@
       "type": "image/x-icon"
     }
   ],
-  "name": "franhp homepage",
+  "name": "Fran Hermoso",
   "short_name": "franhp",
   "start_url": ".",
-  "theme_color": "#000000"
+  "theme_color": "#fae8d8"
 }
